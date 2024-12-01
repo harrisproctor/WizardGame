@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/../../../../../Desktop/artmisc/bookmon1/elderbrainmon/elderbrain.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/badmonbook.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/batdemon2.3.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/bookselvesback1.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/bookshelftile1.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/boomspiretsheet.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/brainmon3.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/cocovon.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/effectstraps1.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/items/littlerock1.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/itemslib1.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/itemslib2.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/itsatrapmagic.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/itsatrapmagic2.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/libarybackground1.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/libarybackground2.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/libcantripsymb.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/library/woodtileslib1.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/library/woodtileslib2.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/library/woodtileslib4.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/numberswithblue2.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/numberswithred2.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/owlexe2.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/owlwiz1.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/owlwizet2.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/particles/libparticles1.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/particles/particlues1.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/shittyself.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/trapproto1.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/trapproto2.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/woodtileslib3.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/woodtileslib5.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File>elderbrain.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
