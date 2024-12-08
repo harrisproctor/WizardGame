@@ -55,3 +55,6 @@ C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\woodt
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\particles\libparticles1.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\particles\particlues1.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\elderbrain.xnb
+C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\spider!!!!.xnb
+C:\Users\harri\source\repos\monowizard\monowizard\obj\Debug\net6.0\monowizard.sourcelink.json
+C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\owlymonna.xnb

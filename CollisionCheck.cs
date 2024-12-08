@@ -236,7 +236,7 @@ namespace monowizard
                 if (player.ledgedir == 0)
                 {
                     
-                    ind1 = (entityLeftCol - 1) + ((entityTopRow + 1) * 40);
+                    ind1 = (entityLeftCol - 1) + ((entityTopRow ) * 40);
                     tileNum1 = map[ind1];
                     if(tileNum1 == 340)
                     {
@@ -247,7 +247,7 @@ namespace monowizard
                 }
                 else
                 {
-                    ind1 = (entityRightCol + 1) + ((entityTopRow + 1) * 40);
+                    ind1 = (entityRightCol + 1) + ((entityTopRow ) * 40);
                     tileNum1 = map[ind1];
                     if (tileNum1 == 340)
                     {

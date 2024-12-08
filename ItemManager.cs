@@ -158,6 +158,21 @@ namespace monowizard
                 items.Add(new CantripScroll(colCheck, player, this, new FloatCantrip(player)));
 
             }
+            else if (spell == 4)
+            {
+                items.Add(new CantripScroll(colCheck, player, this, new JumpCantrip(player)));
+
+            }
+            else if (spell == 5)
+            {
+                items.Add(new CantripScroll(colCheck, player, this, new MagicArrowCantrip(player)));
+
+            }
+            else if (spell == 6)
+            {
+                items.Add(new CantripScroll(colCheck, player, this, new MagicWaveCantrip(player)));
+
+            }
 
             items.Last().texture = libitems1;
             items.Last().hitbox.X = x;

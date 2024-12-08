@@ -44,6 +44,21 @@ namespace monowizard
 
         }
 
+        public void addWindParticle(int x, int y, int xvel, int yvel,int facing)
+        {
+
+            items.Add(new WindParticle(colCheck, player, this,facing));
+            items.Last().texture = windcloudmanatext;
+            items.Last().hitbox.X = x;
+            items.Last().hitbox.Y = y;
+            items.Last().xvel = xvel;
+            items.Last().yvel = yvel;
+
+            
+            // Debug.WriteLine("magic");
+
+        }
+
         public void addOwlFeather(int x, int y, int xvel, int yvel)
         {
 

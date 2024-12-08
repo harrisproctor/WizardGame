@@ -29,9 +29,11 @@
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/owlexe2.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/owlwiz1.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/owlwizet2.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/owlymonna.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/particles/libparticles1.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/particles/particlues1.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/shittyself.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/spider!!!!.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/trapproto1.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/trapproto2.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/woodtileslib3.png</File>
@@ -39,6 +41,8 @@
   </SourceFiles>
   <DestFiles>
     <File>elderbrain.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

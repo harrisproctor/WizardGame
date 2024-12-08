@@ -73,7 +73,7 @@ namespace monowizard
 
             player.itemManager = _itemManager;
             // player.cantrip = new HandFireCantrip(player);
-            player.cantrip = new JumpCantrip(player);
+            player.cantrip = new MagicWaveCantrip(player);
             _monsterManager = new MonsterManager(player);
             _monsterManager.particleManager = _particleManager;
             player.mm = _monsterManager;
@@ -135,7 +135,7 @@ namespace monowizard
             _monsterManager.batmon1texture = Content.Load<Texture2D>("batdemon2.3");//("brainmon1");//("batdemon2.3")
             _monsterManager.brainmon1texture = Content.Load<Texture2D>("brainmon3");//("brainmon3");
             _monsterManager.owlmon1texture = Content.Load<Texture2D>("owlexe2");
-            _monsterManager.bookmon1texture = Content.Load<Texture2D>("badmonbook");
+            _monsterManager.bookmon1texture = Content.Load<Texture2D>("badmonbook");//badmonbook
             _magicManager.effectstext1 = Content.Load<Texture2D>("itsatrapmagic2");
             
 

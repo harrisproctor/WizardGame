@@ -167,7 +167,7 @@ namespace monowizard
             // Debug.WriteLine("grey hirse");
 
             croprect.X = 256;
-            int spell = random.Next(1, 4);
+            int spell = random.Next(1, 7);
             itemManager.addMagicScroll(hitbox.X,hitbox.Y-20,spell);
             itemManager.items.Last().yvel = -12;
             
