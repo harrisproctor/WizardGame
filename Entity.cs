@@ -22,6 +22,8 @@ namespace monowizard
         public int bounce;
         public int id;
         public bool onExit;
+        public bool onLedge;
+        public bool spaceToMove;
 
         public virtual void update() { 
         

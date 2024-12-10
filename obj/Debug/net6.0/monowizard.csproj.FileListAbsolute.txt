@@ -58,3 +58,4 @@ C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\elder
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\spider!!!!.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\obj\Debug\net6.0\monowizard.sourcelink.json
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\owlymonna.xnb
+C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\owlymonna2.xnb

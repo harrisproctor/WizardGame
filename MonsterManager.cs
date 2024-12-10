@@ -16,6 +16,7 @@ namespace monowizard
         public Texture2D brainmon1texture;
         public Texture2D owlmon1texture;
         public Texture2D bookmon1texture;
+        public Texture2D owlmagetexture;
         public ParticleManager particleManager;
         public Random rand = new Random();
 
@@ -163,6 +164,14 @@ namespace monowizard
         {
             monsters.Add(new BookMon1(player, this));
             monsters.Last().texture = bookmon1texture;
+            monsters.Last().hitbox.X = x;
+            monsters.Last().hitbox.Y = y;
+        }
+
+        public void addOwlMageMonster(int x, int y)
+        {
+            monsters.Add(new OwlMageMonster(player, this));
+            monsters.Last().texture = owlmagetexture;
             monsters.Last().hitbox.X = x;
             monsters.Last().hitbox.Y = y;
         }

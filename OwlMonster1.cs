@@ -188,7 +188,7 @@ namespace monowizard
                 if (tophitbox.Intersects(playerfeet))
                 {
                     die();
-                    player.yvel -= 16;
+                    player.yvel = -9;
                 }
                 else
                 {

@@ -135,6 +135,7 @@ namespace monowizard
             _monsterManager.batmon1texture = Content.Load<Texture2D>("batdemon2.3");//("brainmon1");//("batdemon2.3")
             _monsterManager.brainmon1texture = Content.Load<Texture2D>("brainmon3");//("brainmon3");
             _monsterManager.owlmon1texture = Content.Load<Texture2D>("owlexe2");
+            _monsterManager.owlmagetexture = Content.Load<Texture2D>("owlymonna2");
             _monsterManager.bookmon1texture = Content.Load<Texture2D>("badmonbook");//badmonbook
             _magicManager.effectstext1 = Content.Load<Texture2D>("itsatrapmagic2");
             
@@ -158,7 +159,7 @@ namespace monowizard
             for (int i = 0; i < 10; i++)
             {
               //  _monsterManager.addBrainMonster(900+(i*300), 600);
-             //  _monsterManager.addOwlMonster(900 + (i * 300), 1600 + (i * 100));
+               _monsterManager.addOwlMageMonster(900 + (i * 300), 1600 + (i * 100));
                 _itemManager.addMChest(2600+(100*i), 600);
                // _particleManager.addManaSmall(1600 + (100 * i), 600,0,0,64,1f);
                

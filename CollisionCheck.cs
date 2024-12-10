@@ -391,10 +391,109 @@ namespace monowizard
         }
 
 
+        public void onTheLedge(Entity player)
+        {
+            entityLeftWorldX = (int)player.hitbox.X;//entity.solidArea.x;
+            entityRightWorldX = (int)player.hitbox.X + player.hitbox.Width;//entity.solidArea.x + entity.solidArea.width;
+            entityTopWorldY = (int)player.hitbox.Y;// + entity.solidArea.y;
+            entityBottomWorldY = (int)player.hitbox.Y + player.hitbox.Height;// + entity.sowlidArea.y + entity.solidArea.height;
+                                                                             //int entityBottomWorldY2 = entity.worldY + entity.solidArea.y + entity.solidArea.height-5;
+
+            entityLeftCol = entityLeftWorldX / 96;
+            //int entityLeftColIn = (entityLeftWorldX + 2) / 96;
+            entityRightCol = entityRightWorldX / 96;
+            // int entityRightColIn = (entityRightWorldX - 2) / 96;
+            entityTopRow = entityTopWorldY / 96;
+            entityBottomRow =( entityBottomWorldY+20) / 96;
+            //int entityBottomRow2 = (entityBottomWorldY-5)/gp.tileSize;
+
+            ind1 = entityRightCol + (entityBottomRow * 40);
+            tileNum1 = map[ind1];
+            if (player.xvel > 0)
+            {
+                if (tileManager.collides[tileNum1] == false && player.grounded)
+                {
+                    player.onLedge = true;
+
+                }
+            }
+
+            ind1 = entityLeftCol + (entityBottomRow * 40);
+            tileNum1 = map[ind1];
+            if (player.xvel < 0)
+            {
+                if (tileManager.collides[tileNum1] == false && player.grounded)
+                {
+                    player.onLedge = true;
+                }
+            }
+
+        }
+
+        public void spaceToWalk(Entity player)
+        {
+            entityLeftWorldX = (int)player.hitbox.X;//entity.solidArea.x;
+            entityRightWorldX = (int)player.hitbox.X + player.hitbox.Width;//entity.solidArea.x + entity.solidArea.width;
+            entityTopWorldY = (int)player.hitbox.Y;// + entity.solidArea.y;
+            entityBottomWorldY = (int)player.hitbox.Y + player.hitbox.Height;// + entity.sowlidArea.y + entity.solidArea.height;
+                                                                             //int entityBottomWorldY2 = entity.worldY + entity.solidArea.y + entity.solidArea.height-5;
+
+            entityLeftCol = entityLeftWorldX / 96;
+            //int entityLeftColIn = (entityLeftWorldX + 2) / 96;
+            entityRightCol = entityRightWorldX / 96;
+            
+            // int entityRightColIn = (entityRightWorldX - 2) / 96;
+            entityTopRow = (entityTopWorldY+40) / 96;
+            entityBottomRow = (entityBottomWorldY + 20) / 96;
+            //int entityBottomRow2 = (entityBottomWorldY-5)/gp.tileSize;
+
+            ind1 = entityRightCol + (entityBottomRow * 40);
+            tileNum1 = map[ind1];
+            player.spaceToMove = true;
+            if (tileManager.collides[tileNum1] == true && player.grounded)
+            {
+               player.spaceToMove = false;
+
+            }
+           
+
+            ind1 = entityLeftCol + (entityBottomRow * 40);
+            tileNum1 = map[ind1];
+            if (tileManager.collides[tileNum1] == true && player.grounded)
+            {
+                player.spaceToMove = false;
+            }
+            entityLeftCol = (entityLeftWorldX-20) / 96;
+
+            entityRightCol = (entityRightWorldX+20) / 96;
+            ind1 = entityRightCol + (entityTopRow * 40);
+            tileNum1 = map[ind1];
+            if (tileManager.collides[tileNum1] == false)
+            {
+                player.spaceToMove = false;
+
+            }
+
+
+            ind1 = entityLeftCol + (entityTopRow * 40);
+            tileNum1 = map[ind1];
+            if (tileManager.collides[tileNum1] == false)
+            {
+                player.spaceToMove = false;
+            }
 
 
 
 
 
-     }
+
+        }
+
+
+
+
+
+
+
+        }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace monowizard
 {
-    internal class brainmonster1 : Entity
+    internal class OwlMageMonster : Entity
     {
 
         //public Texture2D battexture;
@@ -16,7 +16,7 @@ namespace monowizard
         //Rectangle hitbox = new Rectangle(1200, 500, 80, 80);
         Rectangle drawbox = new Rectangle(0, 0, 128, 128);
         Rectangle cropbox = new Rectangle(0, 0, 128, 128);
-        Rectangle tophitbox = new Rectangle(0, 0, 90, 5);
+        Rectangle tophitbox = new Rectangle(0, 0, 70, 5);
         int aniframe = 0;
         public bool flapdown;
         public bool leftward = false;
@@ -33,17 +33,19 @@ namespace monowizard
         public int health = 3;
         public int iframes = 0;
         public bool prevattacking = false;
+        public bool walking = false;
+        public bool potright = false;
+        int timesinceturn = 0;
 
 
 
 
 
-
-        public brainmonster1(Player player, MonsterManager mm)
+        public OwlMageMonster(Player player, MonsterManager mm)
         {
             this.player = player;
             id = 34;
-            hitbox = new Rectangle(1700, 600, 100, 100);
+            hitbox = new Rectangle(1700, 600, 80, 80);
             check = player.colcheck;
             bounce = 100;
             this.mm = mm;
@@ -61,38 +63,94 @@ namespace monowizard
             }
             if (consious)
             {
-                yvel = 0;
-                xvel = 0;
 
+                yvel += (player.frameCounter.frame % 2);
                 playerdirx = hitbox.X - player.hitbox.X;
                 playerdiry = hitbox.Y - player.hitbox.Y;
-                if (playerdirx < -5)
+                if (playerdiry < 200 && playerdiry > -200 && playerdirx < 500 && playerdirx > -500)
                 {
-                    xvel++;
-                    if (facingeffect == SpriteEffects.FlipHorizontally)
+                    timesinceturn = 0;
+                    walking = true;
+                    if (playerdirx < -5)
                     {
-                        facingeffect = SpriteEffects.None;
+                        xvel = 2;
+                        if (facingeffect == SpriteEffects.FlipHorizontally)
+                        {
+                            facingeffect = SpriteEffects.None;
+                        }
                     }
-                }
-                else if (playerdirx > 5)
-                {
-                    xvel--;
-                    if (facingeffect == SpriteEffects.None)
+                    else if (playerdirx > 5)
                     {
-                        facingeffect = SpriteEffects.FlipHorizontally;
+                        xvel = -2;
+                        if (facingeffect == SpriteEffects.None)
+                        {
+                            facingeffect = SpriteEffects.FlipHorizontally;
+                        }
                     }
-                }
+                    onLedge = false;
+                    colliding = false;
+                    grounded = false;
+                    check.checkTile(this);
+                    check.onTheLedge(this);
+                    if (colliding || onLedge)
+                    {
 
-                if (playerdiry < -60)
-                {
-                    yvel++;
+                        if (xvel == 2)
+                        {
+                            xvel = -2;
+                            walking = false;
+                        }
+                        else if(xvel == -2)
+                        {
+                            xvel = 2;
+                            walking = false;
+                        }
+
+
+
+                    }
                 }
                 else
                 {
-                    yvel--;
+                    timesinceturn++;
+                    walking = true;
+                    if (potright)
+                    {
+                        xvel = 1;
+                        facingeffect = SpriteEffects.None;
+                    }
+                    else
+                    {
+                        xvel = -1;
+                        facingeffect = SpriteEffects.FlipHorizontally;
+                    }
+                    onLedge = false;
+                    colliding = false;
+                    grounded = false;
+                    check.checkTile(this);
+                    check.onTheLedge(this);
+                    if (colliding || onLedge)
+                    {
+
+                        if (potright)
+                        {
+                            potright = false;
+                        }
+                        else
+                        {
+                            potright = true;
+                        }
+
+
+
+                    }
+
+
                 }
 
 
+
+                onLedge = false;
                 colliding = false;
                 grounded = false;
                 check.checkTile(this);
@@ -107,26 +165,26 @@ namespace monowizard
                 aniframe++;
 
 
-                
+
 
                 if (attacking)
                 {
-                    if(prevattacking == false)
+                    if (prevattacking == false)
                     {
                         aniframe = 1;
                     }
-                    if(aniframe == 1)
+                    if (aniframe == 1)
                     {
-                        cropbox.X = 128;
+                        cropbox.X = 0;
                         cropbox.Y = 128;
                     }
                     if (aniframe % 10 == 9)
                     {
                         cropbox.X += 128;
-                        
+
                     }
-                  
-                    if (cropbox.X > 400)
+
+                    if (cropbox.X > 600)
                     {
 
                         cropbox.X = 0;
@@ -139,50 +197,60 @@ namespace monowizard
 
 
                 }
-                else
+                else if(walking)
                 {
 
-                   
-                    if (aniframe % 10 == 1)
+                    if (xvel > 1 || xvel < -1) 
                     {
-                        if (flapdown)
+                        if (aniframe % 12 == 1)
                         {
+
                             cropbox.X += 128;
-                            if (cropbox.X > 600)
+                            if (cropbox.X > 700)
                             {
-                                cropbox.X -= 128;
-                                flapdown = false;
+                                cropbox.X = 0;
 
                             }
                         }
-                        else
-                        {
-                            cropbox.X -= 128;
-                            if (cropbox.X < 0)
-                            {
-                                cropbox.X += 128;
-                                flapdown = true;
 
-                            }
-
-                        }
 
                     }
+                    else
+                    {
+                        if (aniframe % 18 == 1)
+                        {
 
-                    if (aniframe == 100)
+                            cropbox.X += 128;
+                            if (cropbox.X > 700)
+                            {
+                                cropbox.X = 128;
+
+                            }
+                        }
+                    }
+                    
+
+                    if (aniframe == 288)
                     {
                         aniframe = 0;
                         // cropbox.X = 0;
                     }
+                }
+                else 
+                {
+
+                    cropbox.X = 0;
+
+
                 }
             }
             else
             {
                 //unconsious
 
-             
+                yvel += (player.frameCounter.frame % 2);
 
-               
+
 
                 //start collsion check
                 grounded = false;
@@ -191,8 +259,8 @@ namespace monowizard
                 check.checkTile(this);
 
 
-               
-                
+
+
 
 
                 //limit physics
@@ -218,10 +286,19 @@ namespace monowizard
                 hitbox.X += xvel;
                 hitbox.Y += yvel;
 
+                if(xvel > 0)
+                {
+                    xvel -= (player.frameCounter.frame % 2);
+                }
+                else if(xvel < 0)
+                {
+                    xvel += (player.frameCounter.frame % 2);
+                }
+
                 //
                 unconsioustime++;
 
-                
+
 
                 if (unconsioustime > 200)
                 {
@@ -229,7 +306,7 @@ namespace monowizard
                     cropbox.Y = 0;
                     consious = true;
                     unconsioustime = 0;
-                    
+
 
                 }
 
@@ -259,7 +336,7 @@ namespace monowizard
 
 
                 }
-                else if (entity.id == 1 )
+                else if (entity.id == 1)
                 {
                     if (player.cantrip.id == 1)
                     {
@@ -306,33 +383,33 @@ namespace monowizard
             }
 
 
-                if (health < 1)
+            if (health < 1)
             {
-                player.mm.particleManager.addBrainChunk(hitbox.X+20,hitbox.Y,5,-5);
-                player.mm.particleManager.addBrainChunk(hitbox.X+ 30, hitbox.Y+ 40,-5,-5);
-                player.mm.particleManager.addBrainChunk(hitbox.X+60, hitbox.Y+40,0,-8);
+                player.mm.particleManager.addBrainChunk(hitbox.X + 20, hitbox.Y, 5, -5);
+                player.mm.particleManager.addBrainChunk(hitbox.X + 30, hitbox.Y + 40, -5, -5);
+                player.mm.particleManager.addBrainChunk(hitbox.X + 60, hitbox.Y + 40, 0, -8);
 
-                player.mm.particleManager.addManaSmall(hitbox.X + 20, hitbox.Y, 1, -5,32,0.3f);
-                player.mm.particleManager.addManaSmall(hitbox.X + 30, hitbox.Y + 40, -1, -5,32, 0.3f);
-                player.mm.particleManager.addManaSmall(hitbox.X + 60, hitbox.Y + 40, 0, -8,32, 0.3f);
+                player.mm.particleManager.addManaSmall(hitbox.X + 20, hitbox.Y, 1, -5, 32, 0.3f);
+                player.mm.particleManager.addManaSmall(hitbox.X + 30, hitbox.Y + 40, -1, -5, 32, 0.3f);
+                player.mm.particleManager.addManaSmall(hitbox.X + 60, hitbox.Y + 40, 0, -8, 32, 0.3f);
 
 
                 player.mm.monsters.Remove(this);
-                
+
             }
-            
+
 
 
         }
 
         public void hitCheck()
         {
-            if (hitbox.Intersects(player.hitbox) )
+            if (hitbox.Intersects(player.hitbox))
             {
                 tophitbox.X = hitbox.X + 5;
                 tophitbox.Y = hitbox.Y;
-                playerfeet = new Rectangle(player.hitbox.X+10, player.hitbox.Y + player.hitbox.Height - 10, player.hitbox.Width-10, 10);
-                if(player.yvel < 0)
+                playerfeet = new Rectangle(player.hitbox.X + 10, player.hitbox.Y + player.hitbox.Height - 10, player.hitbox.Width - 10, 10);
+                if (player.yvel < 0)
                 {
                     tophitbox.Height = -player.yvel;
                 }
@@ -350,12 +427,12 @@ namespace monowizard
                     yvel += 5;
                     health--;
                     hit(player);
-                    
+
 
                 }
                 else
                 {
-                   // aniframe = 0;
+                    // aniframe = 0;
                     attacking = true;
                     player.hit(this);
                 }
@@ -364,8 +441,8 @@ namespace monowizard
 
         public override void draw(SpriteBatch _spriteBatch)
         {
-            drawbox.X = (int)(hitbox.X-10) - player.centerWorldX + player.centerX;
-            drawbox.Y = (int)(hitbox.Y-10) - player.centerWorldY + player.centerY;
+            drawbox.X = (int)(hitbox.X - 20) - player.centerWorldX + player.centerX;
+            drawbox.Y = (int)(hitbox.Y - 30) - player.centerWorldY + player.centerY;
             // _spriteBatch.Draw(battexture, drawbox, cropbox, Color.White);
             _spriteBatch.Draw(texture, drawbox, cropbox, Color.White, 0, Vector2.Zero, facingeffect, 1);
         }
