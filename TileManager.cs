@@ -111,12 +111,14 @@ namespace monowizard
 
             generlibback(backmap);
 
-
+            
 
             generlibback(map);
             // generlibfront(map);
-            
-           
+
+            makeLibBricks(map);
+
+
 
 
 
@@ -131,10 +133,10 @@ namespace monowizard
 
             
 
-            toptrims = new Vector2[150];
-            lefttrims = new Vector2[150];
-            righttrims = new Vector2[150];
-            bottomtrims = new Vector2[150];
+            toptrims = new Vector2[400];
+            lefttrims = new Vector2[400];
+            righttrims = new Vector2[400];
+            bottomtrims = new Vector2[400];
 
             
             collides[0] = false;
@@ -183,6 +185,31 @@ namespace monowizard
             tileEffects[341] = trap1;
             istrap[341] = true;
 
+            
+             collides[342] = true;
+             croprects[342] = new Rectangle(0,0,128,128);
+            tileEffects[342] = basic;
+            istrap[342] = false;
+
+            collides[343] = true;
+            croprects[343] = new Rectangle(128, 0, 128, 128);
+            tileEffects[343] = basic;
+            istrap[343] = false;
+
+            collides[344] = true;
+            croprects[344] = new Rectangle(0, 128, 128, 128);
+            tileEffects[344] = basic;
+            istrap[344] = false;
+
+            collides[345] = true;
+            croprects[345] = new Rectangle(128, 128, 128, 128);
+            tileEffects[345] = basic;
+            istrap[345] = false;
+
+
+
+
+
             /** croprects[2] = new Rectangle(0, 0, 192, 192);
              croprects[3] = new Rectangle(192, 0, 192, 192);
              croprects[4] = new Rectangle(0, 192, 192, 192);
@@ -221,6 +248,7 @@ namespace monowizard
         {
             map = levelgen.makeMap();
             generlibback(map);
+            makeLibBricks(map);
 
             updateTiles = new Dictionary<int, Truetile>();
             initateTraps();
@@ -284,12 +312,12 @@ namespace monowizard
                     }
                        
                     
-                    if (tileNum == 1)//collides[tileNum]
+                    if (tileNum == 342 || tileNum == 343 || tileNum == 344 || tileNum == 345)//collides[tileNum]
                     {
                         if (tileInd > 40)
                         {
 
-                            if (map[tileInd - 40] != 1)//(collides[map[tileInd-40]] == false)
+                            if (map[tileInd - 40] < 342)//(collides[map[tileInd-40]] == false)
                             {
                                 toptrims[quedtoptrims].X = drawtilerect.X - 2;
                                 toptrims[quedtoptrims].Y = drawtilerect.Y - 3;
@@ -300,7 +328,7 @@ namespace monowizard
                         if (tileInd < 1560)
                         {
 
-                            if (map[tileInd + 40] != 1) //(collides[map[tileInd + 40]] == false)
+                            if (map[tileInd + 40] < 342) //(collides[map[tileInd + 40]] == false)
                             {
                                 bottomtrims[quedbottomtrims].X = drawtilerect.X - 2;
                                 bottomtrims[quedbottomtrims].Y = drawtilerect.Y + 94;
@@ -309,7 +337,7 @@ namespace monowizard
                             }
                         }
                         if (tileInd % 40 > 0) {
-                            if (map[tileInd - 1] != 1)//(collides[map[tileInd - 1]] == false)
+                            if (map[tileInd - 1] < 342)//(collides[map[tileInd - 1]] == false)
                             {
                                 lefttrims[quedlefttrims].X = drawtilerect.X - 3;
                                 lefttrims[quedlefttrims].Y = drawtilerect.Y - 2;
@@ -321,7 +349,7 @@ namespace monowizard
                         }
                         if (tileInd % 40 < 39)
                         {
-                            if (map[tileInd + 1] != 1)//(collides[map[tileInd + 1]] == false)
+                            if (map[tileInd + 1] < 342)//(collides[map[tileInd + 1]] == false)
                             {
                                 righttrims[quedrighttrims].X = drawtilerect.X + 94;
                                 righttrims[quedrighttrims].Y = drawtilerect.Y - 2;
@@ -387,6 +415,26 @@ namespace monowizard
                 map[i] = 2 + (i % 320);
                 }
             }
+        }
+
+        public void makeLibBricks(int[] map)
+        {
+            Random rand = new Random();
+            int choice = 342;
+
+            for (int i = 0; i < map.Length; i++)
+            {
+                if (map[i] == 1)
+                {
+                    choice = 342;
+                    choice += rand.Next(0, 4);
+                    map[i] = choice;
+                }
+
+            }
+                
+
+
         }
 
         public void generlibfront(int[] map)

@@ -18,6 +18,7 @@ namespace monowizard
         MagicManager _magicManager;
         UI ui;
         ParticleManager _particleManager;
+        ShopManger _shopManager;
         //Batdemon battdemon;
         
         
@@ -79,6 +80,9 @@ namespace monowizard
             player.mm = _monsterManager;
            // battdemon = new Batdemon(player);
 
+            _shopManager = new ShopManger(player);
+            player.shop = _shopManager;
+
             
 
             
@@ -119,6 +123,13 @@ namespace monowizard
             }
             _tileManager.texts[338] = Content.Load<Texture2D>("trapproto2");
             _tileManager.texts[339] = _tileManager.texts[338];
+
+            _tileManager.texts[342] = Content.Load<Texture2D>("betterbrick");
+            for (int i = 343; i < 346; i++)
+            {
+                _tileManager.texts[i] = _tileManager.texts[342];
+
+            }
 
 
 
@@ -198,6 +209,8 @@ namespace monowizard
             }
 
             _particleManager.update();
+
+            _shopManager.update();
             // TODO: Add your update logic here
 
             base.Update(gameTime);

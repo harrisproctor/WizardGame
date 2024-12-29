@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,6 +34,8 @@ namespace monowizard
         public Rectangle mananumb2crop = new Rectangle(128, 0, 128, 128);
         public Rectangle mananumb2pos = new Rectangle(370, 30, 80, 80);
 
+        public List<UIElement> items = new List<UIElement>();
+
         public UI() 
         {
             setHealth(80);
@@ -41,7 +44,8 @@ namespace monowizard
         }
 
         public void setHealth(int x) {
-            if (x > 9)
+            
+             if (x > 9)
             {
                 int twosplace = x % 10;
                 int onesplace = x / 10;
@@ -55,6 +59,14 @@ namespace monowizard
 
                 }
         
+        }
+
+        public UIString addUINumber(int x, int y, int num)
+        {
+            UIString newstring = new UIString(x, y, 80, 80, num, manafont);
+            items.Add(newstring);
+            return newstring;
+
         }
 
         public void setMana(int x)
@@ -83,6 +95,14 @@ namespace monowizard
             _spriteBatch.Draw(healthfont, healthnumb2pos, healthnumb2crop, Color.White);
             _spriteBatch.Draw(manafont, mananumb1pos, mananumb1crop, Color.White);
             _spriteBatch.Draw(manafont, mananumb2pos, mananumb2crop, Color.White);
+
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                items[i].draw(_spriteBatch);
+                
+
+            }
 
 
         }

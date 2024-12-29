@@ -21,6 +21,7 @@ namespace monowizard
         public int[][] rooms8;
         public int[][] roomsstart;
         public int[][] roomsend;
+        public int[][] shops;
         public int[][][] allrooms;
 
         Random rnd = new Random();
@@ -188,6 +189,19 @@ namespace monowizard
             10,10,10,10,10,10,10,10,10,10
     };
 
+        private int[] Dumb = new int[]{
+            10,10,10,0,0,0,0,10,10,10,
+            10,0,0,0,0,0,0,0,0,10,
+            10,0,0,0,0,341,0,0,0,10,
+            10,0,0,0,0,0,0,0,0,10,
+            5,0,0,0,0,0,0,0,0,5,
+            0,0,0,0,00,0,0,0,0,0,
+            0,0,0,0,0,0,0,0,0,0,
+            0,0,10,10,10,10,10,10,0,0,
+            0,0,10,10,341,341,10,10,10,0,
+            10,10,10,10,10,10,10,10,10,10
+    };
+
         public TileManager tileManager;
 
 
@@ -204,6 +218,7 @@ namespace monowizard
             rooms8 = new int[][] { Room8 };
             roomsstart = new int[][] { Roomstart };
             roomsend = new int[][] { Roomend };
+            shops = new int[][] { Dumb };
             allrooms = new int[][][] { rooms1, rooms2, rooms3, rooms4, rooms5, rooms6, rooms7, rooms8 };
             this.player = player;
             this.tileManager = tileManager;
@@ -553,6 +568,10 @@ namespace monowizard
                 {
                     result[i] = roomsend;
                 }
+                else if (layout[i] == 99)
+                {
+                    result[i] = shops;
+                }
 
             }
             return result;
@@ -707,6 +726,58 @@ namespace monowizard
 
 
             }
+            bool isUnShopped = true;
+            int looptimes = -1;
+            while (isUnShopped) 
+            {
+                looptimes++;
+                if (looptimes > 199)
+                {
+                    isUnShopped = false;
+                    player.shop.shopgridind = 20;
+                    player.shop.isShoponLevel = false;
+                }
+
+                int fibponaccci = rnd.Next(0,16);
+                int sideofchoice = rnd.Next(0,2);
+                if (pathmap[fibponaccci] != 0)
+                {
+                    if(sideofchoice == 0)
+                    {
+                        if(fibponaccci != 0)
+                        {
+                            if (pathmap[fibponaccci-1] == 0)
+                            {
+                                pathmap[fibponaccci - 1] = 99;
+                                isUnShopped = false;
+                                player.shop.shopgridind = fibponaccci - 1;
+                                player.shop.isShoponLevel = true;
+                                
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (fibponaccci != 15)
+                        {
+                            if (pathmap[fibponaccci + 1] == 0)
+                            {
+                                pathmap[fibponaccci + 1] = 99;
+                                isUnShopped = false;
+                                player.shop.shopgridind = fibponaccci + 1;
+                                player.shop.isShoponLevel = true;
+                                
+                            }
+                        }
+                    }
+                    
+
+                }
+            
+            
+            
+            }
+            
             return pathmap;
         }
 

@@ -75,6 +75,8 @@ namespace monowizard
         public int ledgetileind = 0;
         public Color playertint = Color.White;
         public int switchcolordelay = 1;
+        public ShopManger shop;
+        public bool epressed = false;
 
 
 
@@ -679,6 +681,11 @@ namespace monowizard
                     {
                         colcheck.tileManager.newMap();
                     }
+                    epressed = true;
+                }
+                else
+                {
+                    epressed = false;
                 }
 
 

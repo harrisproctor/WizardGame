@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +20,15 @@ namespace monowizard
         public int rockx = 200;
         public int MKeyind;
         public Random rand = new Random();
+        public List<HoldItem> libShopItems;
 
         public ItemManager() {
             items = new List<HoldItem>();
-            
+            libShopItems = new List<HoldItem>();
+            libShopItems.Add(new HoldBook(colCheck, player));
+            libShopItems.Add(new HoldCrystalRock(colCheck, player));
+            libShopItems.Add(new HoldMKey(colCheck, player));
+
         }
 
         public void placeLibItems(int[] mapp, TileManager tm)
@@ -139,6 +145,24 @@ namespace monowizard
                 freefloor.Remove(keyind);
             }
 
+            player.shop.setShopRect();
+            List<HoldItem> deleteitems = new List<HoldItem>();
+            foreach (var money in items)
+            {
+               if( money.hitbox.Intersects(player.shop.shopRect) )
+                {
+                    //items.Remove(money);
+                    deleteitems.Add(money);
+                }
+            }
+            foreach (var money in deleteitems)
+            {
+                items.Remove(money);
+            }
+            
+
+            player.shop.setupShop();
+
 
 
         }
@@ -230,6 +254,20 @@ namespace monowizard
             items.Last().texture = libitems1;
             items.Last().hitbox.X = x;
             items.Last().hitbox.Y = y;
+            //rockx += 80;
+        }
+
+        public void addShopItemRand(int x, int y)
+        {
+            HoldItem randchoice;
+            randchoice = libShopItems[rand.Next(libShopItems.Count)];
+
+
+            items.Add(new HoldShopItem(colCheck, player,randchoice));
+            items.Last().texture = libitems1;
+            items.Last().hitbox.X = x;
+            items.Last().hitbox.Y = y;
+            Debug.WriteLine("help");
             //rockx += 80;
         }
 
