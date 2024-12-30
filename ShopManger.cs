@@ -32,9 +32,9 @@ namespace monowizard
         public void setupShop()
         {
 
-            player.itemManager.addShopItemRand(((shopgridind % 4) * 960)+200,((shopgridind / 4) * 960)+500);
-            player.itemManager.addShopItemRand(((shopgridind % 4) * 960) + 450, ((shopgridind / 4) * 960) + 500);
-            player.itemManager.addShopItemRand(((shopgridind % 4) * 960) + 700, ((shopgridind / 4) * 960) + 500);
+            player.itemManager.addShopItemRand(((shopgridind % 4) * 960)+200,((shopgridind / 4) * 960)+500,shopgridind);
+            player.itemManager.addShopItemRand(((shopgridind % 4) * 960) + 450, ((shopgridind / 4) * 960) + 500,shopgridind);
+            player.itemManager.addShopItemRand(((shopgridind % 4) * 960) + 700, ((shopgridind / 4) * 960) + 500, shopgridind);
         }
 
         public void setShopRect() 

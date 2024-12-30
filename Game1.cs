@@ -74,7 +74,7 @@ namespace monowizard
 
             player.itemManager = _itemManager;
             // player.cantrip = new HandFireCantrip(player);
-            player.cantrip = new MagicWaveCantrip(player);
+            player.cantrip = new MagicArrowCantrip(player);
             _monsterManager = new MonsterManager(player);
             _monsterManager.particleManager = _particleManager;
             player.mm = _monsterManager;

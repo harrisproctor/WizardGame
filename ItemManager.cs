@@ -24,17 +24,19 @@ namespace monowizard
 
         public ItemManager() {
             items = new List<HoldItem>();
-            libShopItems = new List<HoldItem>();
-            libShopItems.Add(new HoldBook(colCheck, player));
-            libShopItems.Add(new HoldCrystalRock(colCheck, player));
-            libShopItems.Add(new HoldMKey(colCheck, player));
+            
 
         }
 
         public void placeLibItems(int[] mapp, TileManager tm)
         {
 
-            if(player.heldItem != null)
+            libShopItems = new List<HoldItem>();
+            libShopItems.Add(new HoldBook(colCheck, player));
+            libShopItems.Add(new HoldCrystalRock(colCheck, player));
+            libShopItems.Add(new CantripScroll(colCheck, player, this, new MagicArrowCantrip(player)));
+
+            if (player.heldItem != null)
             {
                 HoldItem curheld = player.heldItem;
                 items.Clear();
@@ -213,6 +215,16 @@ namespace monowizard
             items.Last().hitbox.Y = 200;
             rockx += 80;
         }
+
+        public void addItem(HoldItem holder,int x,int y)
+        {
+            items.Add(holder);
+            items.Last().texture = libitems1;
+            items.Last().hitbox.X = x;
+            items.Last().hitbox.Y = y;
+            
+        }
+
         public void addBook(int x, int y)
         {
             items.Add(new HoldBook(colCheck, player));
@@ -257,17 +269,18 @@ namespace monowizard
             //rockx += 80;
         }
 
-        public void addShopItemRand(int x, int y)
+        public void addShopItemRand(int x, int y, int shopind)
         {
             HoldItem randchoice;
             randchoice = libShopItems[rand.Next(libShopItems.Count)];
 
 
-            items.Add(new HoldShopItem(colCheck, player,randchoice));
+            items.Add(new HoldShopItem(colCheck, player,randchoice, shopind));
             items.Last().texture = libitems1;
             items.Last().hitbox.X = x;
             items.Last().hitbox.Y = y;
-            Debug.WriteLine("help");
+
+            //Debug.WriteLine("help");
             //rockx += 80;
         }
 
@@ -277,6 +290,10 @@ namespace monowizard
 
             {
                 if (items[i] != player.heldItem)
+                {
+                    items[i].update();
+                }
+                else if (items[i] is HoldShopItem)
                 {
                     items[i].update();
                 }
