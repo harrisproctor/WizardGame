@@ -350,7 +350,8 @@ namespace monowizard
                     yvel += 5;
                     health--;
                     hit(player);
-                    
+                    player.iframes = 7;
+
 
                 }
                 else

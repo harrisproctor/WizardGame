@@ -20,12 +20,18 @@ namespace monowizard
         public UIString(int x, int y, int width, int height, int num, Texture2D manafont)
         {
 
-            num = ReverseNumber(num);
-            int numdigits = num.ToString().Length;
-            for (int i = 0; i < numdigits; i++)
+            
+           // int numdigits = num.ToString().Length;
+            string strnum = num.ToString();
+            int numdigits = strnum.Length;
+           // int cnt = 0;
+            int bar;
+
+            foreach (char c in strnum)
             {
-                digits.Add(num % 10);
-                num = num / 10;
+                bar = c - '0';
+                digits.Add(bar);
+                
             }
             for (int i = 0; i < numdigits; i++)
             {
@@ -48,6 +54,7 @@ namespace monowizard
 
         public int ReverseNumber(int num)
         {
+
             // Convert the number to a string
             string numStr = num.ToString();
 
@@ -59,6 +66,7 @@ namespace monowizard
             // Convert the reversed string back to an integer
             int reversedNum = int.Parse(reversedStr);
 
+            //bad it removes the 0
             return reversedNum;
         }
 

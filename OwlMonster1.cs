@@ -189,6 +189,7 @@ namespace monowizard
                 {
                     die();
                     player.yvel = -9;
+                    player.iframes = 7;
                 }
                 else
                 {

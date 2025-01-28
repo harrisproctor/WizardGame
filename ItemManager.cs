@@ -34,7 +34,7 @@ namespace monowizard
             libShopItems = new List<HoldItem>();
             libShopItems.Add(new HoldBook(colCheck, player));
             libShopItems.Add(new HoldCrystalRock(colCheck, player));
-            libShopItems.Add(new CantripScroll(colCheck, player, this, new MagicArrowCantrip(player)));
+            libShopItems.Add(new CantripScroll(colCheck, player, this, new MagicWaveCantrip(player)));
 
             if (player.heldItem != null)
             {

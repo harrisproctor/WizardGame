@@ -167,6 +167,17 @@ namespace monowizard
 
 
         }
+        public void drawforshop(SpriteBatch _spriteBatch)
+        {
+
+            _spriteBatch.Draw(texture, drawrect, croprect, Color.White, 0, Vector2.Zero, spriteEffects, 1);
+
+            symbdrawrect.X = drawrect.X + 30;
+            symbdrawrect.Y = drawrect.Y + 30;
+            _spriteBatch.Draw(symbols, symbdrawrect, symbcroprect, Color.White, 0, Vector2.Zero, spriteEffects, 1);
+
+
+        }
 
 
     }

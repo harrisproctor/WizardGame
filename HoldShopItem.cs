@@ -18,6 +18,8 @@ namespace monowizard
         public int price = 10;
         public int shopind;
         public Rectangle shoprect;
+        public Rectangle symbdrawrect;
+        public CantripScroll sepll;
 
         public HoldShopItem(CollisionCheck check, Player player,HoldItem truth,int shopind) : base(check, player)
         {
@@ -33,6 +35,13 @@ namespace monowizard
             trueItem = truth;
             this.shopind = shopind;
             shoprect = new Rectangle((shopind % 4) *960, (shopind / 4) * 960,960,960);
+            if (trueItem is CantripScroll)
+            {
+                Debug.WriteLine("Cantrip");
+                sepll = trueItem as CantripScroll; 
+                sepll.symbols = player.itemManager.magicsymbols;
+                sepll.texture = player.itemManager.libitems1;
+            }
 
 
 
@@ -88,7 +97,7 @@ namespace monowizard
                 else
                 {
 
-                    if (uinum != null || this == player.heldItem)
+                    if (uinum != null && this == player.heldItem)
                     {
                        // Debug.WriteLine("gos is sed");
                         drawrect.X = (int)hitbox.X - player.centerWorldX + player.centerX;
@@ -100,7 +109,7 @@ namespace monowizard
                             if (player.mana > price)
                             {
                                 delete();
-                                player.changeMana(-10);
+                                player.changeMana(-price);
                             }
                         }
                     }
@@ -125,6 +134,7 @@ namespace monowizard
             if (trueItem is HoldBook)
             {
                 player.itemManager.addBook(hitbox.X, hitbox.Y);
+                
 
             }
             else if (trueItem is HoldCrystalRock)
@@ -134,6 +144,15 @@ namespace monowizard
             else if (trueItem is HoldMKey)
             {
                 player.itemManager.addMKey(hitbox.X, hitbox.Y);
+            }
+            else if (trueItem is CantripScroll)
+            {
+                player.itemManager.addMagicScroll(hitbox.X, hitbox.Y,6);
+            }
+
+            if (this == player.heldItem)
+            {
+                player.heldItem = player.itemManager.items.Last();
             }
 
             //player.changeMana(-10);
@@ -154,7 +173,14 @@ namespace monowizard
 
             drawrect.X = (int)hitbox.X - player.centerWorldX + player.centerX;
             drawrect.Y = (int)hitbox.Y - player.centerWorldY + player.centerY;
-            _spriteBatch.Draw(texture, drawrect, croprect, Color.White, 0, Vector2.Zero, spriteEffects, 1);
+             _spriteBatch.Draw(texture, drawrect, croprect, Color.White, 0, Vector2.Zero, spriteEffects, 1);
+            if (trueItem is CantripScroll) 
+            {
+            sepll.drawrect.X = (int)hitbox.X - player.centerWorldX + player.centerX;
+            sepll.drawrect.Y = (int)hitbox.Y - player.centerWorldY + player.centerY;
+            sepll.drawforshop(_spriteBatch);
+
+            }
 
 
         }
