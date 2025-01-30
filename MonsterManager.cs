@@ -17,8 +17,10 @@ namespace monowizard
         public Texture2D owlmon1texture;
         public Texture2D bookmon1texture;
         public Texture2D owlmagetexture;
+        public Texture2D brainyshopkeeptexture;
         public ParticleManager particleManager;
         public Random rand = new Random();
+        public BrainShopKeep brainShopKeep;
 
         public MonsterManager(Player player)
         {
@@ -130,7 +132,9 @@ namespace monowizard
                 }
 
             }
-            
+            player.mm.addBrainShopKeepMonster((( player.shop.shopgridind % 4) * 960) + 400, ((player.shop.shopgridind / 4) * 960) + 200);
+
+
 
 
 
@@ -150,6 +154,15 @@ namespace monowizard
             monsters.Last().texture = brainmon1texture;
             monsters.Last().hitbox.X = x;
             monsters.Last().hitbox.Y = y;
+        }
+
+        public void addBrainShopKeepMonster(int x, int y)
+        {
+            monsters.Add(new BrainShopKeep(player, this));
+            monsters.Last().texture = brainyshopkeeptexture ;
+            monsters.Last().hitbox.X = x;
+            monsters.Last().hitbox.Y = y;
+            brainShopKeep = monsters.Last() as BrainShopKeep;
         }
 
         public void addOwlMonster(int x, int y)

@@ -21,16 +21,39 @@ namespace monowizard
         public int MKeyind;
         public Random rand = new Random();
         public List<HoldItem> libShopItems;
+        public List<HoldShopItem> itemsinshop;
 
         public ItemManager() {
             items = new List<HoldItem>();
+            itemsinshop = new List<HoldShopItem>();
+
+
+        }
+
+        public void robbedShop()
+        {
             
+            foreach(var item in itemsinshop)
+            {
+                item.delete();
+            }
+
+                player.mm.brainShopKeep.angry = true;
+            itemsinshop.Clear();
+            itemsinshop = new List<HoldShopItem>();
+
+
+
+
+
+
 
         }
 
         public void placeLibItems(int[] mapp, TileManager tm)
         {
-
+            itemsinshop.Clear();
+            itemsinshop = new List<HoldShopItem>();
             libShopItems = new List<HoldItem>();
             libShopItems.Add(new HoldBook(colCheck, player));
             libShopItems.Add(new HoldCrystalRock(colCheck, player));
@@ -279,6 +302,7 @@ namespace monowizard
             items.Last().texture = libitems1;
             items.Last().hitbox.X = x;
             items.Last().hitbox.Y = y;
+            itemsinshop.Add((HoldShopItem)items.Last());
 
             //Debug.WriteLine("help");
             //rockx += 80;

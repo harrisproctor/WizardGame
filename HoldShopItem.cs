@@ -109,6 +109,7 @@ namespace monowizard
                             if (player.mana > price)
                             {
                                 delete();
+                                player.itemManager.itemsinshop.Remove(this);
                                 player.changeMana(-price);
                             }
                         }
@@ -117,8 +118,10 @@ namespace monowizard
                 }
             }
             else {
-
-                delete();
+                //robbery
+                //delete();
+                player.itemManager.robbedShop();
+                
             
             }
             
@@ -164,6 +167,7 @@ namespace monowizard
 
             uinum = null;
             player.itemManager.items.Remove(this);
+            //player.itemManager.itemsinshop.Remove(this);
         }
 
         public override void draw(SpriteBatch _spriteBatch)

@@ -35,6 +35,7 @@ namespace monowizard
             player.itemManager.addShopItemRand(((shopgridind % 4) * 960)+200,((shopgridind / 4) * 960)+500,shopgridind);
             player.itemManager.addShopItemRand(((shopgridind % 4) * 960) + 450, ((shopgridind / 4) * 960) + 500,shopgridind);
             player.itemManager.addShopItemRand(((shopgridind % 4) * 960) + 700, ((shopgridind / 4) * 960) + 500, shopgridind);
+           // player.mm.addBrainShopKeepMonster(((shopgridind % 4) * 960) + 500, ((shopgridind / 4) * 960) + 50);
         }
 
         public void setShopRect() 

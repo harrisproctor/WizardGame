@@ -145,6 +145,7 @@ namespace monowizard
             player.cloudtexture = _particleManager.windcloudmanatext;
             _monsterManager.batmon1texture = Content.Load<Texture2D>("batdemon2.3");//("brainmon1");//("batdemon2.3")
             _monsterManager.brainmon1texture = Content.Load<Texture2D>("brainmon3");//("brainmon3");
+            _monsterManager.brainyshopkeeptexture = Content.Load<Texture2D>("elderbrain");
             _monsterManager.owlmon1texture = Content.Load<Texture2D>("owlexe2");
             _monsterManager.owlmagetexture = Content.Load<Texture2D>("owlymonna2");
             _monsterManager.bookmon1texture = Content.Load<Texture2D>("badmonbook");//badmonbook

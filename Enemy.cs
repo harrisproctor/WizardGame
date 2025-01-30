@@ -8,6 +8,7 @@ namespace monowizard
 {
     internal class Enemy : Entity
     {
+        
 
 
 
