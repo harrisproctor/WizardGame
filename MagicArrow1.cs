@@ -120,7 +120,7 @@ namespace monowizard
                     manager.items.Remove(this);
 
 
-            }
+                  }
 
                 for (int i = 0; i < player.itemManager.items.Count; i++)
                 {

@@ -149,7 +149,7 @@ namespace monowizard
             _monsterManager.owlmon1texture = Content.Load<Texture2D>("owlexe2");
             _monsterManager.owlmagetexture = Content.Load<Texture2D>("owlymonna2");
             _monsterManager.bookmon1texture = Content.Load<Texture2D>("badmonbook");//badmonbook
-            _magicManager.effectstext1 = Content.Load<Texture2D>("itsatrapmagic2");
+            _magicManager.effectstext1 = Content.Load<Texture2D>("particles/magicalef1");
             
 
             //_monsterManager.addBatDemon();

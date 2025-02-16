@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,10 @@ namespace monowizard
         public bool walking = false;
         public bool potright = false;
         int timesinceturn = 0;
-
+        int shoottimer = 0;
+        float dx;
+        float dy;
+        float sumAbs;
 
 
 
@@ -57,6 +61,7 @@ namespace monowizard
         public override void update()
         {
             prevattacking = attacking;
+            shoottimer += 1;
             if (iframes > 0)
             {
                 iframes--;
@@ -107,6 +112,16 @@ namespace monowizard
                         }
 
 
+
+                    }
+                    if(shoottimer > 300)
+                    {
+                        shoottimer = 0;
+                        dx = player.hitbox.X - hitbox.X;
+                        dy = player.hitbox.Y - hitbox.Y;
+                        sumAbs = Math.Abs(dx) + Math.Abs(dy);
+                        player.colcheck.tileManager.magicmanager.addMagicFire1(hitbox.X, hitbox.Y, dx/sumAbs, dy/sumAbs);
+                        
 
                     }
                 }
@@ -358,13 +373,16 @@ namespace monowizard
                 }
                 else if (entity.id == 1001 && iframes == 0)
                 {
-                    xvel += entity.xvel / 2;
-                    yvel += entity.yvel / 2;
-                    consious = false;
-                    cropbox.X = 0;
-                    cropbox.Y = 128;
-                    health--;
-                    iframes = 20;
+                    if (entity.bounce != 85)
+                    {
+                        xvel += entity.xvel / 2;
+                        yvel += entity.yvel / 2;
+                        consious = false;
+                        cropbox.X = 0;
+                        cropbox.Y = 128;
+                        health--;
+                        iframes = 20;
+                    }
 
 
                 }

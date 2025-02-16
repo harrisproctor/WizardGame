@@ -108,28 +108,10 @@ namespace monowizard
 
             playerhitcheck();
 
+            //animate
+            aniframe = (aniframe + 1) % 41;
+            croprect.X = (aniframe > 30) ? 384 : (aniframe / 10) * 128;
 
-            aniframe++;
-
-            if(aniframe == 40)
-            {
-                aniframe = 0;
-            }else if(aniframe > 30)
-            {
-                croprect.X = 384;
-            }
-            else if (aniframe > 20)
-            {
-                croprect.X = 256;
-            }
-            else if (aniframe > 10)
-            {
-                croprect.X = 128;
-            }
-            else
-            {
-                croprect.X = 0;
-            }
 
 
 

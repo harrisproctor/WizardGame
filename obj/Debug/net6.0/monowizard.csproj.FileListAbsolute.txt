@@ -60,3 +60,4 @@ C:\Users\harri\source\repos\monowizard\monowizard\obj\Debug\net6.0\monowizard.so
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\owlymonna.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\owlymonna2.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\betterbrick.xnb
+C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\particles\magicalef1.xnb

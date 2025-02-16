@@ -20,6 +20,7 @@ namespace monowizard
         public Rectangle[] croprects;
         public Tile[] tileEffects;
         public bool[] istrap;
+        public int[] basicgrounds;
 
         public Vector2[] toptrims;
         public int quedtoptrims = 0;
@@ -31,6 +32,7 @@ namespace monowizard
         public int quedlefttrims = 0;
 
         public int startroomind = 0;
+        public int backgroundThershhold;
 
 
         public Rectangle drawtilerect = new Rectangle(0,0,96,96);
@@ -42,10 +44,12 @@ namespace monowizard
 
         public MagicManager magicmanager;
         public TrapGlyph1Tile trap1;
+        public Tile basic;
         public Dictionary<int, Truetile> updateTiles = new Dictionary<int, Truetile>();
         public LevelGenerator levelgen;
         public ItemManager itemmanager;
-        
+        private LibLevSetUp libLevSetUp;
+
 
 
         //loop vars
@@ -103,6 +107,9 @@ namespace monowizard
         {
             levelgen = new LevelGenerator(player,this);
             this.player = player;
+            libLevSetUp = new LibLevSetUp(this);
+            
+            
            // map = levelgen.makeMap();
            for (int i = 0;i<backmap.Length;i++)
             {
@@ -127,7 +134,8 @@ namespace monowizard
             croprects = new Rectangle[400];
             tileEffects = new Tile[400];
             istrap = new bool[400];
-            Tile basic = new BasicTile();
+            
+            basic = new BasicTile();
             trap1 = new TrapGlyph1Tile();
             
 
@@ -139,85 +147,11 @@ namespace monowizard
             bottomtrims = new Vector2[400];
 
             
-            collides[0] = false;
-            collides[1] = true;
-            
-
-            croprects[0] = new Rectangle(0, 0, 1024, 1024);
-            croprects[1] = new Rectangle(10, 0, 226, 226);
-
-            for (int i = 0; i < 338; i++)
-            {
-                tileEffects[i] = basic;
-                istrap[i] = false;
-
-            }
-
-            for (int i = 0; i < 320; i++)
-            {
-                collides[i+2] = false;
-                croprects[i+2] = new Rectangle((96*(i % 40)), (96 * (i / 40)), 96, 96);
-                
-            }
-            for (int i = 322; i < 338; i++)
-            {
-                collides[i] = true;
-                croprects[i] = new Rectangle((96 * ((i-322) % 4)), (96 * ((i - 322) / 4)), 96, 96);
-
-            }
-            collides[338] = true;
-            croprects[338] = new Rectangle(384, 0, 128, 128);
-            tileEffects[338] = trap1;
-            istrap[338] = true;
-
-            collides[339] = true;
-            croprects[339] = new Rectangle(384, 0, 128, 128);
-            tileEffects[339] = trap1;
-            istrap[339] = true;
-
-            collides[340] = true;
-            croprects[340] = new Rectangle(768, 0, 128, 128);
-            tileEffects[340] = trap1;
-            istrap[340] = true;
-
-            collides[341] = true;
-            croprects[341] = new Rectangle(512, 0, 128, 128);
-            tileEffects[341] = trap1;
-            istrap[341] = true;
-
-            
-             collides[342] = true;
-             croprects[342] = new Rectangle(0,0,128,128);
-            tileEffects[342] = basic;
-            istrap[342] = false;
-
-            collides[343] = true;
-            croprects[343] = new Rectangle(128, 0, 128, 128);
-            tileEffects[343] = basic;
-            istrap[343] = false;
-
-            collides[344] = true;
-            croprects[344] = new Rectangle(0, 128, 128, 128);
-            tileEffects[344] = basic;
-            istrap[344] = false;
-
-            collides[345] = true;
-            croprects[345] = new Rectangle(128, 128, 128, 128);
-            tileEffects[345] = basic;
-            istrap[345] = false;
+            libLevSetUp.setUpLibTiles();
 
 
 
 
-
-            /** croprects[2] = new Rectangle(0, 0, 192, 192);
-             croprects[3] = new Rectangle(192, 0, 192, 192);
-             croprects[4] = new Rectangle(0, 192, 192, 192);
-             croprects[5] = new Rectangle(192, 192, 192, 192);
-             croprects[6] = new Rectangle(0, 384, 192, 192);
-             croprects[7] = new Rectangle(192, 384, 192, 192);
-             croprects[8] = new Rectangle(0, 572, 192, 192);
-             croprects[9] = new Rectangle(192, 572, 192, 192);*/
 
         }
 
@@ -249,7 +183,6 @@ namespace monowizard
             map = levelgen.makeMap();
             generlibback(map);
             makeLibBricks(map);
-
             updateTiles = new Dictionary<int, Truetile>();
             initateTraps();
             itemmanager.placeLibItems(map,this);
@@ -273,10 +206,6 @@ namespace monowizard
         {
              worldCol = 0;
              worldRow = 0;
-            
-            
-            
-
 
 
             while (worldCol < 40 && worldRow < 40)
@@ -312,12 +241,12 @@ namespace monowizard
                     }
                        
                     
-                    if (tileNum == 342 || tileNum == 343 || tileNum == 344 || tileNum == 345)//collides[tileNum]
+                    if (basicgrounds.Contains(tileNum))//collides[tileNum]
                     {
                         if (tileInd > 40)
                         {
 
-                            if (map[tileInd - 40] < 342)//(collides[map[tileInd-40]] == false)
+                            if (map[tileInd - 40] < backgroundThershhold)//(collides[map[tileInd-40]] == false)
                             {
                                 toptrims[quedtoptrims].X = drawtilerect.X - 2;
                                 toptrims[quedtoptrims].Y = drawtilerect.Y - 3;
@@ -328,7 +257,7 @@ namespace monowizard
                         if (tileInd < 1560)
                         {
 
-                            if (map[tileInd + 40] < 342) //(collides[map[tileInd + 40]] == false)
+                            if (map[tileInd + 40] < backgroundThershhold) //(collides[map[tileInd + 40]] == false)
                             {
                                 bottomtrims[quedbottomtrims].X = drawtilerect.X - 2;
                                 bottomtrims[quedbottomtrims].Y = drawtilerect.Y + 94;
@@ -337,7 +266,7 @@ namespace monowizard
                             }
                         }
                         if (tileInd % 40 > 0) {
-                            if (map[tileInd - 1] < 342)//(collides[map[tileInd - 1]] == false)
+                            if (map[tileInd - 1] < backgroundThershhold)//(collides[map[tileInd - 1]] == false)
                             {
                                 lefttrims[quedlefttrims].X = drawtilerect.X - 3;
                                 lefttrims[quedlefttrims].Y = drawtilerect.Y - 2;
@@ -349,7 +278,7 @@ namespace monowizard
                         }
                         if (tileInd % 40 < 39)
                         {
-                            if (map[tileInd + 1] < 342)//(collides[map[tileInd + 1]] == false)
+                            if (map[tileInd + 1] < backgroundThershhold)//(collides[map[tileInd + 1]] == false)
                             {
                                 righttrims[quedrighttrims].X = drawtilerect.X + 94;
                                 righttrims[quedrighttrims].Y = drawtilerect.Y - 2;
@@ -437,50 +366,7 @@ namespace monowizard
 
         }
 
-        public void generlibfront(int[] map)
-        {
-            bool onesrow = false;
-            bool firstpick = true;
-            int symb = 1;
-
-            for (int i = 0; i < map.Length; i++)
-            {
-                if (i % 40 == 0) {
-                    onesrow = !onesrow;
-                }
-                if (onesrow) {
-                    if (firstpick) 
-                    {
-                        symb = 322;
-                        firstpick = false;
-                    }
-                    else
-                    {
-                        symb = 323;
-                        firstpick = true;
-                    }
-                }
-                else
-                {
-                    if (firstpick)
-                    {
-                        symb = 324;
-                        firstpick = false;
-                    }
-                    else
-                    {
-                        symb = 325;
-                        firstpick = true;
-                    }
-
-                }
-
-                if (map[i] == 1)
-                {
-                    map[i] = symb;
-                }
-            }
-        }
+       
 
     }
 

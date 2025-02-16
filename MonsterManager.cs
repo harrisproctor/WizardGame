@@ -122,7 +122,12 @@ namespace monowizard
                 addBrainMonster(((keyind % 40) * 96) - 95, ((keyind / 40) * 96) - 90);
                 freemedspaces.Remove(keyind);
             }
-
+            for (int i = 0; i < rand.Next(1, 4); i++)
+            {
+                keyind = freemedspaces[rand.Next(freemedspaces.Count)];
+                addOwlMageMonster(((keyind % 40) * 96) - 95, ((keyind / 40) * 96) - 90);
+                freemedspaces.Remove(keyind);
+            }
             for (int i = 0; i < monsters.Count; i++)
             {
                 if (monsters[i].hitbox.Intersects(new Microsoft.Xna.Framework.Rectangle((tm.startroomind*960),0,960,960)))
