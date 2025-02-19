@@ -39,11 +39,13 @@
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/spider!!!!.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/trapproto1.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/trapproto2.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/UIScroll.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/woodtileslib3.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/woodtileslib5.png</File>
   </SourceFiles>
   <DestFiles>
     <File>elderbrain.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

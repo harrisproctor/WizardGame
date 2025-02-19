@@ -61,3 +61,4 @@ C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\owlym
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\owlymonna2.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\betterbrick.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\particles\magicalef1.xnb
+C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\UIScroll.xnb

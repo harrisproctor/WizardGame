@@ -82,10 +82,11 @@ namespace monowizard
 
             _shopManager = new ShopManger(player);
             player.shop = _shopManager;
+            ui.player = player;
 
-            
 
-            
+
+
 
             base.Initialize();
 
@@ -141,6 +142,9 @@ namespace monowizard
 
             ui.healthfont = Content.Load<Texture2D>("numberswithred2");
             ui.manafont = Content.Load<Texture2D>("numberswithblue2");
+            ui.UIElements = Content.Load<Texture2D>("UIScroll");
+            
+
             player.fireballtexture = Content.Load<Texture2D>("boomspiretsheet");
             player.cloudtexture = _particleManager.windcloudmanatext;
             _monsterManager.batmon1texture = Content.Load<Texture2D>("batdemon2.3");//("brainmon1");//("batdemon2.3")
