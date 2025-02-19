@@ -23,12 +23,17 @@ namespace monowizard
         public Rectangle healthnumb2pos = new Rectangle(100, 30, 80, 80);
 
         public Rectangle scroll1crop = new Rectangle(0, 0, 128, 128);
-        public Rectangle scroll1pos = new Rectangle(1560, 30, 100, 100);
-        public Rectangle scroll2pos = new Rectangle(1680, 30, 100, 100);
-        public Rectangle scroll3pos = new Rectangle(1800, 30, 100, 100);
-        public Rectangle scroll4pos = new Rectangle(1440, 30, 100, 100);
 
-        
+        public Rectangle scroll2pos = new Rectangle(1560, 30, 100, 100);
+        public Rectangle scroll3pos = new Rectangle(1680, 30, 100, 100);
+        public Rectangle scroll4pos = new Rectangle(1800, 30, 100, 100);
+        public Rectangle scroll1pos = new Rectangle(1440, 30, 100, 100);
+        public Rectangle spell1pos = new Rectangle(1450, 40, 80, 80);
+        public Rectangle spell2pos = new Rectangle(1570, 40, 80, 80);
+        public Rectangle spell3pos = new Rectangle(1690, 40, 80, 80);
+        public Rectangle spell4pos = new Rectangle(1810, 40, 80, 80);
+
+
 
 
         public int mananumb1;
@@ -110,12 +115,26 @@ namespace monowizard
             _spriteBatch.Draw(manafont, mananumb2pos, mananumb2crop, Color.White);
 
             _spriteBatch.Draw(UIElements, scroll1pos, scroll1crop, Color.White);
-            _spriteBatch.Draw(player.itemManager.magicsymbols, scroll1pos, player.cantrip.symbcroprect, Color.White);
-
+            if (player.cantrip != null)
+            {
+                _spriteBatch.Draw(player.itemManager.magicsymbols, spell1pos, player.cantrip.symbcroprect, Color.White);
+            }
 
             _spriteBatch.Draw(UIElements, scroll2pos, scroll1crop, Color.White);
+            if (player.cantrip2 != null)
+            {
+                _spriteBatch.Draw(player.itemManager.magicsymbols, spell2pos, player.cantrip2.symbcroprect, Color.White);
+            }
             _spriteBatch.Draw(UIElements, scroll3pos, scroll1crop, Color.White);
+            if (player.cantrip3 != null)
+            {
+                _spriteBatch.Draw(player.itemManager.magicsymbols, spell3pos, player.cantrip3.symbcroprect, Color.White);
+            }
             _spriteBatch.Draw(UIElements, scroll4pos, scroll1crop, Color.White);
+            if (player.cantrip4 != null)
+            {
+                _spriteBatch.Draw(player.itemManager.magicsymbols, spell4pos, player.cantrip4.symbcroprect, Color.White);
+            }
 
 
             for (int i = 0; i < items.Count; i++)

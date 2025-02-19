@@ -142,11 +142,29 @@ namespace monowizard
             
                 if (hitbox.Intersects(player.hitbox))
                 {
-                player.cantrip = spell;
-                itemManager.items.Remove(this);
-                    
-
+                if(player.cantrip == null)
+                {
+                    player.cantrip = spell;
+                    itemManager.items.Remove(this);
+                }else if(player.cantrip2 == null)
+                {
+                    player.cantrip2 = spell;
+                    itemManager.items.Remove(this);
                 }
+                else if (player.cantrip3 == null)
+                {
+                    player.cantrip3 = spell;
+                    itemManager.items.Remove(this);
+                }
+                else if (player.cantrip4 == null)
+                {
+                    player.cantrip4 = spell;
+                    itemManager.items.Remove(this);
+                }
+
+
+
+            }
             
         }
 

@@ -212,6 +212,18 @@ namespace monowizard
             {
                 player.cantrip.update();
             }
+            if (player.cantrip2 != null)
+            {
+                player.cantrip2.update();
+            }
+            if (player.cantrip3 != null)
+            {
+                player.cantrip3.update();
+            }
+            if (player.cantrip4 != null)
+            {
+                player.cantrip4.update();
+            }
 
             _particleManager.update();
 
@@ -242,6 +254,18 @@ namespace monowizard
             {
                 player.cantrip.predraw(_spriteBatch);
             }
+            if (player.cantrip2 != null)
+            {
+                player.cantrip2.predraw(_spriteBatch);
+            }
+            if (player.cantrip3 != null)
+            {
+                player.cantrip3.predraw(_spriteBatch);
+            }
+            if (player.cantrip4 != null)
+            {
+                player.cantrip4.predraw(_spriteBatch);
+            }
 
             player.screenpos.X = player.hitbox.X-15 - player.centerWorldX + player.centerX;
             player.screenpos.Y = player.hitbox.Y-30 - player.centerWorldY + player.centerY;
@@ -259,6 +283,18 @@ namespace monowizard
             if (player.cantrip != null)
             {
                 player.cantrip.draw(_spriteBatch);
+            }
+            if (player.cantrip2 != null)
+            {
+                player.cantrip2.draw(_spriteBatch);
+            }
+            if (player.cantrip3 != null)
+            {
+                player.cantrip3.draw(_spriteBatch);
+            }
+            if (player.cantrip4 != null)
+            {
+                player.cantrip4.draw(_spriteBatch);
             }
 
             _magicManager.drawAll(_spriteBatch);

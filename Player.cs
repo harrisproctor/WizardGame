@@ -62,6 +62,9 @@ namespace monowizard
         public int uncousiustime;
         //yourcurrent cantrip
         public Cantrip cantrip;
+        public Cantrip cantrip2;
+        public Cantrip cantrip3;
+        public Cantrip cantrip4;
         public MonsterManager mm;
         public Game currentGame;
         public UI ui;
@@ -77,6 +80,9 @@ namespace monowizard
         public int switchcolordelay = 1;
         public ShopManger shop;
         public bool epressed = false;
+        public bool upAct = false;
+        public bool downAct = false;
+        public bool rightAct = false;
 
 
 
@@ -467,6 +473,73 @@ namespace monowizard
                     leftact = true;
 
 
+                }
+                if (keyState.IsKeyDown(Keys.Up))
+                {
+                    if (cantrip2 != null && upAct == false)
+                    {
+                        if (mana >= cantrip2.manacost)
+                        {
+                            changeMana(-cantrip2.manacost);
+                            upAct = true;
+                            cantrip2.cast();
+                           
+                        }
+                    }
+                }else if (keyState.IsKeyUp(Keys.Up))
+                {
+                    upAct = false;
+                }
+                if (keyState.IsKeyDown(Keys.Down))
+                {
+                    if (cantrip3 != null && downAct == false)
+                    {
+                        if (mana >= cantrip3.manacost)
+                        {
+                            changeMana(-cantrip3.manacost);
+                            downAct = true;
+                            cantrip3.cast();
+                            
+                        }
+                    }
+                }
+                else if (keyState.IsKeyUp(Keys.Down))
+                {
+                    downAct = false;
+                }
+                if (keyState.IsKeyDown(Keys.Right))
+                {
+                    if (cantrip4 != null && rightAct == false)
+                    {
+                        if (mana >= cantrip4.manacost)
+                        {
+                            changeMana(-cantrip4.manacost);
+                            rightAct = true;
+                            cantrip4.cast();
+                            
+                        }
+                    }
+                }else if (keyState.IsKeyUp(Keys.Right))
+                {
+                    rightAct = false;
+                }
+
+                if (keyState.IsKeyDown(Keys.D1))
+                {
+                    cantrip = null;
+                }
+                if (keyState.IsKeyDown(Keys.D2))
+                {
+                    cantrip2 = null;
+                }
+
+                if (keyState.IsKeyDown(Keys.D3))
+                {
+                    cantrip3 = null;
+                }
+                if (keyState.IsKeyDown(Keys.D4))
+                {
+                    cantrip4 = null;
                 }
 
 
