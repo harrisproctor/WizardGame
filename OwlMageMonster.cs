@@ -41,6 +41,7 @@ namespace monowizard
         float dx;
         float dy;
         float sumAbs;
+        bool casting = false;
 
 
 
@@ -49,7 +50,7 @@ namespace monowizard
         {
             this.player = player;
             id = 34;
-            hitbox = new Rectangle(1700, 600, 80, 80);
+            hitbox = new Rectangle(1700, 600, 80, 90);
             check = player.colcheck;
             bounce = 100;
             this.mm = mm;
@@ -117,11 +118,11 @@ namespace monowizard
                     if(shoottimer > 300)
                     {
                         shoottimer = 0;
-                        dx = player.hitbox.X - hitbox.X;
-                        dy = player.hitbox.Y - hitbox.Y;
-                        sumAbs = Math.Abs(dx) + Math.Abs(dy);
-                        player.colcheck.tileManager.magicmanager.addMagicFire1(hitbox.X, hitbox.Y, dx/sumAbs, dy/sumAbs);
-                        
+                        //here bitch
+                        attacking = true;
+                        casting = true;
+                        //fireball();
+
 
                     }
                 }
@@ -206,6 +207,11 @@ namespace monowizard
                         cropbox.Y = 0;
                         aniframe = 0;
                         attacking = false;
+                        if (casting)
+                        {
+                            casting = false;
+                            fireball();
+                        }
 
                     }
 
@@ -331,6 +337,14 @@ namespace monowizard
             }
 
 
+        }
+
+        public void fireball()
+        {
+            dx = player.hitbox.X - hitbox.X;
+            dy = player.hitbox.Y - hitbox.Y;
+            sumAbs = Math.Abs(dx) + Math.Abs(dy);
+            player.colcheck.tileManager.magicmanager.addMagicFire1(hitbox.X, hitbox.Y, dx / sumAbs, dy / sumAbs);
         }
 
         public override void hit(Entity entity)
@@ -460,7 +474,7 @@ namespace monowizard
         public override void draw(SpriteBatch _spriteBatch)
         {
             drawbox.X = (int)(hitbox.X - 20) - player.centerWorldX + player.centerX;
-            drawbox.Y = (int)(hitbox.Y - 30) - player.centerWorldY + player.centerY;
+            drawbox.Y = (int)(hitbox.Y - 10) - player.centerWorldY + player.centerY;
             // _spriteBatch.Draw(battexture, drawbox, cropbox, Color.White);
             _spriteBatch.Draw(texture, drawbox, cropbox, Color.White, 0, Vector2.Zero, facingeffect, 1);
         }

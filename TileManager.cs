@@ -21,6 +21,7 @@ namespace monowizard
         public Tile[] tileEffects;
         public bool[] istrap;
         public int[] basicgrounds;
+        public bool[] breakable;
 
         public Vector2[] toptrims;
         public int quedtoptrims = 0;
@@ -134,6 +135,7 @@ namespace monowizard
             croprects = new Rectangle[400];
             tileEffects = new Tile[400];
             istrap = new bool[400];
+            breakable = new bool[400];
             
             basic = new BasicTile();
             trap1 = new TrapGlyph1Tile();
@@ -175,6 +177,14 @@ namespace monowizard
                 {
                     updateTiles.Add(i, new ExitTrueTile(i, this));
                 }
+            }
+        }
+
+        public void breaktile(int tileind)
+        {
+            if (breakable[map[tileind]])
+            {
+                map[tileind] = backmap[tileind];
             }
         }
 
@@ -361,7 +371,17 @@ namespace monowizard
                 }
 
             }
-                
+            for (int i = 0; i < 40; i++)
+            {
+                map[i] = 347;
+                map[i + 1560] = 347;
+                map[i * 40] = 347;
+                map[(i * 40) + 39] = 347;
+
+
+            }
+
+
 
 
         }

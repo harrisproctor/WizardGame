@@ -34,6 +34,14 @@ namespace monowizard
         public int iframes = 0;
         public bool prevattacking = false;
         public bool angry = false;
+        int bobbing = 0;
+        public bool bobup = true;
+        int shoottimer = 0;
+        float dx;
+        float dy;
+        float sumAbs;
+        bool casting = false;
+        Random rand = new Random();
 
 
 
@@ -53,6 +61,15 @@ namespace monowizard
 
         }
 
+        public void fireball()
+        {
+            
+            dx = player.hitbox.X - hitbox.X + rand.Next(-1,1);
+            dy = player.hitbox.Y - hitbox.Y + rand.Next(-1, 1);
+            sumAbs = Math.Abs(dx) + Math.Abs(dy);
+            player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X+20, hitbox.Y+10, dx / sumAbs, dy / sumAbs);
+        }
+
         public override void update()
         {
             prevattacking = attacking;
@@ -64,6 +81,29 @@ namespace monowizard
             {
                 yvel = 0;
                 xvel = 0;
+
+                if(bobup)
+                {
+                    bobbing++;
+                    if (bobbing > 30)
+                    {
+                        bobup = false;
+                    }
+                    yvel = player.frameCounter.frame % 5 == 0 ? 1 : 0;
+                }
+                else
+                {
+                    bobbing--;
+                    if (bobbing < -30)
+                    {
+                        bobup = true;
+                    }
+                    //make yvel negative one every 3rd frame
+                    yvel = player.frameCounter.frame % 5 == 0 ? -1 : 0;
+                }
+
+
+
 
                 if (angry)
                 {
@@ -95,7 +135,18 @@ namespace monowizard
                      {
                          yvel--;
                      }
-                    
+                    shoottimer++;
+                    if (shoottimer > 50)
+                    {
+                        shoottimer = 0;
+                        //here bitch
+                        attacking = true;
+                        casting = true;
+                        //fireball();
+
+
+                    }
+
                 }
 
                 colliding = false;
@@ -138,6 +189,11 @@ namespace monowizard
                         cropbox.Y = 0;
                         aniframe = 0;
                         attacking = false;
+                        if (casting)
+                        {
+                            casting = false;
+                            fireball();
+                        }
 
                     }
 

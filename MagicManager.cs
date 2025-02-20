@@ -54,6 +54,14 @@ namespace monowizard
             // Debug.WriteLine("magic");
 
         }
+        public void addEvilLightning1(int x, int y, float facing, float down)
+        {
+
+            items.Add(new EvilLightning(colCheck, player, x, y, facing, down, this));
+            items.Last().texture = effectstext1;
+            // Debug.WriteLine("magic");
+
+        }
 
 
         public void update()

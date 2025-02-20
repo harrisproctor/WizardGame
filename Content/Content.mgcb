@@ -49,7 +49,7 @@
 /processorParam:TextureFormat=Color
 /build:batdemon2.3.png
 
-#begin betterbrick.png
+#begin bestbrickslib.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -59,7 +59,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:betterbrick.png
+/build:bestbrickslib.png
 
 #begin bookselvesback1.png
 /importer:TextureImporter
@@ -264,6 +264,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:library/woodtileslib4.png
+
+#begin magicalef2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:magicalef2.png
 
 #begin numberswithblue2.png
 /importer:TextureImporter

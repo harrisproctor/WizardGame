@@ -125,8 +125,8 @@ namespace monowizard
             _tileManager.texts[338] = Content.Load<Texture2D>("trapproto2");
             _tileManager.texts[339] = _tileManager.texts[338];
 
-            _tileManager.texts[342] = Content.Load<Texture2D>("betterbrick");
-            for (int i = 343; i < 346; i++)
+            _tileManager.texts[342] = Content.Load<Texture2D>("bestbrickslib");
+            for (int i = 343; i < 348; i++)
             {
                 _tileManager.texts[i] = _tileManager.texts[342];
 
@@ -153,7 +153,7 @@ namespace monowizard
             _monsterManager.owlmon1texture = Content.Load<Texture2D>("owlexe2");
             _monsterManager.owlmagetexture = Content.Load<Texture2D>("owlymonna2");
             _monsterManager.bookmon1texture = Content.Load<Texture2D>("badmonbook");//badmonbook
-            _magicManager.effectstext1 = Content.Load<Texture2D>("particles/magicalef1");
+            _magicManager.effectstext1 = Content.Load<Texture2D>("magicalef2");
             
 
             //_monsterManager.addBatDemon();

@@ -28,6 +28,7 @@ namespace monowizard
             {
                 tm.tileEffects[i] = tm.basic;
                 tm.istrap[i] = false;
+                tm.breakable[i] = true;
             }
 
             for (int i = 0; i < 320; i++)
@@ -45,43 +46,63 @@ namespace monowizard
             tm.croprects[338] = new Rectangle(384, 0, 128, 128);
             tm.tileEffects[338] = tm.trap1;
             tm.istrap[338] = true;
+            tm.breakable[338] = true;
 
             tm.collides[339] = true;
             tm.croprects[339] = new Rectangle(384, 0, 128, 128);
             tm.tileEffects[339] = tm.trap1;
             tm.istrap[339] = true;
+            tm.breakable[339] = true;
 
             tm.collides[340] = true;
             tm.croprects[340] = new Rectangle(768, 0, 128, 128);
             tm.tileEffects[340] = tm.trap1;
             tm.istrap[340] = true;
+            tm.breakable[340] = true;
 
             tm.collides[341] = true;
             tm.croprects[341] = new Rectangle(512, 0, 128, 128);
             tm.tileEffects[341] = tm.trap1;
             tm.istrap[341] = true;
+            tm.breakable[341] = false;
 
             tm.collides[342] = true;
             tm.croprects[342] = new Rectangle(0, 0, 128, 128);
             tm.tileEffects[342] = tm.basic;
             tm.istrap[342] = false;
+            tm.breakable[342] = true;
 
             tm.collides[343] = true;
             tm.croprects[343] = new Rectangle(128, 0, 128, 128);
             tm.tileEffects[343] = tm.basic;
             tm.istrap[343] = false;
+            tm.breakable[343] = true;
 
             tm.collides[344] = true;
             tm.croprects[344] = new Rectangle(0, 128, 128, 128);
             tm.tileEffects[344] = tm.basic;
             tm.istrap[344] = false;
+            tm.breakable[344] = true;
 
             tm.collides[345] = true;
             tm.croprects[345] = new Rectangle(128, 128, 128, 128);
             tm.tileEffects[345] = tm.basic;
             tm.istrap[345] = false;
+            tm.breakable[345] = true;
 
-            tm.basicgrounds = new int[] { 342, 343, 344, 345 };
+            tm.collides[346] = true;
+            tm.croprects[346] = new Rectangle(256, 128, 128, 128);
+            tm.tileEffects[346] = tm.basic;
+            tm.istrap[346] = false;
+            tm.breakable[346] = true;
+
+            tm.collides[347] = true;
+            tm.croprects[347] = new Rectangle(384, 128, 128, 128);
+            tm.tileEffects[347] = tm.basic;
+            tm.istrap[347] = false;
+            tm.breakable[347] = false;
+
+            tm.basicgrounds = new int[] { 342, 343, 344, 345,346,347 };
             tm.backgroundThershhold = 342;
         }
     }

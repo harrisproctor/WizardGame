@@ -7,7 +7,7 @@
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/../../../../../Desktop/artmisc/bookmon1/elderbrainmon/elderbrain.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/badmonbook.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/batdemon2.3.png</File>
-    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/betterbrick.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/bestbrickslib.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/bookselvesback1.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/bookshelftile1.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/boomspiretsheet.png</File>
@@ -25,6 +25,7 @@
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/library/woodtileslib1.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/library/woodtileslib2.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/library/woodtileslib4.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/magicalef2.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/numberswithblue2.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/numberswithred2.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/owlexe2.png</File>
@@ -45,6 +46,7 @@
   </SourceFiles>
   <DestFiles>
     <File>elderbrain.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

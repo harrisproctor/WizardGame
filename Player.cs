@@ -243,6 +243,14 @@ namespace monowizard
                         changeHealth(-1);
                         iframes = 50;
                     }
+                    else if (entity.id == 1055)
+                    {
+                        consious = false;
+                        xvel += entity.xvel;
+                        yvel += entity.yvel;
+                        changeHealth(-3);
+                        iframes = 50;
+                    }
                 }
             }
 
