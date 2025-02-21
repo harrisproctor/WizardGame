@@ -224,6 +224,29 @@ namespace monowizard
             this.tileManager = tileManager;
         }
 
+        public int[] roomRandomizerSwamp(int[] rooma)
+        {
+            int[] room = new int[rooma.Length];
+            for (int i = 0; i < room.Length; i++)
+            {
+                room[i] = rooma[i];
+            }
+
+            for (int i = 0; i < room.Length; i++)
+            {
+                if (room[i] != 0 && room[i] != 341) 
+                { 
+                    room[i] = 65;
+                
+                }
+            }
+
+
+
+            return room;
+
+        }
+
         public int[] roomRandomizer(int[] rooma) 
         {
             int[] room = new int[rooma.Length];

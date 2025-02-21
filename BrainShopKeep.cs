@@ -64,8 +64,8 @@ namespace monowizard
         public void fireball()
         {
             
-            dx = player.hitbox.X - hitbox.X + rand.Next(-1,1);
-            dy = player.hitbox.Y - hitbox.Y + rand.Next(-1, 1);
+            dx = player.hitbox.X - hitbox.X + rand.Next(-3,3);
+            dy = player.hitbox.Y - hitbox.Y + rand.Next(-3, 3);
             sumAbs = Math.Abs(dx) + Math.Abs(dy);
             player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X+20, hitbox.Y+10, dx / sumAbs, dy / sumAbs);
         }
@@ -112,7 +112,7 @@ namespace monowizard
                      playerdiry = hitbox.Y - player.hitbox.Y;
                      if (playerdirx < -5)
                      {
-                         xvel++;
+                         xvel += 2;
                          if (facingeffect == SpriteEffects.FlipHorizontally)
                          {
                              facingeffect = SpriteEffects.None;
@@ -120,7 +120,7 @@ namespace monowizard
                      }
                      else if (playerdirx > 5)
                      {
-                         xvel--;
+                         xvel -= 2;
                          if (facingeffect == SpriteEffects.None)
                          {
                              facingeffect = SpriteEffects.FlipHorizontally;
@@ -129,11 +129,11 @@ namespace monowizard
 
                      if (playerdiry < -60)
                      {
-                         yvel++;
+                         yvel += 2;
                      }
                      else
                      {
-                         yvel--;
+                         yvel -= 2;
                      }
                     shoottimer++;
                     if (shoottimer > 50)

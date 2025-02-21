@@ -50,6 +50,9 @@ namespace monowizard
         public LevelGenerator levelgen;
         public ItemManager itemmanager;
         private LibLevSetUp libLevSetUp;
+        private SwampLevSetUp swampLevSetUp;
+
+        public Game1 theGame;
 
 
 
@@ -118,16 +121,9 @@ namespace monowizard
             }
 
             generlibback(backmap);
-
-            
-
             generlibback(map);
             // generlibfront(map);
-
             makeLibBricks(map);
-
-
-
 
 
             collides = new bool[400];
@@ -150,10 +146,6 @@ namespace monowizard
 
             
             libLevSetUp.setUpLibTiles();
-
-
-
-
 
         }
 
@@ -201,6 +193,22 @@ namespace monowizard
 
             
         }
+
+        public void newMapSwamp()
+        {
+            map = levelgen.makeMap();
+           // generlibback(map);
+            //makeLibBricks(map);
+            updateTiles = new Dictionary<int, Truetile>();
+            initateTraps();
+            //itemmanager.placeLibItems(map, this);
+            //player.mm.placelibenemies(map, this);
+            player.mm.particleManager.items.Clear();
+
+
+        }
+
+
 
         public void update()
         {

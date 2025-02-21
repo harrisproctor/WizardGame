@@ -373,18 +373,6 @@
 /processorParam:TextureFormat=Color
 /build:particles/libparticles1.png
 
-#begin particles/magicalef1.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:particles/magicalef1.png
-
 #begin particles/particlues1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -421,6 +409,18 @@
 /processorParam:TextureFormat=Color
 /build:spider!!!!.png
 
+#begin tileswamp2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:tileswamp2.png
+
 #begin trapproto1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -456,18 +456,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:UIScroll.png
-
-#begin woodtileslib3.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:woodtileslib3.png
 
 #begin woodtileslib5.png
 /importer:TextureImporter

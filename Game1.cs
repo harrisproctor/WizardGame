@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -20,8 +21,11 @@ namespace monowizard
         ParticleManager _particleManager;
         ShopManger _shopManager;
         //Batdemon battdemon;
+        ContentManager level1Content;
         
-        
+
+
+
 
         Sprite sprite;
         Player player;
@@ -50,6 +54,7 @@ namespace monowizard
             player = new Player();
 
             _tileManager = new TileManager(player);
+            _tileManager.theGame = this;
             _collisionCheck = new CollisionCheck(_tileManager);
             ui = new UI();
 
@@ -104,14 +109,16 @@ namespace monowizard
 
             // TODO: use this.Content to load your game content here
             //Tile[] tiles = new Tile[10];
-           // tiles[0].texture = Content.Load<Texture2D>("shittyself");
-            
-            player.texture = Content.Load<Texture2D>("cocovon");
-            _tileManager.texts[0] = Content.Load<Texture2D>("bookshelftile1");
-            _tileManager.texts[1] = Content.Load<Texture2D>("woodtileslib5");
+            // tiles[0].texture = Content.Load<Texture2D>("shittyself");
+            level1Content = new ContentManager(this.Services, "Content");
+
+
+            player.texture = level1Content.Load<Texture2D>("cocovon");
+            _tileManager.texts[0] = level1Content.Load<Texture2D>("bookshelftile1");
+            _tileManager.texts[1] = level1Content.Load<Texture2D>("woodtileslib5");
             _tileManager.texts[340] = _tileManager.texts[1];
             _tileManager.texts[341] = _tileManager.texts[1];
-            _tileManager.texts[2] = Content.Load<Texture2D>("libarybackground2");
+            _tileManager.texts[2] = level1Content.Load<Texture2D>("libarybackground2");
             for (int i = 2;i < 322; i++)
             {
                 _tileManager.texts[i] = _tileManager.texts[2];
@@ -122,10 +129,10 @@ namespace monowizard
                 _tileManager.texts[i] = _tileManager.texts[1];
 
             }
-            _tileManager.texts[338] = Content.Load<Texture2D>("trapproto2");
+            _tileManager.texts[338] = level1Content.Load<Texture2D>("trapproto2");
             _tileManager.texts[339] = _tileManager.texts[338];
 
-            _tileManager.texts[342] = Content.Load<Texture2D>("bestbrickslib");
+            _tileManager.texts[342] = level1Content.Load<Texture2D>("bestbrickslib");
             for (int i = 343; i < 348; i++)
             {
                 _tileManager.texts[i] = _tileManager.texts[342];
