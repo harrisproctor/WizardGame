@@ -9,6 +9,7 @@ using System.Reflection.Metadata;
 using System.Numerics;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 using System.Diagnostics;
+using System.Xml.Serialization;
 
 namespace monowizard
 {
@@ -16,6 +17,7 @@ namespace monowizard
     {
         public Player player;
         public Texture2D[] texts;
+        public Texture2D swamptiles;
         public bool[] collides;
         public Rectangle[] croprects;
         public Tile[] tileEffects;
@@ -53,6 +55,7 @@ namespace monowizard
         private SwampLevSetUp swampLevSetUp;
 
         public Game1 theGame;
+        public bool ogre;
 
 
 
@@ -112,10 +115,11 @@ namespace monowizard
             levelgen = new LevelGenerator(player,this);
             this.player = player;
             libLevSetUp = new LibLevSetUp(this);
-            
-            
-           // map = levelgen.makeMap();
-           for (int i = 0;i<backmap.Length;i++)
+            swampLevSetUp = new SwampLevSetUp(this);
+
+
+            // map = levelgen.makeMap();
+            for (int i = 0;i<backmap.Length;i++)
             {
                 backmap[i] = 0;
             }
@@ -196,13 +200,26 @@ namespace monowizard
 
         public void newMapSwamp()
         {
-            map = levelgen.makeMap();
-           // generlibback(map);
-            //makeLibBricks(map);
+            if (ogre == false)
+            {
+                swampLevSetUp.switchSwampAssets(theGame.Content);
+                swampLevSetUp.setUpSwampTiles();
+                ogre = true;
+            }
+            map = levelgen.makeMapSwamp();
+            generlswampback(backmap);
+            for (int i = 0; i < map.Length; i++)
+            {
+                if (map[i] == 0)
+                {
+                    map[i] = backmap[i];
+                }
+            }
+            makeSwampBricks(map);
             updateTiles = new Dictionary<int, Truetile>();
             initateTraps();
-            //itemmanager.placeLibItems(map, this);
-            //player.mm.placelibenemies(map, this);
+            itemmanager.placeSwampItems(map, this);
+            player.mm.monsters.Clear();
             player.mm.particleManager.items.Clear();
 
 
@@ -364,6 +381,63 @@ namespace monowizard
             }
         }
 
+        public void generlswampback(int[] map)
+        {
+            Random rand = new Random();
+            int[] backlayout = new int[25];
+            int[] chances = new int[]{ 0,0,0,0,0,0,0,0,1,1,1,1,2,2,3,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0};
+            int choice = 0;
+            int position64 = 0;
+            int ind = 0;
+            int counter = 2;
+            for (int i = 0; i < 25; i++)
+            {
+                choice = rand.Next(0, chances.Length);
+                backlayout[i] = chances[choice];
+            }
+
+            for (int i = 0; i < map.Length; i++)
+            {
+                if (map[i] == 0)
+                {
+                    ind = ((i % 40) / 8) + ((i / 320) * 5);
+                    choice = backlayout[ind];
+                    position64 = (i/40) % 4;
+                     if (choice % 2 == 0)
+                     {
+                        if (choice == 0)
+                        {
+                            map[i] = 2 + (i % 4) + (8 * position64);
+                        }
+                        else
+                        {
+                            map[i] = 34 + (i % 4) + (8 * position64);
+                        }
+                    }
+                     else
+                     {
+                         //is odd
+                         if (choice == 1) 
+                         {
+                            map[i] = 6 + (i % 4) + (8 * position64);
+                        }
+                         else
+                         {
+                            map[i] = 38 + (i % 4) + (8 * position64);
+                        }
+
+                     }
+                    
+                   
+                    
+
+                }
+            }
+            
+
+
+        }
+
         public void makeLibBricks(int[] map)
         {
             Random rand = new Random();
@@ -393,8 +467,37 @@ namespace monowizard
 
 
         }
+        public void makeSwampBricks(int[] map)
+        {
+            Random rand = new Random();
+            int choice = 260;
 
-       
+            for (int i = 0; i < map.Length; i++)
+            {
+                if (map[i] == 1)
+                {
+                    choice = 260;
+                    choice += rand.Next(0, 4);
+                    map[i] = choice;
+                }
+
+            }
+            for (int i = 0; i < 40; i++)
+            {
+                map[i] = 265;
+                map[i + 1560] = 265;
+                map[i * 40] = 265;
+                map[(i * 40) + 39] = 265;
+
+
+            }
+
+
+
+
+        }
+
+
 
     }
 

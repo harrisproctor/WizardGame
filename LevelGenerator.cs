@@ -236,7 +236,7 @@ namespace monowizard
             {
                 if (room[i] != 0 && room[i] != 341) 
                 { 
-                    room[i] = 65;
+                    room[i] = 1;
                 
                 }
             }
@@ -254,7 +254,6 @@ namespace monowizard
             {
                 room[i] = rooma[i];
             }
-
 
                 int prob;
 
@@ -488,6 +487,65 @@ namespace monowizard
 
         }
 
+        public int[] makeRoomRowSwamp(int[][] room1type, int[][] room2type, int[][] room3type, int[][] room4type)
+        {
+
+
+            int room1ind;
+            int room2ind;
+            int room3ind;
+            int room4ind;
+
+
+            room1ind = (rnd.Next(room1type.Length));
+            room2ind = (rnd.Next(room2type.Length));
+            room3ind = (rnd.Next(room3type.Length));
+            room4ind = (rnd.Next(room4type.Length));
+
+            int[] room1 = roomRandomizerSwamp(room1type[room1ind]);
+            int[] room2 = roomRandomizerSwamp(room2type[room2ind]);
+            int[] room3 = roomRandomizerSwamp(room3type[room3ind]);
+            int[] room4 = roomRandomizerSwamp(room4type[room4ind]);
+
+
+
+
+            int[] Row = new int[400];
+            for (int x = 0; x < 10; x++)
+            {
+
+
+                for (int z = 0; z < 10; z++)
+                {
+                    Row[(x * 40) + (0 * 10) + z] = room1[(x * 10) + z];
+
+                }
+                for (int z = 0; z < 10; z++)
+                {
+                    Row[(x * 40) + (1 * 10) + z] = room2[(x * 10) + z];
+
+                }
+                for (int z = 0; z < 10; z++)
+                {
+                    Row[(x * 40) + (2 * 10) + z] = room3[(x * 10) + z];
+
+                }
+                for (int z = 0; z < 10; z++)
+                {
+                    Row[(x * 40) + (3 * 10) + z] = room4[(x * 10) + z];
+
+                }
+
+
+
+            }
+
+
+
+            return Row;
+
+        }
+
 
         public int[] makeMap()
         {
@@ -534,6 +592,57 @@ namespace monowizard
             //row1[(40 * 6) + 6] = 0;
            // row1[(40 * 7) + 5] = 1;
            // row1[(40 * 7) + 6] = 0;
+
+
+            return row1;
+
+        }
+
+        public int[] makeMapSwamp()
+        {
+            int[] testing = makeRoomLayout();
+            for (int i = 0; i < 16; i++)
+            {
+                if (testing[i] == 42)
+                {
+                    tileManager.startroomind = i;
+                }
+            }
+
+
+            int[][][] roompools = makeroompoolsinlayout(testing);
+
+
+            int[] row1 = makeRoomRowSwamp(roompools[0], roompools[1], roompools[2], roompools[3]);
+            int[] row2 = makeRoomRowSwamp(roompools[4], roompools[5], roompools[6], roompools[7]);
+            int[] row3 = makeRoomRowSwamp(roompools[8], roompools[9], roompools[10], roompools[11]);
+            int[] row4 = makeRoomRowSwamp(roompools[12], roompools[13], roompools[14], roompools[15]);
+            //create the map
+            row1 = row1.Concat(row2).ToArray();
+            row2 = row3.Concat(row4).ToArray();
+            row1 = row1.Concat(row2).ToArray();
+            //add indestruble border
+            for (int z = 0; z < 40; z++)
+            {
+                row1[z] = 1;
+                row1[1560 + z] = 1;
+                row1[z * 40] = 1;
+                if (z > 0)
+                {
+                    if (row1[(z * 40) - 1] == 0)
+                    {
+                        row1[(z * 40) - 1] = 1;
+                    }
+
+                }
+            }
+            //add player spawn area
+            //row1[(40 * 5) + 5] = 0;
+            //row1[(40 * 5) + 6] = 0;
+            //row1[(40 * 6) + 5] = 0;
+            //row1[(40 * 6) + 6] = 0;
+            // row1[(40 * 7) + 5] = 1;
+            // row1[(40 * 7) + 6] = 0;
 
 
             return row1;

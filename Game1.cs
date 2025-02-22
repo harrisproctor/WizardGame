@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Diagnostics;
 
 namespace monowizard
 {
@@ -22,7 +23,8 @@ namespace monowizard
         ShopManger _shopManager;
         //Batdemon battdemon;
         ContentManager level1Content;
-        
+        Stopwatch stopwatch = new Stopwatch();
+
 
 
 
@@ -116,6 +118,7 @@ namespace monowizard
             player.texture = level1Content.Load<Texture2D>("cocovon");
             _tileManager.texts[0] = level1Content.Load<Texture2D>("bookshelftile1");
             _tileManager.texts[1] = level1Content.Load<Texture2D>("woodtileslib5");
+            _tileManager.swamptiles = level1Content.Load<Texture2D>("tileswamp2");
             _tileManager.texts[340] = _tileManager.texts[1];
             _tileManager.texts[341] = _tileManager.texts[1];
             _tileManager.texts[2] = level1Content.Load<Texture2D>("libarybackground2");
@@ -199,6 +202,7 @@ namespace monowizard
 
         protected override void Update(GameTime gameTime)
         {
+            
             KeyboardState keyState = Keyboard.GetState();
             _frameCounter.update();
             
@@ -238,11 +242,13 @@ namespace monowizard
             // TODO: Add your update logic here
 
             base.Update(gameTime);
+            
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            
+           // stopwatch.Restart();
+
             scale = 1f / (1920f / _graphics.GraphicsDevice.Viewport.Width);
 
             GraphicsDevice.SetRenderTarget(_renderTarget);
@@ -320,6 +326,9 @@ namespace monowizard
             _spriteBatch.End();
 
             base.Draw(gameTime);
+            //stopwatch.Stop();
+           // Debug.WriteLine($"If statements took: {stopwatch.ElapsedTicks} ticks ({stopwatch.Elapsed.TotalMilliseconds} ms)");
+
         }
     }
 }

@@ -50,7 +50,31 @@ namespace monowizard
 
         }
 
-        public void placeLibItems(int[] mapp, TileManager tm)
+        public void placeSwampItems(int[] mapp, TileManager tm)
+        {
+            itemsinshop.Clear();
+            itemsinshop = new List<HoldShopItem>();
+            libShopItems = new List<HoldItem>();
+            libShopItems.Add(new HoldBook(colCheck, player));
+            libShopItems.Add(new HoldCrystalRock(colCheck, player));
+            libShopItems.Add(new CantripScroll(colCheck, player, this, new MagicWaveCantrip(player)));
+
+            if (player.heldItem != null)
+            {
+                HoldItem curheld = player.heldItem;
+                items.Clear();
+
+                items.Add(curheld);
+                player.heldItem = curheld;
+            }
+            else
+            {
+                items.Clear();
+            }
+
+        }
+
+            public void placeLibItems(int[] mapp, TileManager tm)
         {
             itemsinshop.Clear();
             itemsinshop = new List<HoldShopItem>();

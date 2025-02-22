@@ -760,7 +760,7 @@ namespace monowizard
                 {
                     if (onExit)
                     {
-                        colcheck.tileManager.newMap();
+                        colcheck.tileManager.newMapSwamp();
                     }
                     epressed = true;
                 }
