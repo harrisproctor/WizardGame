@@ -16,6 +16,7 @@ namespace monowizard
         public int pushonhit;
         public int manacost;
         public Rectangle symbcroprect;
+        public int cantripnum;
         
 
         public virtual void cast() { }

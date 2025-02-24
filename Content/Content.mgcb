@@ -25,6 +25,18 @@
 /processorParam:TextureFormat=Color
 /build:../../../../../Desktop/artmisc/bookmon1/elderbrainmon/elderbrain.png;elderbrain.png
 
+#begin ../../../../../Desktop/artmisc/swampyuno/tileswamp2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../Desktop/artmisc/swampyuno/tileswamp2.png;tileswamp2.png
+
 #begin badmonbook.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -408,18 +420,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:spider!!!!.png
-
-#begin tileswamp2.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:tileswamp2.png
 
 #begin trapproto1.png
 /importer:TextureImporter

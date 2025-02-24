@@ -37,7 +37,7 @@ namespace monowizard
             shoprect = new Rectangle((shopind % 4) *960, (shopind / 4) * 960,960,960);
             if (trueItem is CantripScroll)
             {
-                Debug.WriteLine("Cantrip");
+              //  Debug.WriteLine("Cantrip");
                 sepll = trueItem as CantripScroll; 
                 sepll.symbols = player.itemManager.magicsymbols;
                 sepll.texture = player.itemManager.libitems1;
@@ -150,7 +150,8 @@ namespace monowizard
             }
             else if (trueItem is CantripScroll)
             {
-                player.itemManager.addMagicScroll(hitbox.X, hitbox.Y,6);
+
+                player.itemManager.addMagicScroll(hitbox.X, hitbox.Y,sepll.cantripnum);
             }
 
             if (this == player.heldItem)
@@ -159,6 +160,7 @@ namespace monowizard
             }
 
             //player.changeMana(-10);
+            player.itemManager.addMomentum(xvel, yvel);
 
             ishovered = false;
 

@@ -25,6 +25,7 @@ namespace monowizard
             pushonhit = 4;
             manacost = 1;
             symbcroprect = new Rectangle(128, 128, 128, 128);
+            cantripnum = 4;
 
         }
 

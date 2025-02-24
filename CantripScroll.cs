@@ -15,6 +15,7 @@ namespace monowizard
         public Texture2D symbols;
         public Rectangle symbdrawrect;
         public ItemManager itemManager;
+        public int cantripnum;
 
 
 
@@ -54,6 +55,9 @@ namespace monowizard
 
             drawrect = new Rectangle(0, 0, 100, 100);
             bounce = 5;
+            cantripnum = spell.cantripnum;
+
+
 
 
 

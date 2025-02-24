@@ -41,6 +41,7 @@ namespace monowizard
         float dy;
         float sumAbs;
         bool casting = false;
+        bool megacast = false;
         Random rand = new Random();
 
 
@@ -63,7 +64,20 @@ namespace monowizard
 
         public void fireball()
         {
-            
+            if (!megacast)
+            {
+               // megacast = true;
+                player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, 0, -1);
+                player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, 1, -1);
+                player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, -1, -1);
+                player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, 1, 0);
+                player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, -1, 0);
+                player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, 0, 1);
+                player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, 1, 1);
+                player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, -1, 1);
+
+
+            }   
             dx = player.hitbox.X - hitbox.X + rand.Next(-3,3);
             dy = player.hitbox.Y - hitbox.Y + rand.Next(-3, 3);
             sumAbs = Math.Abs(dx) + Math.Abs(dy);
@@ -307,12 +321,16 @@ namespace monowizard
 
             if (iframes == 0)
             {
+                if (!angry)
+                {
+                    player.itemManager.robbedShop();
+                }
                 if (entity.id == 101 || entity.id == 102 || entity.id == 103 || entity.id == 104 || entity.id == 105)
                 {
 
                     xvel += entity.xvel / 2;
                     entity.xvel = -entity.xvel / 2;
-                    consious = false;
+                   // consious = false;
                     cropbox.X = 0;
                     cropbox.Y = 128;
                     health--;
@@ -332,7 +350,7 @@ namespace monowizard
                         {
                             xvel -= player.cantrip.pushonhit;
                         }
-                        consious = false;
+                        //consious = false;
                         cropbox.X = 0;
                         cropbox.Y = 128;
                         health--;
@@ -344,7 +362,7 @@ namespace monowizard
                 {
                     xvel += entity.xvel / 2;
                     yvel += entity.yvel / 2;
-                    consious = false;
+                  //  consious = false;
                     cropbox.X = 0;
                     cropbox.Y = 128;
                     health--;
@@ -356,7 +374,7 @@ namespace monowizard
                 {
                     xvel += entity.xvel / 2;
                     yvel += entity.yvel / 2;
-                    consious = false;
+                  //  consious = false;
                     cropbox.X = 0;
                     cropbox.Y = 128;
                     health--;
@@ -373,9 +391,9 @@ namespace monowizard
                 player.mm.particleManager.addBrainChunk(hitbox.X + 30, hitbox.Y + 40, -5, -5);
                 player.mm.particleManager.addBrainChunk(hitbox.X + 60, hitbox.Y + 40, 0, -8);
 
-                player.mm.particleManager.addManaSmall(hitbox.X + 20, hitbox.Y, 1, -5, 32, 0.3f);
-                player.mm.particleManager.addManaSmall(hitbox.X + 30, hitbox.Y + 40, -1, -5, 32, 0.3f);
-                player.mm.particleManager.addManaSmall(hitbox.X + 60, hitbox.Y + 40, 0, -8, 32, 0.3f);
+                player.mm.particleManager.addManaSmall(hitbox.X + 20, hitbox.Y, 1, -5, 32, 3.3f);
+                player.mm.particleManager.addManaSmall(hitbox.X + 30, hitbox.Y + 40, -1, -5, 32, 3.3f);
+                player.mm.particleManager.addManaSmall(hitbox.X + 60, hitbox.Y + 40, 0, -8, 32, 3.3f);
 
 
                 player.mm.monsters.Remove(this);

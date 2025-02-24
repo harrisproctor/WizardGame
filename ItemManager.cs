@@ -58,6 +58,11 @@ namespace monowizard
             libShopItems.Add(new HoldBook(colCheck, player));
             libShopItems.Add(new HoldCrystalRock(colCheck, player));
             libShopItems.Add(new CantripScroll(colCheck, player, this, new MagicWaveCantrip(player)));
+            libShopItems.Add(new CantripScroll(colCheck, player, this, new MagicArrowCantrip(player)));
+            libShopItems.Add(new CantripScroll(colCheck, player, this, new JumpCantrip(player)));
+            libShopItems.Add(new CantripScroll(colCheck, player, this, new HandFireCantrip(player)));
+            libShopItems.Add(new CantripScroll(colCheck, player, this, new SummonRockCantrip(player)));
+            libShopItems.Add(new CantripScroll(colCheck, player, this, new FloatCantrip(player)));
 
             if (player.heldItem != null)
             {
@@ -82,6 +87,11 @@ namespace monowizard
             libShopItems.Add(new HoldBook(colCheck, player));
             libShopItems.Add(new HoldCrystalRock(colCheck, player));
             libShopItems.Add(new CantripScroll(colCheck, player, this, new MagicWaveCantrip(player)));
+            libShopItems.Add(new CantripScroll(colCheck, player, this, new MagicArrowCantrip(player)));
+            libShopItems.Add(new CantripScroll(colCheck, player, this, new JumpCantrip(player)));
+            libShopItems.Add(new CantripScroll(colCheck, player, this, new HandFireCantrip(player)));
+            libShopItems.Add(new CantripScroll(colCheck, player, this, new SummonRockCantrip(player)));
+            libShopItems.Add(new CantripScroll(colCheck, player, this, new FloatCantrip(player)));
 
             if (player.heldItem != null)
             {
@@ -214,6 +224,12 @@ namespace monowizard
 
 
 
+        }
+
+        public void addMomentum(int x, int y)
+        {
+            items.Last().xvel = x;
+            items.Last().yvel = y;
         }
 
         public void addMagicScroll(int x, int y, int spell) {

@@ -385,7 +385,7 @@ namespace monowizard
         {
             Random rand = new Random();
             int[] backlayout = new int[25];
-            int[] chances = new int[]{ 0,0,0,0,0,0,0,0,1,1,1,1,2,2,3,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0};
+            int[] chances = new int[]{ 0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,3,0,0,0,0,0,1,1,1,0,0,0,0};
             int choice = 0;
             int position64 = 0;
             int ind = 0;

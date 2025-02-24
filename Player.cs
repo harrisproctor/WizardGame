@@ -83,6 +83,7 @@ namespace monowizard
         public bool upAct = false;
         public bool downAct = false;
         public bool rightAct = false;
+        public LevelManager levelManager;
 
 
 
@@ -103,7 +104,8 @@ namespace monowizard
             hitbox.Width = 80;
             hitbox.Height = 80;
             spriteEffects = SpriteEffects.None;
-            
+            levelManager = new LevelManager(this);
+
             //hitbox = new int[4];
             //left x offset
             // hitbox[0] = 15;
@@ -760,7 +762,8 @@ namespace monowizard
                 {
                     if (onExit)
                     {
-                        colcheck.tileManager.newMapSwamp();
+                        //colcheck.tileManager.newMapSwamp();
+                        levelManager.nextLevel();
                     }
                     epressed = true;
                 }
