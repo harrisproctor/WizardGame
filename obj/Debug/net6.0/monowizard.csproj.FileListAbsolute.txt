@@ -48,7 +48,6 @@ C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\owlwi
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\owlwizet2.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\badmonbook.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\itemslib1.xnb
-C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\itemslib2.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\libcantripsymb.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\woodtileslib5.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\particles\libparticles1.xnb
@@ -62,3 +61,4 @@ C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\UIScr
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\bestbrickslib.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\magicalef2.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\tileswamp2.xnb
+C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\itemslib2.1.xnb

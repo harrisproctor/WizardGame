@@ -231,15 +231,148 @@ namespace monowizard
             {
                 room[i] = rooma[i];
             }
+            int prob;
 
-            for (int i = 0; i < room.Length; i++)
-            {
-                if (room[i] != 0 && room[i] != 341) 
-                { 
-                    room[i] = 1;
-                
+            int entangchoice = rnd.Next(4, 6);
+                for (int i = 0; i < room.Length; i++)
+                {
+                    //straight prob tiles
+                    if (room[i] > 0 && room[i] < 11)
+                    {
+                        if (rnd.Next(0, 10) < room[i])
+                        {
+                            room[i] = 1;
+
+                        }
+                        else
+                        {
+                            room[i] = 0;
+                        }
+
+                    }
+
+
+                    if (room[i] > 10 && room[i] < 21)
+                    {
+                    /*  if (rnd.Next(0, 10) < (room[i] - 10))
+                      {
+                          if (rnd.Next(0, 2) == 0)
+                          {
+                              room[i] = 338;
+                          }
+                          else
+                          {
+                              room[i] = 339;
+                          }
+
+
+                      }
+                      else
+                      {
+                          room[i] = 0;
+                      }*/
+                    room[i] = 201;
+
                 }
+
+                    if (room[i] > 20 && room[i] < 31)
+                    {
+                       /* if (rnd.Next(0, 10) < (room[i] - 20))
+                        {
+                            room[i] = 340;
+
+                        }
+                        else
+                        {
+                            room[i] = 0;
+                        }*/
+                    room[i] = 201;
+
+                }
+
+                    if (room[i] > 30 && room[i] < 41)
+                    {
+                      /*  if (rnd.Next(0, 10) < (room[i] - 30))
+                        {
+                            if (rnd.Next(0, 2) == 0)
+                            {
+                                room[i] = 338;
+                            }
+                            else
+                            {
+                                room[i] = 339;
+                            }
+
+
+                        }
+                        else
+                        {
+                        room[i] = 1;
+                    }*/
+                    room[i] = 1;
+
+                }
+                    //entaglement blocks
+                    if (entangchoice == 4)
+                    {
+                        if (room[i] > 40 && room[i] < 51)
+                        {
+                            if (rnd.Next(0, 10) < (room[i] - 40))
+                            {
+                                room[i] = 1;
+
+                            }
+                            else
+                            {
+                                room[i] = 0;
+                            }
+
+                        }
+                        else if (room[i] > 50 && room[i] < 61)
+                        {
+                            room[i] = 0;
+                        }
+                    }
+                    else
+                    {
+                        if (room[i] > 50 && room[i] < 61)
+                        {
+                            if (rnd.Next(0, 10) < (room[i] - 50))
+                            {
+                                room[i] = 1;
+
+                            }
+                            else
+                            {
+                                room[i] = 0;
+                            }
+
+                        }
+                        else if (room[i] > 40 && room[i] < 51)
+                        {
+                            room[i] = 0;
+                        }
+                    }
+
+
+
+                    //
+                    if (room[i] == 99 || room[i] == 341)
+                    {
+                        room[i] = 200;
+                    }
+                if (room[i] == 346)
+                {
+                    room[i] = 266;
+                }
+
+
+
             }
+
+
+
+            
 
 
 

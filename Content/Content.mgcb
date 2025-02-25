@@ -169,7 +169,7 @@
 /processorParam:TextureFormat=Color
 /build:itemslib1.png
 
-#begin itemslib2.png
+#begin itemslib2.1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -179,7 +179,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:itemslib2.png
+/build:itemslib2.1.png
 
 #begin itsatrapmagic.png
 /importer:TextureImporter

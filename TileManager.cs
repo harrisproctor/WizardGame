@@ -176,6 +176,22 @@ namespace monowizard
             }
         }
 
+        public void initateTrapsSwamp()
+        {
+            for (int i = 0; i < map.Length; i++)
+            {
+               
+                if (map[i] == 200)
+                {
+                    updateTiles.Add(i, new ExitTrueTile(i, this));
+                }
+                if (map[i] == 201)
+                {
+                    updateTiles.Add(i, new MudTrueTile(i, this));
+                }
+            }
+        }
+
         public void breaktile(int tileind)
         {
             if (breakable[map[tileind]])
@@ -217,7 +233,7 @@ namespace monowizard
             }
             makeSwampBricks(map);
             updateTiles = new Dictionary<int, Truetile>();
-            initateTraps();
+            initateTrapsSwamp();
             itemmanager.placeSwampItems(map, this);
             player.mm.monsters.Clear();
             player.mm.particleManager.items.Clear();
@@ -265,7 +281,7 @@ namespace monowizard
 
                     if (istrap[tileNum]) 
                     {
-                        _spriteBatch.Draw(texts[100], drawtilerect, croprects[backmap[tileInd]], Color.White);
+                        _spriteBatch.Draw(texts[100], drawtilerect, croprects[backmap[tileInd]], Color.White); 
 
                         _spriteBatch.Draw(texts[tileNum], drawtilerect, updateTiles[tileInd].croprect, Color.White);
                         

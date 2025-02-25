@@ -84,6 +84,9 @@ namespace monowizard
         public bool downAct = false;
         public bool rightAct = false;
         public LevelManager levelManager;
+        public int jumpStr = 20;
+        public bool muddy = false;
+        public int mudclean = 50;
 
 
 
@@ -624,7 +627,7 @@ namespace monowizard
                 if (jumpframe > 0)
                 {
 
-                    if (jumpframe < 20)
+                    if (jumpframe < jumpStr)
                     {
                         yvel = -6;
 
@@ -635,12 +638,14 @@ namespace monowizard
                     {
                         jumpframe = 0;
                         jumpPress = true;
+                       // jumpStr = 20;
                     }
 
                     if (!jumping)
                     {
                         jumpframe = 0;
                         jumpPress = true;
+                        //jumpStr = 20;
                     }
                 }
 
@@ -725,6 +730,25 @@ namespace monowizard
                 else if (yvel < -maxVel)
                 {
                     yvel = -maxVel;
+                }
+
+                if(muddy)
+                {
+                    
+                     //xvel = xvel/2;
+                    jumpStr = 7;
+                    maxVel = 10;
+                    mudclean--;
+                    if (mudclean < 1)
+                    {
+                        muddy = false;
+                        mudclean = 50;
+                    }
+                }
+                else
+                {
+                    maxVel = 25;
+                    jumpStr = 20;
                 }
 
 

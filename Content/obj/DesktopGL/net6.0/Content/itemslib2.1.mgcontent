@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/harri/source/repos/monowizard/monowizard/Content/itemslib2.png</SourceFile>
-  <SourceTime>2024-11-13T20:27:17.9975433-07:00</SourceTime>
-  <DestFile>C:/Users/harri/source/repos/monowizard/monowizard/Content/bin/DesktopGL/Content/itemslib2.xnb</DestFile>
-  <DestTime>2024-11-13T20:29:23.3893818-07:00</DestTime>
+  <SourceFile>C:/Users/harri/source/repos/monowizard/monowizard/Content/itemslib2.1.png</SourceFile>
+  <SourceTime>2025-02-25T13:24:29.6050829-07:00</SourceTime>
+  <DestFile>C:/Users/harri/source/repos/monowizard/monowizard/Content/bin/DesktopGL/Content/itemslib2.1.xnb</DestFile>
+  <DestTime>2025-02-25T13:25:42.8749172-07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T05:44:56-06:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

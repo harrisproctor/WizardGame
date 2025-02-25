@@ -48,6 +48,11 @@ namespace monowizard
           
         }
 
+        public void use() 
+        { 
+        
+        }
+
         public void setDefaultValues()
         {
 

@@ -296,6 +296,15 @@ namespace monowizard
             items.Last().hitbox.Y = y;
             //rockx += 80;
         }
+
+        public void addMinorHealWand(int x, int y)
+        {
+            items.Add(new HoldMinorHealWand(colCheck, player));
+            items.Last().texture = libitems1;
+            items.Last().hitbox.X = x;
+            items.Last().hitbox.Y = y;
+            //rockx += 80;
+        }
         public void addCrystalRock(int x, int y)
         {
             items.Add(new HoldCrystalRock(colCheck, player));
