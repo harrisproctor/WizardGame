@@ -145,7 +145,7 @@ namespace monowizard
 
 
             _itemManager.rocktext = Content.Load<Texture2D>("items/littlerock1");
-            _itemManager.libitems1 = Content.Load<Texture2D>("itemslib2.1");
+            _itemManager.libitems1 = Content.Load<Texture2D>("itemslib2.2");
             _itemManager.magicsymbols = Content.Load<Texture2D>("libcantripsymb");
             _particleManager.libtexts1 = Content.Load<Texture2D>("particles/libparticles1");
             _particleManager.windcloudmanatext = Content.Load<Texture2D>("particles/particlues1");
@@ -179,6 +179,8 @@ namespace monowizard
             _itemManager.addMKey(700, 400);
             _itemManager.addManaIdol(300, 600);
             _itemManager.addMinorHealWand(1100, 600);
+            _itemManager.addMinorHealWand(1500, 600);
+            _itemManager.addMinorHealWand(1200, 600);
             // _itemManager.addCrystalRock(1800, 600);
             //_itemManager.addMagicScroll(1200, 400);
             //add rocks when loading content because uhhhhhhhhhhhh yeah

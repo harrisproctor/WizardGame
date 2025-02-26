@@ -39,6 +39,7 @@ namespace monowizard
             }
 
                 player.mm.brainShopKeep.angry = true;
+            player.angryLibKeep = true;
             itemsinshop.Clear();
             itemsinshop = new List<HoldShopItem>();
 
@@ -79,6 +80,17 @@ namespace monowizard
 
         }
 
+        public void fixMKeyind()
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i] is HoldMKey)
+                {
+                    MKeyind = i;
+                }
+            }
+        }
+
             public void placeLibItems(int[] mapp, TileManager tm)
         {
             itemsinshop.Clear();
@@ -92,7 +104,7 @@ namespace monowizard
             libShopItems.Add(new CantripScroll(colCheck, player, this, new HandFireCantrip(player)));
             libShopItems.Add(new CantripScroll(colCheck, player, this, new SummonRockCantrip(player)));
             libShopItems.Add(new CantripScroll(colCheck, player, this, new FloatCantrip(player)));
-
+            libShopItems.Add(new HoldMinorHealWand(colCheck, player));
             if (player.heldItem != null)
             {
                 HoldItem curheld = player.heldItem;
@@ -369,6 +381,10 @@ namespace monowizard
                 else if (items[i] is HoldShopItem)
                 {
                     items[i].update();
+                }
+                else
+                {
+                    items[i].playeritemupdate();
                 }
             }
 

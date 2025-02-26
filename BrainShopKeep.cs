@@ -43,6 +43,12 @@ namespace monowizard
         bool casting = false;
         bool megacast = false;
         Random rand = new Random();
+        int numProjectiles = 8;
+        float angleStep;
+        float angleOffset;
+        float angle;
+        float x;
+        float y;
 
 
 
@@ -57,6 +63,13 @@ namespace monowizard
             check = player.colcheck;
             bounce = 100;
             this.mm = mm;
+            // megacast = true;
+            // megacast = true;
+            // megacast = true;
+            numProjectiles = 8;
+            angleStep = MathHelper.TwoPi / numProjectiles;
+            
+
 
 
 
@@ -66,18 +79,30 @@ namespace monowizard
         {
             if (!megacast)
             {
-               // megacast = true;
-                player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, 0, -1);
+                // megacast = true;
+                /*player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, 0, -1);
                 player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, 1, -1);
                 player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, -1, -1);
                 player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, 1, 0);
                 player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, -1, 0);
                 player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, 0, 1);
                 player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, 1, 1);
-                player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, -1, 1);
+                player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, -1, 1);*/
+                
+
+                for (int i = 0; i < numProjectiles; i++)
+                {
+                     angle = angleStep * i + angleOffset;
+                     x = (float)Math.Cos(angle);
+                     y = (float)Math.Sin(angle);
+                    player.colcheck.tileManager.magicmanager.addEvilLightning1(hitbox.X + 20, hitbox.Y + 10, x, y);
+                }
+
+                angleOffset += 0.1f; // Increment the angle offset for the next call
 
 
-            }   
+
+            }
             dx = player.hitbox.X - hitbox.X + rand.Next(-3,3);
             dy = player.hitbox.Y - hitbox.Y + rand.Next(-3, 3);
             sumAbs = Math.Abs(dx) + Math.Abs(dy);
@@ -86,6 +111,10 @@ namespace monowizard
 
         public override void update()
         {
+            if (player.angryLibKeep && !angry)
+            {
+                player.itemManager.robbedShop();
+            }
             prevattacking = attacking;
             if (iframes > 0)
             {

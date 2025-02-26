@@ -18,7 +18,7 @@ namespace monowizard
         public Player player;
         public Texture2D libtexts1;
         public Texture2D windcloudmanatext;
-       
+       public Random rnd = new Random();
 
         public ParticleManager(CollisionCheck collisionCheck, Player player) 
         {
@@ -87,7 +87,22 @@ namespace monowizard
 
         }
 
-        
+        public void addHealSmall(int x, int y, int xvel, int yvel, int size, float manavalue)
+        {
+
+            items.Add(new healParticle(colCheck, player, this, size, manavalue));
+            items.Last().texture = windcloudmanatext;
+            items.Last().hitbox.X = x;
+            items.Last().hitbox.Y = y;
+            items.Last().xvel = xvel;
+            items.Last().yvel = yvel;
+
+            // Debug.WriteLine("magic");
+
+
+        }
+
+
 
         public void update()
         {

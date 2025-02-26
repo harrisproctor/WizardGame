@@ -87,6 +87,7 @@ namespace monowizard
         public int jumpStr = 20;
         public bool muddy = false;
         public int mudclean = 50;
+        public bool angryLibKeep = false;
 
 
 
@@ -434,48 +435,7 @@ namespace monowizard
                     if (heldItem != null && leftact)
                     {
                         leftact = false;
-                        if (heldItem.hitbox.Y + heldItem.hitbox.Height > hitbox.Y + hitbox.Height) {
-                            heldItem.hitbox.Y = hitbox.Y;
-
-
-
-                        }
-
-                        if (facing == 0)
-                        {
-                            heldItem.xvel = xvel + heldItem.throwvel;
-
-
-                        }
-                        else
-                        {
-
-                            heldItem.xvel = xvel - heldItem.throwvel;
-
-
-                        }
-                        heldItem.yvel = yvel - 10;
-                        if (lookup)
-                        {
-                            heldItem.yvel = yvel - 15;
-                        }
-                        else if (lookdown)
-                        {
-                            heldItem.yvel = yvel + 5;
-
-                        }
-                        //make sure its not in wall
-                        colcheck.checkTile(heldItem);
-                        if (heldItem.colliding)
-                        {
-                            heldItem.hitbox.X = hitbox.X + heldItem.xmidoffset;
-                            
-
-                        }
-
-                        framesincethrow++;
-                        prevheldItem = heldItem;
-                        heldItem = null;
+                        heldItem.use();
                     }
 
 
@@ -940,6 +900,52 @@ namespace monowizard
 
         }
 
+        public void throwitem() 
+        {
+            if (heldItem.hitbox.Y + heldItem.hitbox.Height > hitbox.Y + hitbox.Height)
+            {
+                heldItem.hitbox.Y = hitbox.Y;
+
+
+
+            }
+
+            if (facing == 0)
+            {
+                heldItem.xvel = xvel + heldItem.throwvel;
+
+
+            }
+            else
+            {
+
+                heldItem.xvel = xvel - heldItem.throwvel;
+
+
+            }
+            heldItem.yvel = yvel - 10;
+            if (lookup)
+            {
+                heldItem.yvel = yvel - 15;
+            }
+            else if (lookdown)
+            {
+                heldItem.yvel = yvel + 5;
+
+            }
+            //make sure its not in wall
+            colcheck.checkTile(heldItem);
+            if (heldItem.colliding)
+            {
+                heldItem.hitbox.X = hitbox.X + heldItem.xmidoffset;
+
+
+            }
+
+            framesincethrow++;
+            prevheldItem = heldItem;
+            heldItem = null;
+        }
         public void moveCam()
         {
 

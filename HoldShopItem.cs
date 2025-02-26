@@ -26,10 +26,7 @@ namespace monowizard
             this.id = 200;
             this.player = player;
             this.check = check;
-            holdoffset = 30;
-            xmidoffset = 5;
-            xleftholdoffset = -20;
-            xrightholdoffset = 30;
+            
             throwvel = 13;
             spriteEffects = SpriteEffects.None;
             trueItem = truth;
@@ -60,6 +57,10 @@ namespace monowizard
             croprect.Y = trueItem.croprect.Y;
             croprect.Width = trueItem.croprect.Width;
             croprect.Height = trueItem.croprect.Height;
+            holdoffset = trueItem.holdoffset;
+            xmidoffset = trueItem.xmidoffset;
+            xleftholdoffset = trueItem.xleftholdoffset;
+            xrightholdoffset = trueItem.xrightholdoffset;
 
             id = trueItem.id;
 
@@ -90,7 +91,7 @@ namespace monowizard
                     ishovered = false;
 
                     player.ui.items.Remove(uinum);
-
+                    Debug.WriteLine(uinum != null);
 
                     uinum = null;
                 }
@@ -152,6 +153,11 @@ namespace monowizard
             {
 
                 player.itemManager.addMagicScroll(hitbox.X, hitbox.Y,sepll.cantripnum);
+            }
+            else if (trueItem is HoldMinorHealWand)
+            {
+
+                player.itemManager.addMinorHealWand(hitbox.X, hitbox.Y);
             }
 
             if (this == player.heldItem)

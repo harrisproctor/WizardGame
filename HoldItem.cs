@@ -23,7 +23,9 @@ namespace monowizard
         public int xleftholdoffset;
         public int xrightholdoffset;
         public SpriteEffects spriteEffects;
-        
+        public int xoffset;
+        public int yoffset;
+
         public bool pickupAble = false;
         public Player player;
         public CollisionCheck check;
@@ -48,9 +50,9 @@ namespace monowizard
           
         }
 
-        public void use() 
-        { 
-        
+        public virtual void use() 
+        {
+            player.throwitem();
         }
 
         public void setDefaultValues()
@@ -65,6 +67,11 @@ namespace monowizard
 
 
 
+        }
+
+        public virtual void playeritemupdate() 
+        { 
+            
         }
 
        
