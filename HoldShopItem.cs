@@ -159,6 +159,11 @@ namespace monowizard
 
                 player.itemManager.addMinorHealWand(hitbox.X, hitbox.Y);
             }
+            else if (trueItem is HoldMagicArrowWand)
+            {
+
+                player.itemManager.addMagicArrowWand(hitbox.X, hitbox.Y);
+            }
 
             if (this == player.heldItem)
             {

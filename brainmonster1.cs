@@ -261,23 +261,23 @@ namespace monowizard
                 }
                 else if (entity.id == 1 )
                 {
-                    if (player.cantrip.id == 1)
-                    {
-                        if (player.facing == 0)
+                    //if (player.cantrip.id == 1)
+                    //{
+                        /*if (player.facing == 0)
                         {
                             xvel += player.cantrip.pushonhit;
                         }
                         else
                         {
                             xvel -= player.cantrip.pushonhit;
-                        }
+                        }*/
                         consious = false;
                         cropbox.X = 0;
                         cropbox.Y = 128;
                         health--;
                         iframes = 50;
 
-                    }
+                   // }
                 }
                 else if (entity.id == 1001 && iframes == 0)
                 {

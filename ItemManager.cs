@@ -17,6 +17,7 @@ namespace monowizard
         public Texture2D rocktext;
         public Texture2D libitems1;
         public Texture2D magicsymbols;
+        public Texture2D swampitems1;
         public int rockx = 200;
         public int MKeyind;
         public Random rand = new Random();
@@ -105,6 +106,7 @@ namespace monowizard
             libShopItems.Add(new CantripScroll(colCheck, player, this, new SummonRockCantrip(player)));
             libShopItems.Add(new CantripScroll(colCheck, player, this, new FloatCantrip(player)));
             libShopItems.Add(new HoldMinorHealWand(colCheck, player));
+            libShopItems.Add(new HoldMagicArrowWand(colCheck, player));
             if (player.heldItem != null)
             {
                 HoldItem curheld = player.heldItem;
@@ -291,6 +293,24 @@ namespace monowizard
             rockx += 80;
         }
 
+        public void addMandrake(int x, int y)
+        {
+            items.Add(new HoldMandrake(colCheck, player));
+            items.Last().texture = swampitems1;
+            items.Last().hitbox.X = x;
+            items.Last().hitbox.Y = y;
+            //rockx += 80;
+        }
+
+        public void addSkullShroom(int x, int y)
+        {
+            items.Add(new HoldSkullShroom(colCheck, player));
+            items.Last().texture = swampitems1;
+            items.Last().hitbox.X = x;
+            items.Last().hitbox.Y = y;
+            //rockx += 80;
+        }
+
         public void addItem(HoldItem holder,int x,int y)
         {
             items.Add(holder);
@@ -309,9 +329,27 @@ namespace monowizard
             //rockx += 80;
         }
 
+        public void addMagicFlower1(int x, int y)
+        {
+            items.Add(new HoldMagicFlower1(colCheck, player));
+            items.Last().texture = swampitems1;
+            items.Last().hitbox.X = x;
+            items.Last().hitbox.Y = y;
+            //rockx += 80;
+        }
+
         public void addMinorHealWand(int x, int y)
         {
             items.Add(new HoldMinorHealWand(colCheck, player));
+            items.Last().texture = libitems1;
+            items.Last().hitbox.X = x;
+            items.Last().hitbox.Y = y;
+            //rockx += 80;
+        }
+
+        public void addMagicArrowWand(int x, int y)
+        {
+            items.Add(new HoldMagicArrowWand(colCheck, player));
             items.Last().texture = libitems1;
             items.Last().hitbox.X = x;
             items.Last().hitbox.Y = y;
