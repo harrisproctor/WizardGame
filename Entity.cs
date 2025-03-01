@@ -17,6 +17,7 @@ namespace monowizard
         public bool grounded = false;
         //public Vector2 position;
         public Rectangle drawrect;
+        public Rectangle croprect;
         public Rectangle hitbox;
         public Texture2D texture;
         public int bounce;
@@ -24,12 +25,14 @@ namespace monowizard
         public bool onExit;
         public bool onLedge;
         public bool spaceToMove;
+        public int xoffset;
+        public int yoffset;
 
         public virtual void update() { 
         
         
         
-      }
+         }
 
         public virtual void draw(SpriteBatch _spriteBatch) 
         { 

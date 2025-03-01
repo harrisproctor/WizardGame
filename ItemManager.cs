@@ -12,6 +12,7 @@ namespace monowizard
     internal class ItemManager
     {
         public List<HoldItem> items;
+        public List<Entity> eitems;
         public CollisionCheck colCheck;
         public Player player;
         public Texture2D rocktext;
@@ -27,6 +28,7 @@ namespace monowizard
         public ItemManager() {
             items = new List<HoldItem>();
             itemsinshop = new List<HoldShopItem>();
+            eitems = new List<Entity>();
 
 
         }
@@ -119,6 +121,7 @@ namespace monowizard
             {
                 items.Clear();
             }
+            eitems.Clear();
 
 
 
@@ -391,6 +394,14 @@ namespace monowizard
             //rockx += 80;
         }
 
+        public void addCouldern(int x, int y)
+        {
+            eitems.Add(new couldern(player));
+            eitems.Last().texture = swampitems1;
+            eitems.Last().hitbox.X = x;
+            eitems.Last().hitbox.Y = y;
+        }
+
         public void addShopItemRand(int x, int y, int shopind)
         {
             HoldItem randchoice;
@@ -426,11 +437,15 @@ namespace monowizard
                 }
             }
 
+            foreach(Entity e in eitems)
+            {
+                e.update();
+            }
+
         }
         public void drawAll(SpriteBatch _spriteBatch) 
         {
             for (int i = 0; i < items.Count; i++)
-
             {
                 if (items[i].hitbox.X + 96 > player.centerWorldX - player.centerX &&
                           items[i].hitbox.X - 96 < player.centerWorldX + player.centerX &&
@@ -440,6 +455,17 @@ namespace monowizard
                     items[i].draw(_spriteBatch);
                 }
                     
+            }
+            foreach (Entity e in eitems)
+            {
+                if (e.hitbox.X + 96 > player.centerWorldX - player.centerX &&
+                          e.hitbox.X - 96 < player.centerWorldX + player.centerX &&
+                          e.hitbox.Y + 96 > player.centerWorldY - player.centerY &&
+                          e.hitbox.Y - 96 < player.centerWorldY + player.centerY)
+                {
+                    e.draw(_spriteBatch);
+                }
+                
             }
 
         }

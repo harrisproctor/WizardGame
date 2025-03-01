@@ -400,13 +400,13 @@ namespace monowizard
         public void generlswampback(int[] map)
         {
             Random rand = new Random();
-            int[] backlayout = new int[25];
+            int[] backlayout = new int[100];
             int[] chances = new int[]{ 0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,3,0,0,0,0,0,1,1,1,0,0,0,0};
             int choice = 0;
             int position64 = 0;
             int ind = 0;
             int counter = 2;
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < 100; i++)
             {
                 choice = rand.Next(0, chances.Length);
                 backlayout[i] = chances[choice];
@@ -416,7 +416,7 @@ namespace monowizard
             {
                 if (map[i] == 0)
                 {
-                    ind = ((i % 40) / 8) + ((i / 320) * 5);
+                    ind = ((i % 40) / 4) + ((i / 160) * 5);
                     choice = backlayout[ind];
                     position64 = (i/40) % 4;
                      if (choice % 2 == 0)

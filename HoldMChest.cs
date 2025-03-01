@@ -153,12 +153,24 @@ namespace monowizard
         {
             if (open == false)
             {
-                if (hitbox.Intersects(player.itemManager.items[player.itemManager.MKeyind].hitbox))
+               /* if (hitbox.Intersects(player.itemManager.items[player.itemManager.MKeyind].hitbox))
                 {
                     openChest();
                     open = true;
                     
+                }*/
+               for (int i = 0; i < player.itemManager.items.Count; i++)
+                {
+                    if (player.itemManager.items[i] is HoldMKey)
+                    {
+                        if (hitbox.Intersects(player.itemManager.items[i].hitbox))
+                        {
+                            openChest();
+                            open = true;
+                        }
+                    }
                 }
+
             }
         }
 

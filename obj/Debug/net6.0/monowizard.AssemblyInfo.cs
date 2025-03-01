@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("monowizard")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a2032be507c142d5ef897ba298b78a7e564e334")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+170dc26b62003fd3989024360ba18e8ed6483d47")]
 [assembly: System.Reflection.AssemblyProductAttribute("monowizard")]
 [assembly: System.Reflection.AssemblyTitleAttribute("monowizard")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
