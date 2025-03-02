@@ -68,7 +68,7 @@ namespace monowizard
             {
                 die();
             }
-            else if (entity.id == 1002)
+            else if (entity.id == 1002 || entity.id == 1055)
             {
                 die();
             }

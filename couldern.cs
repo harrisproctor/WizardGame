@@ -20,13 +20,13 @@ namespace monowizard
         public couldern(Player player)
         {
             drawrect = new Rectangle(256, 256, 256, 256);
-            hitbox = new Rectangle(0, 0, 256, 180);
+            hitbox = new Rectangle(0, 0, 230, 165);
             croprect = new Rectangle(0, 256, 256, 256);
             this.player = player;
             hitVel = 8;
             maxVel = 25;
-            xoffset = 0;
-            yoffset = 50;
+            xoffset = 10;
+            yoffset = 65;
         }
 
 

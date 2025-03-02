@@ -279,7 +279,7 @@ namespace monowizard
 
                    // }
                 }
-                else if (entity.id == 1001 && iframes == 0)
+                else if (entity.id == 1001 || entity.id == 1055)
                 {
                     xvel += entity.xvel / 2;
                     yvel += entity.yvel / 2;

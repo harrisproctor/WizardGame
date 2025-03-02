@@ -614,6 +614,7 @@ namespace monowizard
                 colliding = false;
 
                 colcheck.checkTilePlayer(this);
+                colcheck.eitemCheck(this);
 
 
                 if (grounded) {

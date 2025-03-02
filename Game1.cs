@@ -184,7 +184,7 @@ namespace monowizard
             _itemManager.addMagicArrowWand(1500, 600);
             _itemManager.addMinorHealWand(1200, 600);
             _itemManager.addMagicFlower1(1500, 600);
-            _itemManager.addCouldern(2700, 400);
+            _itemManager.addCouldern(2600, 400);
             // _itemManager.addCrystalRock(1800, 600);
             //_itemManager.addMagicScroll(1200, 400);
             //add rocks when loading content because uhhhhhhhhhhhh yeah

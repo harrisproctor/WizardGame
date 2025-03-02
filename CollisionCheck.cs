@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +26,7 @@ namespace monowizard
         int ind1;
         int ind2;
         int ledgegrabspacing;
+        Rectangle intersection = new Rectangle(0, 0, 96, 96);
 
         public CollisionCheck(TileManager tm) 
         { 
@@ -389,6 +392,54 @@ namespace monowizard
 
             }
         }
+
+        public void eitemCheck(Entity entity)
+        {
+            foreach (var item in tileManager.itemmanager.eitems)
+            {
+                if (entity.hitbox.Intersects(item.hitbox))
+                {
+                    // Handle collision between entity and item
+                    Rectangle intersection = Rectangle.Intersect(entity.hitbox, item.hitbox);
+
+                    if (intersection.Width < intersection.Height)
+                    {
+                        // Horizontal collision
+                        if (entity.hitbox.Center.X < item.hitbox.Center.X)
+                        {
+                            // Entity is to the left of the item
+                            entity.hitbox.X -= intersection.Width;
+                        }
+                        else
+                        {
+                            // Entity is to the right of the item
+                            entity.hitbox.X += intersection.Width;
+                        }
+                        entity.xvel = 0;
+                        entity.colliding = true;
+                    }
+                    else
+                    {
+                        // Vertical collision
+                        if (entity.hitbox.Center.Y < item.hitbox.Center.Y)
+                        {
+                            // Entity is above the item
+                            entity.hitbox.Y -= intersection.Height;
+                            entity.grounded = true;
+                        }
+                        else
+                        {
+                            // Entity is below the item
+                            entity.hitbox.Y += intersection.Height;
+                        }
+                        entity.yvel = 0;
+                    }
+                }
+            }
+        }
+
+
+            
 
 
         public void onTheLedge(Entity player)

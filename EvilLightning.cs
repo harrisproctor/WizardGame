@@ -118,25 +118,39 @@ namespace monowizard
 
 
             }
-            /* for (int i = 0; i < manager.items.Count; i++)
-             {
+            for (int i = 0; i < player.mm.monsters.Count; i++)
+            {
+                if (hitbox.Intersects(player.mm.monsters[i].hitbox))
+                {
+                    if(!(player.mm.monsters[i] is BrainShopKeep))
+                    {
+                        player.mm.monsters[i].hit(this);
+                        manager.items.Remove(this);
+                    }
+                    
+                }
 
+            }
 
-                 if (hitbox.Intersects(manager.items[i].hitbox))
+                /* for (int i = 0; i < manager.items.Count; i++)
                  {
 
 
-                     manager.items[i].hit(this);
-                     manager.items.Remove(this);
+                     if (hitbox.Intersects(manager.items[i].hitbox))
+                     {
+
+
+                         manager.items[i].hit(this);
+                         manager.items.Remove(this);
 
 
 
-                 }
+                     }
 
 
 
-             }*/
-        }
+                 }*/
+            }
 
         public override void draw(SpriteBatch _spriteBatch)
         {

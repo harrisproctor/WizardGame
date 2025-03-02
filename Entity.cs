@@ -41,6 +41,7 @@ namespace monowizard
 
         public virtual void hit(Entity entity) 
         { 
+
         
         }
     }
