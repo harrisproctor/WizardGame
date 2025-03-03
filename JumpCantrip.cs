@@ -39,7 +39,7 @@ namespace monowizard
             {
                 player.ledgegrab = false;
                 player.changeMana(-realmanacost);
-
+                player.elevation = player.hitbox.Y;
                 player.yvel = -10;
                 player.mm.particleManager.addWindParticle(player.hitbox.X,player.hitbox.Y+80,0,0,0);
                 player.mm.particleManager.addWindParticle(player.hitbox.X+80, player.hitbox.Y + 80, 0, 0,1);

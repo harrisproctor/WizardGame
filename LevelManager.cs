@@ -16,7 +16,15 @@ namespace monowizard
         public LevelManager(Player p) {
             player = p;
         }
+        
+        public void reset() 
+        {
 
+            level = -1;
+            world = 0;
+            nextLevel();
+        
+        }
         public void nextLevel()
         {
             level++;

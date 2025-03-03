@@ -23,6 +23,7 @@ namespace monowizard
         public Rectangle drawspot = new Rectangle(-5, 10, 118, 118);
         public Vector2 screenpos;
         public SpriteEffects spriteEffects;
+        public Random rnd = new Random();
        // public int xvel;
        // public int yvel;
         public int maxVel = 25;
@@ -57,10 +58,13 @@ namespace monowizard
         public int framesicneground = 0;
         public bool leftarrow;
         public bool leftact;
-        public int health = 40;
-        public float mana = 50;
+        public int health = 4;
+        public float mana = 0;
+        public float startHealth;
+        public float startMana;
         public int uncousiustime;
-        //yourcurrent cantrip
+        //your current cantrip
+        //
         public Cantrip cantrip;
         public Cantrip cantrip2;
         public Cantrip cantrip3;
@@ -88,6 +92,8 @@ namespace monowizard
         public bool muddy = false;
         public int mudclean = 50;
         public bool angryLibKeep = false;
+        public int elevation;
+        public int falldmgThreshold = 800;
 
 
 
@@ -109,11 +115,12 @@ namespace monowizard
             hitbox.Height = 80;
             spriteEffects = SpriteEffects.None;
             levelManager = new LevelManager(this);
-
+            startHealth = health;
+            startMana = mana;
             //hitbox = new int[4];
             //left x offset
             // hitbox[0] = 15;
-            //right x offset
+            //right x offsets
             // hitbox[1] =  95;
             //top y offset
             // hitbox[2] = 30;
@@ -135,10 +142,31 @@ namespace monowizard
         public void changeHealth(int change) 
         {
             health += change;
+            if (health > 99)
+            {
+                health = 99;
+            }
+            
+            
             ui.setHealth(health);
             if(health < 1)
             {
-                drawspot.Y += 768;
+                //death and reset
+                angryLibKeep = false;
+                levelManager.reset();
+                changeHealth((int)startHealth - health);
+                changeMana((int)startMana - mana);
+                xvel = 0;
+                yvel = 0;
+                cantrip = null;
+                cantrip2 = null;
+                cantrip3 = null;
+                cantrip4 = null;
+                heldItem = null;
+                ui.items.Clear();
+                //levelManager.reset();
+
+
             }
         }
         public void changeMana(float change)
@@ -619,6 +647,13 @@ namespace monowizard
 
                 if (grounded) {
                     //friction
+                    if(elevation < hitbox.Y - falldmgThreshold)
+                    {
+                        changeHealth(-1);
+                        consious = false;
+                    }
+                    elevation = hitbox.Y;
+                    
                     if (xvel > 0)
                     {
                         xvel -= 1;
@@ -636,6 +671,10 @@ namespace monowizard
                 else
                 {
                     framesicneground++;
+                    if(elevation > hitbox.Y)
+                    {
+                        elevation = hitbox.Y;
+                    }
                 }
 
 
@@ -652,6 +691,7 @@ namespace monowizard
                     yvel = 0;
                     jumpframe = 0;
                     framesicneground = 0;
+                    elevation = hitbox.Y;
                     if (colcheck.tileManager.collides[colcheck.tileManager.map[ledgetileind]] == false)
                     {
                         ledgegrab = false;

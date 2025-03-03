@@ -185,8 +185,9 @@ namespace monowizard
             }
 
             int keyind;
-            if (freetopholes.Count > 0)
+            if (freetopholes.Count > 1)
             {
+                
                 keyind = freetopholes[rand.Next(freetopholes.Count)];
                 addMKey(((keyind % 40) * 96) + 15, ((keyind / 40) * 96) - 50);
                 freetopholes.Remove(keyind);

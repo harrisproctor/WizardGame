@@ -184,7 +184,7 @@ namespace monowizard
             _itemManager.addMagicArrowWand(1500, 600);
             _itemManager.addMinorHealWand(1200, 600);
             _itemManager.addMagicFlower1(1500, 600);
-            _itemManager.addCouldern(2600, 400);
+            //_itemManager.addCouldern(2600, 400);
             // _itemManager.addCrystalRock(1800, 600);
             //_itemManager.addMagicScroll(1200, 400);
             //add rocks when loading content because uhhhhhhhhhhhh yeah
@@ -192,7 +192,7 @@ namespace monowizard
             for (int i = 0; i < 10; i++)
             {
               //  _monsterManager.addBrainMonster(900+(i*300), 600);
-               _monsterManager.addOwlMageMonster(900 + (i * 300), 1600 + (i * 100));
+              // _monsterManager.addOwlMageMonster(900 + (i * 300), 1600 + (i * 100));
                 _itemManager.addMChest(2600+(100*i), 600);
                // _particleManager.addManaSmall(1600 + (100 * i), 600,0,0,64,1f);
                

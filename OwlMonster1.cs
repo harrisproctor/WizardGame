@@ -25,8 +25,12 @@ namespace monowizard
         int playerdiry;
         Rectangle playerfeet;
         MonsterManager mm;
-
-
+        bool following = false;
+        bool flying = false;
+        int waitframes = 0;
+        int roamframes = 0;
+        int roamdirx = 0;
+        int roamdiry = 0;
 
 
         public OwlMonster1(Player player, MonsterManager mm)
@@ -94,35 +98,89 @@ namespace monowizard
 
         public override void update()
         {
-            yvel = 0;
+            
+             yvel = 0;
             xvel = 0;
 
             playerdirx = hitbox.X - player.hitbox.X;
             playerdiry = hitbox.Y - player.hitbox.Y;
-            if (playerdirx < -5)
+            if (playerdiry < 200 && playerdiry > -200 && playerdirx < 500 && playerdirx > -500)
             {
-                xvel += 2;
-                if (facingeffect == SpriteEffects.FlipHorizontally)
-                {
-                    facingeffect = SpriteEffects.None;
-                }
+                following = true;
+                flying = true;
             }
-            else if (playerdirx > 5)
+            if (following)
             {
-                xvel -= 2;
-                if (facingeffect == SpriteEffects.None)
+                if (playerdirx < -5)
                 {
-                    facingeffect = SpriteEffects.FlipHorizontally;
+                    xvel += 2;
+                    if (facingeffect == SpriteEffects.FlipHorizontally)
+                    {
+                        facingeffect = SpriteEffects.None;
+                    }
                 }
-            }
+                else if (playerdirx > 5)
+                {
+                    xvel -= 2;
+                    if (facingeffect == SpriteEffects.None)
+                    {
+                        facingeffect = SpriteEffects.FlipHorizontally;
+                    }
+                }
 
-            if (playerdiry < 0)
-            {
-                yvel+=2;
+                if (playerdiry < 0)
+                {
+                    yvel += 2;
+                }
+                else
+                {
+                    yvel -= 2;
+                }
             }
             else
             {
-                yvel-=2;
+                if(waitframes > 0)
+                {
+                    waitframes--;
+                    if(waitframes == 1)
+                    {
+                        roamdiry = player.rnd.Next(-2, 3);
+                        roamdirx = player.rnd.Next(-2, 3);
+                        roamframes = player.rnd.Next(50, 300);
+                        flying = true;
+                        if(roamdirx > 0)
+                        {
+                            facingeffect = SpriteEffects.None;
+                        }
+                        else
+                        {
+                            facingeffect = SpriteEffects.FlipHorizontally;
+                        }
+                    }
+                    
+                }
+                else
+                {
+
+                    if (roamframes > 0) 
+                    {
+
+                        xvel = roamdirx;
+                        yvel = roamdiry;
+                        roamframes -= 1;
+                        
+                    }
+                    else
+                    {
+                        waitframes = player.rnd.Next(100, 700);
+                        flying = false;
+                    }
+                }
+            }
+
+            if (!flying)
+            {
+                yvel += 4;
             }
 
 
@@ -142,37 +200,49 @@ namespace monowizard
 
 
             aniframe++;
-            if (aniframe % 4 == 1)//4
+            if (flying)
             {
-                if (flapdown)
+                if (aniframe % 4 == 1)//4
                 {
-                    cropbox.X += 128;
-                    if (cropbox.X > 600)
-                    {
-                        cropbox.X -= 128;
-                        flapdown = false;
-
-                    }
-                }
-                else
-                {
-                    cropbox.X -= 128;
-                    if (cropbox.X < 0)
+                    if (flapdown)
                     {
                         cropbox.X += 128;
-                        flapdown = true;
+                        if (cropbox.X > 600)
+                        {
+                            cropbox.X -= 128;
+                            flapdown = false;
+
+                        }
+                    }
+                    else
+                    {
+                        cropbox.X -= 128;
+                        if (cropbox.X < 0)
+                        {
+                            cropbox.X += 128;
+                            flapdown = true;
+
+                        }
 
                     }
 
                 }
-
+                if (aniframe == 60)
+                {
+                    aniframe = 0;
+                    // cropbox.X = 0;
+                }
             }
-
-            if (aniframe == 60)
+            else
             {
-                aniframe = 0;
-                // cropbox.X = 0;
+                if (aniframe == 60)
+                {
+                    aniframe = 0;
+                    cropbox.X = 512;
+                }
             }
+
+            
 
 
         }

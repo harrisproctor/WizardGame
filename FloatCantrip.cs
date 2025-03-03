@@ -65,7 +65,7 @@ namespace monowizard
             {
                 if(player.mana > 0){
                     player.changeMana(-0.01f);
-
+                    player.elevation = player.yvel;
                     player.yvel = 0;
 
                     spellframe++;
