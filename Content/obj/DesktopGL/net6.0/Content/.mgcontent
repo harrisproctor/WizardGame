@@ -38,7 +38,8 @@
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/particles/particlues1.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/shittyself.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/spider!!!!.png</File>
-    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/swampitems2.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/swampbat1.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/swampitems2.1.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/trapproto1.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/trapproto2.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/UIScroll.png</File>
@@ -47,6 +48,7 @@
   <DestFiles>
     <File>elderbrain.png</File>
     <File>tileswamp2.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -17,6 +17,7 @@ namespace monowizard
         public Texture2D owlmon1texture;
         public Texture2D bookmon1texture;
         public Texture2D owlmagetexture;
+        public Texture2D swampmons;
         public Texture2D brainyshopkeeptexture;
         public ParticleManager particleManager;
         public Random rand = new Random();
@@ -145,6 +146,120 @@ namespace monowizard
 
         }
 
+        public void placeswampenemies(int[] mapp, TileManager tm)
+        {
+            monsters.Clear();
+
+            List<int> freefilled = new List<int>();
+
+            List<int> freesideholes = new List<int>();
+
+            List<int> freetopholes = new List<int>();
+
+            List<int> freecorners = new List<int>();
+
+            List<int> freefloor = new List<int>();
+
+            List<int> freemedspaces = new List<int>();
+
+            for (int i = 0; i < mapp.Length; i++)
+            {
+                if (i > 79 && i % 40 != 0 && i % 40 != 39)
+                {
+                    if (tm.collides[mapp[i]] && tm.collides[mapp[i - 40]] == false && mapp[i] != 340)
+                    {
+
+                        if (tm.collides[mapp[i - 39]] && tm.collides[mapp[i - 41]])
+                        {
+                            if (tm.collides[mapp[i - 80]] == false)
+                            {
+                                freetopholes.Add(i);
+
+                            }
+                            else
+                            {
+                                freefilled.Add(i);
+                            }
+
+                        }
+                        else if (tm.collides[mapp[i - 39]] || tm.collides[mapp[i - 41]])
+                        {
+                            if (tm.collides[mapp[i - 80]])
+                            {
+
+                                freesideholes.Add(i);
+
+
+                            }
+                            else
+                            {
+                                freecorners.Add(i);
+                            }
+
+                        }
+                        else
+                        {
+                            freefloor.Add(i);
+                        }
+
+
+                    }
+                    //2x2 spaces check
+                    if (tm.collides[mapp[i]] == false && tm.collides[mapp[i - 1]] == false && tm.collides[mapp[i - 40]] == false && tm.collides[mapp[i - 41]] == false)
+                    {
+                        freemedspaces.Add(i);
+
+                    }
+
+
+
+                }
+
+            }
+
+
+            int keyind;
+            for (int i = 0; i < rand.Next(4, 14); i++)
+            {
+                keyind = freefloor[rand.Next(freefloor.Count)];
+                addBatMon(((keyind % 40) * 96) + 5, ((keyind / 40) * 96) - 80);
+                freefloor.Remove(keyind);
+            }
+           /* for (int i = 0; i < rand.Next(4, 14); i++)
+            {
+                keyind = freefloor[rand.Next(freefloor.Count)];
+                addBookMonster(((keyind % 40) * 96) + 5, ((keyind / 40) * 96) - 90);
+                freefloor.Remove(keyind);
+            }
+            for (int i = 0; i < rand.Next(1, 4); i++)
+            {
+                keyind = freemedspaces[rand.Next(freemedspaces.Count)];
+                addBrainMonster(((keyind % 40) * 96) - 95, ((keyind / 40) * 96) - 90);
+                freemedspaces.Remove(keyind);
+            }
+            for (int i = 0; i < rand.Next(1, 4); i++)
+            {
+                keyind = freemedspaces[rand.Next(freemedspaces.Count)];
+                addOwlMageMonster(((keyind % 40) * 96) - 95, ((keyind / 40) * 96) - 90);
+                freemedspaces.Remove(keyind);
+            }*/
+            for (int i = 0; i < monsters.Count; i++)
+            {
+                if (monsters[i].hitbox.Intersects(new Microsoft.Xna.Framework.Rectangle((tm.startroomind * 960), 0, 960, 960)))
+                {
+                    monsters.Remove(monsters[i]);
+
+                }
+
+            }
+        
+
+
+
+
+
+        }
+
         public void addBatDemon(int x, int y)
         {
             monsters.Add(new Batdemon(player, this));
@@ -174,6 +289,14 @@ namespace monowizard
         {
             monsters.Add(new OwlMonster1(player, this));
             monsters.Last().texture = owlmon1texture;
+            monsters.Last().hitbox.X = x;
+            monsters.Last().hitbox.Y = y;
+        }
+
+        public void addBatMon(int x, int y)
+        {
+            monsters.Add(new BatMonster(player, this));
+            monsters.Last().texture = swampmons;
             monsters.Last().hitbox.X = x;
             monsters.Last().hitbox.Y = y;
         }

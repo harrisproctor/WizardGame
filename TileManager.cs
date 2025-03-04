@@ -235,7 +235,8 @@ namespace monowizard
             updateTiles = new Dictionary<int, Truetile>();
             initateTrapsSwamp();
             itemmanager.placeSwampItems(map, this);
-            player.mm.monsters.Clear();
+            //player.mm.monsters.Clear();
+            player.mm.placeswampenemies(map,this);
             player.mm.particleManager.items.Clear();
 
 

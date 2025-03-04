@@ -260,6 +260,7 @@ namespace monowizard
                     die();
                     player.yvel = -9;
                     player.iframes = 7;
+                    player.elevation = player.hitbox.Y;
                 }
                 else
                 {

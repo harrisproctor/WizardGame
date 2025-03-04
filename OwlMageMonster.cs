@@ -451,6 +451,7 @@ namespace monowizard
                     yvel += 5;
                     health--;
                     hit(player);
+                    player.elevation = player.hitbox.Y;
 
 
                 }

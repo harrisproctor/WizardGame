@@ -351,6 +351,7 @@ namespace monowizard
                     health--;
                     hit(player);
                     player.iframes = 7;
+                    player.elevation = player.hitbox.Y;
 
 
                 }

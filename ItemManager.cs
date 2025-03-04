@@ -193,14 +193,14 @@ namespace monowizard
                 freetopholes.Remove(keyind);
 
                 keyind = freetopholes[rand.Next(freetopholes.Count)];
-                addManaIdol(((keyind % 40) * 96) + 15, ((keyind / 40) * 96) - 50);
+                addManaIdol(((keyind % 40) * 96) + 15, ((keyind / 40) * 96) - 60);
                 freetopholes.Remove(keyind);
 
             }
             else
             {
                 keyind = freecorners[rand.Next(freecorners.Count)];
-                addMKey(((keyind % 40) * 96) + 15, ((keyind / 40) * 96) - 50);
+                addMKey(((keyind % 40) * 96) + 15, ((keyind / 40) * 96) - 60);
                 freecorners.Remove(keyind);
 
                 keyind = freetopholes[rand.Next(freetopholes.Count)];
@@ -336,6 +336,15 @@ namespace monowizard
         public void addMagicFlower1(int x, int y)
         {
             items.Add(new HoldMagicFlower1(colCheck, player));
+            items.Last().texture = swampitems1;
+            items.Last().hitbox.X = x;
+            items.Last().hitbox.Y = y;
+            //rockx += 80;
+        }
+
+        public void addBatWing(int x, int y)
+        {
+            items.Add(new HoldBatWing(colCheck, player));
             items.Last().texture = swampitems1;
             items.Last().hitbox.X = x;
             items.Last().hitbox.Y = y;

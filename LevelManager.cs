@@ -20,7 +20,7 @@ namespace monowizard
         public void reset() 
         {
 
-            level = -1;
+            level = 0;
             world = 0;
             nextLevel();
         

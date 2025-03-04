@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace monowizard
 {
-    internal class BookMon1 : Entity
+    internal class BatMonster : Entity
     {
         public Player player;
         //Rectangle hitbox = new Rectangle(1200, 500, 80, 80);
@@ -18,39 +18,33 @@ namespace monowizard
         int aniframe = 0;
         public bool flapdown;
         public bool leftward = false;
-        public SpriteEffects facingeffect = SpriteEffects.FlipHorizontally;
+        public SpriteEffects facingeffect = SpriteEffects.None;
         CollisionCheck check;
         int playerdirx;
         int playerdiry;
         Rectangle playerfeet;
         MonsterManager mm;
-        int maxVel = 20;
         bool following = false;
+        bool flying = false;
+        int waitframes = 0;
         int roamframes = 0;
-        Random rand = new Random();
-        int waitingframes = 100;
+        int roamdirx = 0;
+        int roamdiry = 0;
 
 
-
-        public BookMon1(Player player, MonsterManager mm)
+        public BatMonster(Player player, MonsterManager mm)
         {
             this.player = player;
-            id = 35;
-            hitbox = new Rectangle(1200, 500, 80, 80);
+            id = 33;
+            hitbox = new Rectangle(1200, 500, 70, 40);
             check = player.colcheck;
             bounce = 100;
             this.mm = mm;
+            xoffset = 15;
+            yoffset = 40;
 
 
 
-        }
-
-        public void die()
-        {
-            player.mm.monsters.Remove(this);
-            player.mm.particleManager.addManaSmall(hitbox.X + 20, hitbox.Y, 1, -5, 32, 0.2f);
-            player.mm.particleManager.addManaSmall(hitbox.X + 30, hitbox.Y + 40, -1, -5, 32, 0.2f);
-            player.mm.particleManager.addManaSmall(hitbox.X + 60, hitbox.Y + 40, 0, -8, 32, 0.1f);
         }
 
         public override void hit(Entity entity)
@@ -62,7 +56,7 @@ namespace monowizard
 
 
                 die();
-;
+
 
 
 
@@ -76,11 +70,11 @@ namespace monowizard
 
                 }
             }
-            else if (entity.id == 1001 || entity.id == 1055)
+            else if (entity.id == 1001)
             {
                 die();
             }
-            else if (entity.id == 1002)
+            else if (entity.id == 1002 || entity.id == 1055)
             {
                 die();
             }
@@ -92,10 +86,23 @@ namespace monowizard
 
         }
 
+        public void die()
+        {
+            player.mm.monsters.Remove(this);
+            player.mm.particleManager.addManaSmall(hitbox.X + 20, hitbox.Y, 1, -5, 32, 0.2f);
+            player.mm.particleManager.addManaSmall(hitbox.X + 30, hitbox.Y + 40, -1, -5, 32, 0.2f);
+            player.mm.particleManager.addManaSmall(hitbox.X + 60, hitbox.Y + 40, 0, -8, 32, 0.1f);
+
+            //player.mm.particleManager.addOwlFeather(hitbox.X + 20, hitbox.Y, 5, -5);
+            //player.mm.particleManager.addOwlFeather(hitbox.X + 30, hitbox.Y + 40, -5, -5);
+            //player.mm.particleManager.addOwlFeather(hitbox.X + 60, hitbox.Y + 40, 0, -8);
+            player.itemManager.addBatWing(hitbox.X, hitbox.Y);
+        }
+
         public override void update()
         {
-            following = false;
-            yvel += 1;
+
+            yvel = 0;
             xvel = 0;
 
             playerdirx = hitbox.X - player.hitbox.X;
@@ -103,94 +110,84 @@ namespace monowizard
             if (playerdiry < 200 && playerdiry > -200 && playerdirx < 500 && playerdirx > -500)
             {
                 following = true;
+                flying = true;
+            }
+            if (following)
+            {
                 if (playerdirx < -5)
                 {
                     xvel += 2;
-                    if (facingeffect == SpriteEffects.None)
-                    {
-                        facingeffect = SpriteEffects.FlipHorizontally;
-                    }
+
+                    facingeffect = SpriteEffects.FlipHorizontally;
+                    
                 }
                 else if (playerdirx > 5)
                 {
                     xvel -= 2;
-                    if (facingeffect == SpriteEffects.FlipHorizontally)
-                    {
-                        facingeffect = SpriteEffects.None;
-                    }
+                    facingeffect = SpriteEffects.None;
+                    
+                }
+
+                if (playerdiry < 20)
+                {
+                    yvel += 2;
+                }
+                else
+                {
+                    yvel -= 2;
                 }
             }
             else
             {
-                if(roamframes == 0)
+                if (waitframes > 0)
                 {
-                    if(waitingframes == 0)
+                    waitframes--;
+                    if (waitframes == 1)
                     {
-                        if(rand.Next(0,2) == 0)
+                        roamdiry = player.rnd.Next(-2, 3);
+                        roamdirx = player.rnd.Next(-2, 3);
+                        roamframes = player.rnd.Next(50, 300);
+                        flying = true;
+                        if (roamdirx > 0)
                         {
-                            roamframes = rand.Next(60, 100);
+                            facingeffect = SpriteEffects.FlipHorizontally;
                         }
                         else
                         {
-                            roamframes = rand.Next(-100, -60);
+                            facingeffect = SpriteEffects.None;
                         }
-                        
-                        waitingframes = rand.Next(100,500);
                     }
-                    else
-                    {
-                        waitingframes--;
-                    }
+
                 }
                 else
                 {
-                    following = true;
-                    
+
                     if (roamframes > 0)
                     {
-                        roamframes--;
 
-                        xvel += 2;
-                        facingeffect = SpriteEffects.FlipHorizontally;
+                        xvel = roamdirx;
+                        yvel = roamdiry;
+                        roamframes -= 1;
 
                     }
                     else
                     {
-                        roamframes++;
-                        xvel -= 2;
-
-                        facingeffect = SpriteEffects.None;
+                        waitframes = player.rnd.Next(100, 700);
+                        flying = false;
                     }
-                        
                 }
-
-
             }
 
-           
+            if (!flying)
+            {
+                yvel += 4;
+            }
+
 
             colliding = false;
             grounded = false;
             check.checkTile(this);
 
-            //limit physics
-            if (xvel > maxVel)
-            {
-                xvel = maxVel;
-            }
-            else if (xvel < -maxVel)
-            {
-                xvel = -maxVel;
-            }
-
-            if (yvel > maxVel)
-            {
-                yvel = maxVel;
-            }
-            else if (yvel < -maxVel)
-            {
-                yvel = -maxVel;
-            }
 
             hitbox.X += xvel;
             hitbox.Y += yvel;
@@ -203,33 +200,49 @@ namespace monowizard
 
 
             aniframe++;
-            if (following)
+            if (flying)
             {
-                if (aniframe % 12 == 1)
+                if (aniframe % 4 == 1)//4
                 {
-
-                    cropbox.X += 128;
-                    if (cropbox.X > 700)
+                    if (flapdown)
                     {
-                        cropbox.X = 0;
-                        flapdown = false;
+                        cropbox.X += 128;
+                        if (cropbox.X > 600)
+                        {
+                            cropbox.X -= 128;
+                            flapdown = false;
+
+                        }
+                    }
+                    else
+                    {
+                        cropbox.X -= 128;
+                        if (cropbox.X < 0)
+                        {
+                            cropbox.X += 128;
+                            flapdown = true;
+
+                        }
 
                     }
 
-
-
+                }
+                if (aniframe == 60)
+                {
+                    aniframe = 0;
+                    // cropbox.X = 0;
                 }
             }
             else
             {
-                cropbox.X = 0;
+                if (aniframe == 60)
+                {
+                    aniframe = 0;
+                    cropbox.X = 512;
+                }
             }
 
-            if (aniframe == 84)
-            {
-                aniframe = 0;
-                // cropbox.X = 0;
-            }
+
 
 
         }
@@ -260,14 +273,11 @@ namespace monowizard
 
         public override void draw(SpriteBatch _spriteBatch)
         {
-            drawbox.X = (int)(hitbox.X - 10) - player.centerWorldX + player.centerX;
-            drawbox.Y = (int)hitbox.Y - player.centerWorldY + player.centerY;
+            drawbox.X = hitbox.X - xoffset - player.centerWorldX + player.centerX;
+            drawbox.Y = hitbox.Y - yoffset - player.centerWorldY + player.centerY;
             // _spriteBatch.Draw(battexture, drawbox, cropbox, Color.White);
             _spriteBatch.Draw(texture, drawbox, cropbox, Color.White, 0, Vector2.Zero, facingeffect, 1);
         }
-
-
-
 
     }
 }

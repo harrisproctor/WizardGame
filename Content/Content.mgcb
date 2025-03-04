@@ -421,7 +421,7 @@
 /processorParam:TextureFormat=Color
 /build:spider!!!!.png
 
-#begin swampitems2.png
+#begin swampbat1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -431,7 +431,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:swampitems2.png
+/build:swampbat1.png
+
+#begin swampitems2.1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:swampitems2.1.png
 
 #begin trapproto1.png
 /importer:TextureImporter

@@ -58,8 +58,8 @@ namespace monowizard
         public int framesicneground = 0;
         public bool leftarrow;
         public bool leftact;
-        public int health = 4;
-        public float mana = 0;
+        public int health = 40;
+        public float mana = 50;
         public float startHealth;
         public float startMana;
         public int uncousiustime;
