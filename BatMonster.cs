@@ -96,7 +96,11 @@ namespace monowizard
             //player.mm.particleManager.addOwlFeather(hitbox.X + 20, hitbox.Y, 5, -5);
             //player.mm.particleManager.addOwlFeather(hitbox.X + 30, hitbox.Y + 40, -5, -5);
             //player.mm.particleManager.addOwlFeather(hitbox.X + 60, hitbox.Y + 40, 0, -8);
-            player.itemManager.addBatWing(hitbox.X, hitbox.Y);
+            if(player.rnd.Next(0,2) == 0)
+            {
+                player.itemManager.addBatWing(hitbox.X, hitbox.Y);
+            }
+            
         }
 
         public override void update()

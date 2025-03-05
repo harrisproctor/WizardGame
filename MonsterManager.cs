@@ -18,6 +18,7 @@ namespace monowizard
         public Texture2D bookmon1texture;
         public Texture2D owlmagetexture;
         public Texture2D swampmons;
+        public Texture2D witchmons;
         public Texture2D brainyshopkeeptexture;
         public ParticleManager particleManager;
         public Random rand = new Random();
@@ -225,24 +226,31 @@ namespace monowizard
                 addBatMon(((keyind % 40) * 96) + 5, ((keyind / 40) * 96) - 80);
                 freefloor.Remove(keyind);
             }
-           /* for (int i = 0; i < rand.Next(4, 14); i++)
-            {
-                keyind = freefloor[rand.Next(freefloor.Count)];
-                addBookMonster(((keyind % 40) * 96) + 5, ((keyind / 40) * 96) - 90);
-                freefloor.Remove(keyind);
-            }
+            /* for (int i = 0; i < rand.Next(4, 14); i++)
+             {
+                 keyind = freefloor[rand.Next(freefloor.Count)];
+                 addBookMonster(((keyind % 40) * 96) + 5, ((keyind / 40) * 96) - 90);
+                 freefloor.Remove(keyind);
+             }
+             for (int i = 0; i < rand.Next(1, 4); i++)
+             {
+                 keyind = freemedspaces[rand.Next(freemedspaces.Count)];
+                 addBrainMonster(((keyind % 40) * 96) - 95, ((keyind / 40) * 96) - 90);
+                 freemedspaces.Remove(keyind);
+             }
+             for (int i = 0; i < rand.Next(1, 4); i++)
+             {
+                 keyind = freemedspaces[rand.Next(freemedspaces.Count)];
+                 addOwlMageMonster(((keyind % 40) * 96) - 95, ((keyind / 40) * 96) - 90);
+                 freemedspaces.Remove(keyind);
+             }*/
             for (int i = 0; i < rand.Next(1, 4); i++)
             {
                 keyind = freemedspaces[rand.Next(freemedspaces.Count)];
-                addBrainMonster(((keyind % 40) * 96) - 95, ((keyind / 40) * 96) - 90);
+                addPurpleWitch(((keyind % 40) * 96) - 95, ((keyind / 40) * 96) - 90);
                 freemedspaces.Remove(keyind);
             }
-            for (int i = 0; i < rand.Next(1, 4); i++)
-            {
-                keyind = freemedspaces[rand.Next(freemedspaces.Count)];
-                addOwlMageMonster(((keyind % 40) * 96) - 95, ((keyind / 40) * 96) - 90);
-                freemedspaces.Remove(keyind);
-            }*/
+
             for (int i = 0; i < monsters.Count; i++)
             {
                 if (monsters[i].hitbox.Intersects(new Microsoft.Xna.Framework.Rectangle((tm.startroomind * 960), 0, 960, 960)))
@@ -252,7 +260,8 @@ namespace monowizard
                 }
 
             }
-        
+            
+
 
 
 
@@ -272,6 +281,14 @@ namespace monowizard
         {
             monsters.Add(new brainmonster1(player, this));
             monsters.Last().texture = brainmon1texture;
+            monsters.Last().hitbox.X = x;
+            monsters.Last().hitbox.Y = y;
+        }
+
+        public void addPurpleWitch(int x, int y)
+        {
+            monsters.Add(new PurpleWitch(player, this));
+            monsters.Last().texture = witchmons;
             monsters.Last().hitbox.X = x;
             monsters.Last().hitbox.Y = y;
         }

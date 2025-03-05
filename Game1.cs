@@ -144,7 +144,7 @@ namespace monowizard
 
 
 
-            _itemManager.rocktext = Content.Load<Texture2D>("items/littlerock1");
+           // _itemManager.rocktext = Content.Load<Texture2D>("items/littlerock1");
             _itemManager.libitems1 = Content.Load<Texture2D>("itemslib2.2");
             _itemManager.swampitems1 = Content.Load<Texture2D>("swampitems2.1");
             _itemManager.magicsymbols = Content.Load<Texture2D>("libcantripsymb");
@@ -160,6 +160,7 @@ namespace monowizard
             player.cloudtexture = _particleManager.windcloudmanatext;
             // _monsterManager.batmon1texture = Content.Load<Texture2D>("batdemon2.3");//("brainmon1");//("batdemon2.3")
             _monsterManager.swampmons = Content.Load<Texture2D>("swampbat1");
+            _monsterManager.witchmons = Content.Load<Texture2D>("witchmon");
             _monsterManager.brainmon1texture = Content.Load<Texture2D>("brainmon3");//("brainmon3");
             _monsterManager.brainyshopkeeptexture = Content.Load<Texture2D>("elderbrain");
             _monsterManager.owlmon1texture = Content.Load<Texture2D>("owlexe2");
