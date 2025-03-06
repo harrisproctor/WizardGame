@@ -118,7 +118,7 @@ namespace monowizard
             player.texture = level1Content.Load<Texture2D>("cocovon");
             _tileManager.texts[0] = level1Content.Load<Texture2D>("bookshelftile1");
             _tileManager.texts[1] = level1Content.Load<Texture2D>("woodtileslib5");
-            _tileManager.swamptiles = level1Content.Load<Texture2D>("tileswamp2");
+            _tileManager.swamptiles = level1Content.Load<Texture2D>("tileswamp2.1");
             _tileManager.texts[340] = _tileManager.texts[1];
             _tileManager.texts[341] = _tileManager.texts[1];
             _tileManager.texts[2] = level1Content.Load<Texture2D>("libarybackground2");
@@ -126,7 +126,9 @@ namespace monowizard
             {
                 _tileManager.texts[i] = _tileManager.texts[2];
             }
-           
+            _tileManager.texts[399] = _tileManager.texts[2];
+            _tileManager.texts[398] = _tileManager.texts[1];
+
             for (int i = 322; i < 326; i++)
             {
                 _tileManager.texts[i] = _tileManager.texts[1];
@@ -146,7 +148,7 @@ namespace monowizard
 
            // _itemManager.rocktext = Content.Load<Texture2D>("items/littlerock1");
             _itemManager.libitems1 = Content.Load<Texture2D>("itemslib2.2");
-            _itemManager.swampitems1 = Content.Load<Texture2D>("swampitems2.1");
+            _itemManager.swampitems1 = Content.Load<Texture2D>("swampitems2.2");
             _itemManager.magicsymbols = Content.Load<Texture2D>("libcantripsymb");
             _particleManager.libtexts1 = Content.Load<Texture2D>("particles/libparticles1");
             _particleManager.windcloudmanatext = Content.Load<Texture2D>("particles/particlues1");

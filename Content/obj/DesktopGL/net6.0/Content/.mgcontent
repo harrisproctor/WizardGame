@@ -6,7 +6,6 @@
   <SourceFiles>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/../../../../../Desktop/artmisc/bookmon1/elderbrainmon/elderbrain.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/../../../../../Desktop/artmisc/swampmons/witchmon.png</File>
-    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/../../../../../Desktop/artmisc/swampyuno/tileswamp2.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/badmonbook.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/batdemon2.3.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/bestbrickslib.png</File>
@@ -40,7 +39,8 @@
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/shittyself.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/spider!!!!.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/swampbat1.png</File>
-    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/swampitems2.1.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/swampitems2.2.png</File>
+    <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/tileswamp2.1.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/trapproto1.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/trapproto2.png</File>
     <File>C:/Users/harri/source/repos/monowizard/monowizard/Content/UIScroll.png</File>
@@ -49,7 +49,7 @@
   <DestFiles>
     <File>elderbrain.png</File>
     <File>witchmon.png</File>
-    <File>tileswamp2.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

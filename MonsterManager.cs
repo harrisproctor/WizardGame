@@ -250,6 +250,12 @@ namespace monowizard
                 addPurpleWitch(((keyind % 40) * 96) - 95, ((keyind / 40) * 96) - 90);
                 freemedspaces.Remove(keyind);
             }
+            for (int i = 0; i < rand.Next(1, 4); i++)
+            {
+                keyind = freemedspaces[rand.Next(freemedspaces.Count)];
+                addRedWitch(((keyind % 40) * 96) - 95, ((keyind / 40) * 96) - 90);
+                freemedspaces.Remove(keyind);
+            }
 
             for (int i = 0; i < monsters.Count; i++)
             {
@@ -288,6 +294,14 @@ namespace monowizard
         public void addPurpleWitch(int x, int y)
         {
             monsters.Add(new PurpleWitch(player, this));
+            monsters.Last().texture = witchmons;
+            monsters.Last().hitbox.X = x;
+            monsters.Last().hitbox.Y = y;
+        }
+
+        public void addRedWitch(int x, int y)
+        {
+            monsters.Add(new RedWitch(player, this));
             monsters.Last().texture = witchmons;
             monsters.Last().hitbox.X = x;
             monsters.Last().hitbox.Y = y;

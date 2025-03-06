@@ -37,18 +37,6 @@
 /processorParam:TextureFormat=Color
 /build:../../../../../Desktop/artmisc/swampmons/witchmon.png;witchmon.png
 
-#begin ../../../../../Desktop/artmisc/swampyuno/tileswamp2.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:../../../../../Desktop/artmisc/swampyuno/tileswamp2.png;tileswamp2.png
-
 #begin badmonbook.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -445,7 +433,7 @@
 /processorParam:TextureFormat=Color
 /build:swampbat1.png
 
-#begin swampitems2.1.png
+#begin swampitems2.2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -455,7 +443,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:swampitems2.1.png
+/build:swampitems2.2.png
+
+#begin tileswamp2.1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:tileswamp2.1.png
 
 #begin trapproto1.png
 /importer:TextureImporter

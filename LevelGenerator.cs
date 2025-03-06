@@ -24,6 +24,20 @@ namespace monowizard
         public int[][] shops;
         public int[][][] allrooms;
 
+        public int[][] rooms1swamp;
+        public int[][] rooms2swamp;
+        public int[][] rooms3swamp;
+        public int[][] rooms4swamp;
+        public int[][] rooms5swamp;
+        public int[][] rooms6swamp;
+
+        public int[][] rooms7swamp;
+        public int[][] rooms8swamp;
+        public int[][] roomsstartswamp;
+        public int[][] roomsendswamp;
+        public int[][] shopsswamp;
+        public int[][][] allroomsswamp;
+
         Random rnd = new Random();
         private int[] Room1 = new int[]{
             10,10,10,10,10,10,10,10,10,10,
@@ -50,6 +64,78 @@ namespace monowizard
             10,10,10,8,8,8,8,10,10,10,
             10,10,10,10,10,10,10,10,10,10
     };
+        private int[] Room2a = new int[]{
+        10,10,10,10,10,10,10,10,10,10,
+10,8,0,8,8,54,54,8,8,10,
+10,0,50,8,0,0,0,0,0,0,
+0,10,0,0,0,0,54,0,0,0,
+0,0,60,50,50,50,50,0,0,0,
+0,0,60,60,60,60,0,0,0,0,
+0,0,0,0,0,0,0,0,8,10,
+0,0,0,0,0,0,0,8,10,10,
+10,60,54,0,0,8,8,10,10,10,
+10,10,10,10,10,10,10,10,10,10};
+
+        private int[] Room2b = new int[]{
+        10,10,10,10,10,10,10,10,10,10,
+10,0,0,0,0,0,0,0,0,10,
+57,47,57,0,57,47,57,0,57,47,
+47,57,47,0,47,57,47,0,47,57,
+0,0,0,0,0,47,0,0,0,0,
+47,57,47,0,47,57,47,0,47,57,
+57,47,57,0,57,47,57,0,57,47,
+0,10,47,0,0,0,0,0,47,10,
+10,10,10,10,0,0,0,0,10,10,
+10,10,10,10,10,10,10,10,10,10};
+
+        private int[] Room2c = new int[]{
+        10,10,10,10,10,10,10,10,10,10,
+10,8,8,8,8,8,8,8,8,10,
+10,8,4,4,4,4,4,4,8,10,
+0,0,0,0,4,4,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,4,4,0,0,0,0,
+10,8,4,4,4,4,4,4,8,10,
+10,8,8,8,8,8,8,8,8,10,
+10,10,10,10,10,10,10,10,10,10};
+
+
+        private int[] Room3a = new int[]{
+        10,10,10,10,10,10,10,10,10,10,
+        10,10,0,0,27,27,0,0,10,10,
+        10,0,0,27,23,23,27,0,0,10,
+        0,30,27,23,23,23,23,27,30,0,
+        0,30,27,23,23,23,23,27,30,0,
+        0,0,0,0,0,0,0,0,0,0,
+        10,30,27,23,21,23,23,27,30,0,
+        10,30,27,27,23,27,27,27,30,10,
+        10,30,30,30,23,30,30,30,30,10,
+        10,10,10,10,0,0,0,0,10,10};
+
+        private int[] Room3b = new int[]{
+        10,10,10,10,10,10,10,10,10,10,
+        10,10,7,7,7,7,7,7,10,10,
+        10,0,7,0,0,0,0,7,10,10,
+        0,0,0,0,0,7,7,30,26,0,
+        0,0,0,0,26,30,30,26,26,0,
+        0,0,0,26,26,21,21,22,22,0,
+        0,7,0,0,0,0,23,30,30,0,
+        10,7,0,0,0,0,30,7,7,10,
+        10,7,7,0,7,0,7,7,7,10,
+        10,10,10,0,0,0,10,10,10,10};
+
+        private int[] Room3c = new int[]{
+        10,10,10,10,10,10,10,10,10,10,
+        10,8,8,8,8,8,8,8,8,10,
+        10,8,4,4,0,0,4,4,8,10,
+        0,0,0,58,58,58,58,0,0,0,
+        0,0,58,48,48,48,48,58,0,0,
+        0,58,48,0,58,58,0,48,58,0,
+        0,0,0,0,0,0,0,0,0,0,
+        10,8,4,4,0,0,4,4,8,10,
+        10,8,8,8,0,0,8,8,8,10,
+        10,10,10,10,0,0,10,10,10,10};
 
         private int[] Room3 = new int[]{
             10,10,10,10,10,10,10,10,10,10,
@@ -78,6 +164,33 @@ namespace monowizard
             10,10,10,10,10,10,10,10,10,10
     };
 
+
+        private int[] Room4a = new int[]{
+            0,10,10,0,0,0,0,10,10,10,
+            10,58,58,48,58,48,58,48,10,10,
+            0,0,48,0,0,48,48,48,48,10,
+            0,58,58,58,10,10,10,10,58,10,
+            0,48,48,48,48,48,48,0,0,0,
+            0,0,58,58,58,58,58,58,58,0,
+            0,0,0,0,48,48,48,48,48,0,
+            0,0,58,58,58,58,58,58,58,0,
+            10,48,48,48,48,0,0,0,0,10,
+            10,10,10,10,10,10,10,10,10,10
+    };
+
+        private int[] Room4b = new int[]{
+            10,10,10,0,0,0,10,10,10,10,
+10,6,0,0,0,0,0,6,8,10,
+10,0,0,0,6,3,0,0,6,10,
+0,0,3,6,8,6,3,0,0,0,
+0,0,6,8,10,8,6,3,0,0,
+0,10,8,10,10,10,8,6,10,0,
+0,8,10,10,10,10,10,8,6,0,
+10,10,10,10,10,10,10,10,8,10,
+10,10,10,10,10,10,10,10,10,10,
+10,10,10,10,10,10,10,10,10,10
+    };
+
         private int[] Room5 = new int[]{
             10,10,10,0,0,0,10,10,10,10,
             10,0,0,0,0,0,0,0,0,10,
@@ -92,6 +205,18 @@ namespace monowizard
     };
 
         private int[] Room6 = new int[]{
+            10,7,7,9,0,0,7,10,10,10,
+10,0,9,7,0,7,9,10,10,10,
+10,0,9,0,0,0,0,0,0,10,
+10,10,9,7,0,9,9,10,0,10,
+10,0,0,0,0,0,0,0,0,10,
+10,0,9,7,0,7,9,10,10,10,
+10,0,0,0,0,0,0,0,0,10,
+10,0,9,7,0,9,9,10,10,10,
+10,0,0,0,0,0,0,0,0,10,
+10,10,9,7,0,7,9,10,10,10
+    };
+        private int[] Room6a = new int[]{
             10,10,9,0,0,0,0,0,10,10,
             10,9,0,7,0,0,0,6,0,10,
             10,0,0,0,0,0,0,0,0,10,
@@ -103,6 +228,19 @@ namespace monowizard
             10,0,0,0,0,0,0,0,0,10,
             10,10,8,4,0,0,7,8,10,10
     };
+
+        private int[] Room6b = new int[]{ 1,10,1,0,0,0,0,0,10,10,
+        10,0,1,9,9,9,9,0,0,10,
+        10,0,0,0,9,0,0,0,0,7,
+        10,1,9,9,9,9,9,7,0,0,
+        10,0,0,0,1,0,0,0,0,0,
+        10,7,9,9,9,9,9,7,0,0,
+        10,0,0,0,7,0,0,0,0,0,
+        10,0,9,9,9,9,9,0,0,0,
+        10,0,0,0,9,0,0,0,0,10,
+        10,10,0,9,9,9,7,0,10,10};
+
+
         private int[] Room7 = new int[]{
             10,10,10,10,10,10,10,10,10,10,
             9,1,1,1,0,0,0,0,0,10,
@@ -119,19 +257,32 @@ namespace monowizard
         private int[] Room8 = new int[]{
             0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0,0,0,0,0,0,
-            0,0,9,9,9,9,9,9,0,0,
+            0,0,9,9,4,9,9,9,0,0,
             0,0,9,0,0,0,0,9,0,0,
-            0,0,9,0,9,9,0,9,0,0,
+            0,0,4,0,9,9,0,4,0,0,
             0,0,9,0,9,9,0,9,0,0,
             0,0,9,0,0,0,0,9,0,0,
-            50,0,9,9,9,9,9,9,0,50,
+            50,0,9,9,4,9,9,9,0,50,
             60,0,0,0,0,0,0,0,0,60,
             50,0,0,0,0,0,0,0,0,50
     };
 
+        private int[] Room8a = new int[]{
+            25,25,25,25,0,0,0,0,0,25,
+0,0,0,0,0,0,0,0,0,0,
+25,0,0,0,25,25,25,0,0,25,
+0,0,0,0,0,0,0,0,0,0,
+25,0,0,25,25,25,0,0,0,25,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+30,30,30,30,30,30,30,30,30,30,
+30,30,30,30,30,30,30,30,30,30,
+30,30,30,30,30,30,30,30,30,30
+    };
 
 
-       
+
+
 
 
         private int[] Room9 = new int[]{
@@ -171,7 +322,7 @@ namespace monowizard
             0,55,60,60,60,55,0,0,0,6,
             0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0,0,0,0,0,0,
-            0,0,44,46,346,346,346,346,341,0,
+            0,0,346,346,346,346,346,346,341,0,
             0,2,10,10,10,10,10,10,10,0,
             10,10,10,10,10,10,10,10,10,10
     };
@@ -209,17 +360,22 @@ namespace monowizard
         public LevelGenerator(Player player, TileManager tileManager)
         {
             rooms1 = new int[][] { Room1 };
-            rooms2 = new int[][] { Room2, };
-            rooms3 = new int[][] { Room3 };
-            rooms4 = new int[][] { Room4 };
+            rooms2 = new int[][] { Room2,Room2a,Room2b, Room2c };
+            rooms3 = new int[][] { Room3, Room3a, Room3b, Room3c };
+            rooms4 = new int[][] { Room4, Room4a };
+            rooms4swamp = new int[][] { Room4b};
             rooms5 = new int[][] { Room5 };
-            rooms6 = new int[][] { Room6 };
+            rooms6 = new int[][] { Room6,Room6a ,Room6b};
             rooms7 = new int[][] { Room7 };
-            rooms8 = new int[][] { Room8 };
+            rooms8 = new int[][] { Room8,Room8a };
             roomsstart = new int[][] { Roomstart };
             roomsend = new int[][] { Roomend };
             shops = new int[][] { Dumb };
+            roomsstartswamp = new int[][] { Roomstart };
+            roomsendswamp = new int[][] { Roomend };
+            shopsswamp = new int[][] { Dumb };
             allrooms = new int[][][] { rooms1, rooms2, rooms3, rooms4, rooms5, rooms6, rooms7, rooms8 };
+            allroomsswamp = new int[][][] { rooms1, rooms2, rooms3, rooms4swamp, rooms5, rooms6, rooms7, rooms8 };
             this.player = player;
             this.tileManager = tileManager;
         }
@@ -254,24 +410,17 @@ namespace monowizard
 
                     if (room[i] > 10 && room[i] < 21)
                     {
-                    /*  if (rnd.Next(0, 10) < (room[i] - 10))
+                      if (rnd.Next(0, 10) < (room[i] - 10))
                       {
-                          if (rnd.Next(0, 2) == 0)
-                          {
-                              room[i] = 338;
-                          }
-                          else
-                          {
-                              room[i] = 339;
-                          }
+                        room[i] = 201; //201
 
 
-                      }
+                       }
                       else
                       {
                           room[i] = 0;
-                      }*/
-                    room[i] = 201;
+                      }
+                    //room[i] = 201; //201
 
                 }
 
@@ -286,7 +435,7 @@ namespace monowizard
                         {
                             room[i] = 0;
                         }*/
-                    room[i] = 201;
+                    room[i] = 0;
 
                 }
 
@@ -743,7 +892,7 @@ namespace monowizard
             }
 
 
-            int[][][] roompools = makeroompoolsinlayout(testing);
+            int[][][] roompools = makeroompoolsinlayoutSwamp(testing);
 
 
             int[] row1 = makeRoomRowSwamp(roompools[0], roompools[1], roompools[2], roompools[3]);
@@ -836,6 +985,68 @@ namespace monowizard
                 else if (layout[i] == 99)
                 {
                     result[i] = shops;
+                }
+
+            }
+            return result;
+
+
+        }
+
+        public int[][][] makeroompoolsinlayoutSwamp(int[] layout)
+        {
+            int[][][] result = new int[16][][];
+            int choiceind = 0;
+
+            for (int i = 0; i < 16; i++)
+            {
+                if (layout[i] == 0)
+                {
+                    choiceind = rnd.Next(0, 8);
+                    result[i] = allroomsswamp[choiceind];
+
+                }
+                else if (layout[i] == 22 || layout[i] == 44)
+                {
+                    choiceind = rnd.Next(1, 5);
+                    if (choiceind == 1)
+                    {
+                        choiceind = 8;
+                    }
+                    result[i] = allroomsswamp[choiceind - 1];
+
+                }
+                else if (layout[i] == 23)
+                {
+                    result[i] = allroomsswamp[2];
+                }
+                else if (layout[i] == 33)
+                {
+                    result[i] = allroomsswamp[5];
+                }
+                else if (layout[i] == 43)
+                {
+                    result[i] = allroomsswamp[2];
+                }
+                else if (layout[i] == 32)
+                {
+                    result[i] = allroomsswamp[3];
+                }
+                else if (layout[i] == 34)
+                {
+                    result[i] = allroomsswamp[3];
+                }
+                else if (layout[i] == 42)
+                {
+                    result[i] = roomsstartswamp;
+                }
+                else if (layout[i] == 30 || layout[i] == 40 || layout[i] == 20)
+                {
+                    result[i] = roomsendswamp;
+                }
+                else if (layout[i] == 99)
+                {
+                    result[i] = shopsswamp;
                 }
 
             }

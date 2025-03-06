@@ -12,7 +12,7 @@ namespace monowizard
     {
         public Player player;
         //Rectangle hitbox = new Rectangle(1200, 500, 80, 80);
-        Rectangle drawbox = new Rectangle(0, 0, 100, 100);
+        Rectangle drawbox = new Rectangle(0, 0, 128, 128);
         Rectangle cropbox = new Rectangle(0, 0, 128, 128);
         Rectangle tophitbox = new Rectangle(0, 0, 70, 5);
         int aniframe = 0;
@@ -36,12 +36,12 @@ namespace monowizard
         {
             this.player = player;
             id = 33;
-            hitbox = new Rectangle(1200, 500, 70, 40);
+            hitbox = new Rectangle(1200, 500, 80, 54);
             check = player.colcheck;
             bounce = 100;
             this.mm = mm;
-            xoffset = 15;
-            yoffset = 40;
+            xoffset = 20;
+            yoffset = 45;
 
 
 
@@ -63,12 +63,11 @@ namespace monowizard
             }
             else if (entity.id == 1)
             {
-                if (player.cantrip.id == 1)
-                {
+                
                     die();
 
 
-                }
+                
             }
             else if (entity.id == 1001)
             {

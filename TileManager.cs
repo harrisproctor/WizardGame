@@ -51,11 +51,12 @@ namespace monowizard
         public Dictionary<int, Truetile> updateTiles = new Dictionary<int, Truetile>();
         public LevelGenerator levelgen;
         public ItemManager itemmanager;
-        private LibLevSetUp libLevSetUp;
-        private SwampLevSetUp swampLevSetUp;
+        public LibLevSetUp libLevSetUp;
+        public SwampLevSetUp swampLevSetUp;
 
         public Game1 theGame;
         public bool ogre;
+        public bool troll;
 
 
 
@@ -189,6 +190,10 @@ namespace monowizard
                 {
                     updateTiles.Add(i, new MudTrueTile(i, this));
                 }
+                if (map[i] == 202)
+                {
+                    updateTiles.Add(i, new SpikesTrueTile(i, this));
+                }
             }
         }
 
@@ -200,8 +205,16 @@ namespace monowizard
             }
         }
 
+
+        
         public void newMap()
         {
+            if (troll == false)
+            {
+                libLevSetUp.switchSwampAssets(theGame.Content);
+                libLevSetUp.setUpLibTiles();
+                troll = true;
+            }
             map = levelgen.makeMap();
             generlibback(map);
             makeLibBricks(map);

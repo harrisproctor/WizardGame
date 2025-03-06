@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,6 +15,30 @@ namespace monowizard
         public LibLevSetUp(TileManager tmm)
         {
             tm = tmm;
+        }
+
+        public void switchSwampAssets(ContentManager cm)
+        {
+
+            //if (cm != null)
+            //{
+            //  cm.Unload();
+            //}
+
+            //cm = new ContentManager(tm.theGame.Services, "Content");
+            // tm.texts[1] = cm.Load<Texture2D>("tileswamp2");
+           tm.texts[1] = tm.texts[398];
+            for (int i = 2; i < 330; i++)
+            {
+                
+                    tm.texts[i] = tm.texts[399];
+                
+
+
+            }
+
+
+
         }
 
         public void setUpLibTiles()

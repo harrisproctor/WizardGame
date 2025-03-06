@@ -58,8 +58,8 @@ namespace monowizard
         public int framesicneground = 0;
         public bool leftarrow;
         public bool leftact;
-        public int health = 40;
-        public float mana = 50;
+        public int health = 6;
+        public float mana = 0;
         public float startHealth;
         public float startMana;
         public int uncousiustime;
@@ -152,6 +152,9 @@ namespace monowizard
             if(health < 1)
             {
                 //death and reset
+                colcheck.tileManager.ogre = false;
+                colcheck.tileManager.troll = false;
+                colcheck.tileManager.libLevSetUp.switchSwampAssets(colcheck.tileManager.theGame.Content);
                 angryLibKeep = false;
                 levelManager.reset();
                 changeHealth((int)startHealth - health);

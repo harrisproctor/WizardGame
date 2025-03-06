@@ -64,6 +64,13 @@ namespace monowizard
             tm.istrap[201] = true;
             tm.breakable[201] = false;
 
+            //spikes
+            tm.collides[202] = true;
+            tm.croprects[202] = new Rectangle(0, 256, 128, 128);
+            tm.tileEffects[202] = tm.trap1;
+            tm.istrap[202] = true;
+            tm.breakable[202] = false;
+
             for (int i = 2; i < 100; i++)
             {
                 tm.collides[i] = false;

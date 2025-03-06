@@ -462,7 +462,7 @@ namespace monowizard
             drawbox.X = (int)(hitbox.X - 20) - player.centerWorldX + player.centerX;
             drawbox.Y = (int)(hitbox.Y - 10) - player.centerWorldY + player.centerY;
             // _spriteBatch.Draw(battexture, drawbox, cropbox, Color.White);
-            _spriteBatch.Draw(texture, drawbox, cropbox, Color.White, 0, Vector2.Zero, facingeffect, 1);
+            _spriteBatch.Draw(texture, drawbox, cropbox, Color.White , 0, Vector2.Zero, facingeffect, 1);
         }
     }
 }
