@@ -312,9 +312,9 @@ namespace monowizard
                 player.mm.particleManager.addBrainChunk(hitbox.X+ 30, hitbox.Y+ 40,-5,-5);
                 player.mm.particleManager.addBrainChunk(hitbox.X+60, hitbox.Y+40,0,-8);
 
-                player.mm.particleManager.addManaSmall(hitbox.X + 20, hitbox.Y, 1, -5,32,0.3f);
-                player.mm.particleManager.addManaSmall(hitbox.X + 30, hitbox.Y + 40, -1, -5,32, 0.3f);
-                player.mm.particleManager.addManaSmall(hitbox.X + 60, hitbox.Y + 40, 0, -8,32, 0.3f);
+                player.mm.particleManager.addManaSmall(hitbox.X + 20, hitbox.Y, 1, -5,40,0.5f);
+                player.mm.particleManager.addManaSmall(hitbox.X + 30, hitbox.Y + 40, -1, -5,40, 0.5f);
+                player.mm.particleManager.addManaSmall(hitbox.X + 60, hitbox.Y + 40, 0, -8,25, 0.2f);
 
 
                 player.mm.monsters.Remove(this);

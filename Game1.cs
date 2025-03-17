@@ -118,7 +118,7 @@ namespace monowizard
             player.texture = level1Content.Load<Texture2D>("cocovon");
             _tileManager.texts[0] = level1Content.Load<Texture2D>("bookshelftile1");
             _tileManager.texts[1] = level1Content.Load<Texture2D>("woodtileslib5");
-            _tileManager.swamptiles = level1Content.Load<Texture2D>("tileswamp2.1");
+            _tileManager.swamptiles = level1Content.Load<Texture2D>("tileswamp2.2");
             _tileManager.texts[340] = _tileManager.texts[1];
             _tileManager.texts[341] = _tileManager.texts[1];
             _tileManager.texts[2] = level1Content.Load<Texture2D>("libarybackground2");

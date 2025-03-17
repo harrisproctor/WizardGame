@@ -26,6 +26,10 @@ namespace monowizard
                 tm.backmap[i] = 0;
             }
 
+            for (int i = 0; i < tm.rotations.Length; i++)
+            {
+                tm.rotations[i] = 0;
+            }
 
             //basics
             for (int i = 260; i < 265; i++)
@@ -65,11 +69,38 @@ namespace monowizard
             tm.breakable[201] = false;
 
             //spikes
+
+            //face up
             tm.collides[202] = true;
-            tm.croprects[202] = new Rectangle(0, 256, 128, 128);
+            tm.croprects[202] = new Rectangle(0, 384, 128, 128);
             tm.tileEffects[202] = tm.trap1;
             tm.istrap[202] = true;
             tm.breakable[202] = false;
+            tm.rotations[202] = (float)(Math.PI/2);
+
+            //face down
+            tm.collides[203] = true;
+            tm.croprects[203] = new Rectangle(128, 384, 128, 128);
+            tm.tileEffects[203] = tm.trap1;
+            tm.istrap[203] = true;
+            tm.breakable[203] = false;
+            tm.rotations[203] = (float)(Math.PI / 2);
+
+            //face left
+            tm.collides[204] = true;
+            tm.croprects[204] = new Rectangle(384, 384, 128, 128);
+            tm.tileEffects[204] = tm.trap1;
+            tm.istrap[204] = true;
+            tm.breakable[204] = false;
+            tm.rotations[204] = (float)(Math.PI / 2);
+
+            //face right
+            tm.collides[205] = true;
+            tm.croprects[205] = new Rectangle(256, 384, 128, 128);
+            tm.tileEffects[205] = tm.trap1;
+            tm.istrap[205] = true;
+            tm.breakable[205] = false;
+            tm.rotations[205] = (float)(Math.PI / 2);
 
             for (int i = 2; i < 100; i++)
             {

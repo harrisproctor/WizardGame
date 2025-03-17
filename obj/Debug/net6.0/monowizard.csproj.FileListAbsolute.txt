@@ -64,4 +64,4 @@ C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\items
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\swampbat1.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\witchmon.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\swampitems2.2.xnb
-C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\tileswamp2.1.xnb
+C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\tileswamp2.2.xnb

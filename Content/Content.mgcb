@@ -445,7 +445,7 @@
 /processorParam:TextureFormat=Color
 /build:swampitems2.2.png
 
-#begin tileswamp2.1.png
+#begin tileswamp2.2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -455,7 +455,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:tileswamp2.1.png
+/build:tileswamp2.2.png
 
 #begin trapproto1.png
 /importer:TextureImporter

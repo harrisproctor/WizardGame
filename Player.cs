@@ -288,6 +288,10 @@ namespace monowizard
                         changeHealth(-3);
                         iframes = 50;
                     }
+                    else if(entity.id == 144)
+                    {
+                        changeHealth((-health) - 2);
+                    }
                 }
             }
 

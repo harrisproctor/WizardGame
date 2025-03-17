@@ -15,18 +15,18 @@ namespace monowizard
         HoldItem trueItem = null;
         public bool ishovered = false;
         public UIString uinum = null;
-        public int price = 10;
+        public int price;
         public int shopind;
         public Rectangle shoprect;
         public Rectangle symbdrawrect;
         public CantripScroll sepll;
 
-        public HoldShopItem(CollisionCheck check, Player player,HoldItem truth,int shopind) : base(check, player)
+        public HoldShopItem(CollisionCheck check, Player player,HoldItem truth,int shopind,int price) : base(check, player)
         {
             this.id = 200;
             this.player = player;
             this.check = check;
-            
+            this.price = price;
             throwvel = 13;
             spriteEffects = SpriteEffects.None;
             trueItem = truth;

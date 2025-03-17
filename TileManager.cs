@@ -10,6 +10,7 @@ using System.Numerics;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 using System.Diagnostics;
 using System.Xml.Serialization;
+using System.Diagnostics.Contracts;
 
 namespace monowizard
 {
@@ -24,6 +25,7 @@ namespace monowizard
         public bool[] istrap;
         public int[] basicgrounds;
         public bool[] breakable;
+        public float[] rotations;
 
         public Vector2[] toptrims;
         public int quedtoptrims = 0;
@@ -36,7 +38,7 @@ namespace monowizard
 
         public int startroomind = 0;
         public int backgroundThershhold;
-
+        public Vector2 midblock = new Vector2(0,0);
 
         public Rectangle drawtilerect = new Rectangle(0,0,96,96);
         public Rectangle trimupcroprect = new Rectangle(128, 768, 100, 10);
@@ -137,6 +139,8 @@ namespace monowizard
             tileEffects = new Tile[400];
             istrap = new bool[400];
             breakable = new bool[400];
+            rotations = new float[400];
+            
             
             basic = new BasicTile();
             trap1 = new TrapGlyph1Tile();
@@ -192,7 +196,19 @@ namespace monowizard
                 }
                 if (map[i] == 202)
                 {
-                    updateTiles.Add(i, new SpikesTrueTile(i, this));
+                    updateTiles.Add(i, new SpikesTrueTile(i, this,1));
+                }
+                if (map[i] == 203)
+                {
+                    updateTiles.Add(i, new SpikesTrueTile(i, this,3));
+                }
+                if (map[i] == 204)
+                {
+                    updateTiles.Add(i, new SpikesTrueTile(i, this,4));
+                }
+                if (map[i] == 205)
+                {
+                    updateTiles.Add(i, new SpikesTrueTile(i, this,2));
                 }
             }
         }
@@ -295,8 +311,9 @@ namespace monowizard
 
                     if (istrap[tileNum]) 
                     {
-                        _spriteBatch.Draw(texts[100], drawtilerect, croprects[backmap[tileInd]], Color.White); 
-
+                        _spriteBatch.Draw(texts[100], drawtilerect, croprects[backmap[tileInd]], Color.White);
+                        //anchor point 3342
+                       // _spriteBatch.Draw(texts[tileNum], drawtilerect, updateTiles[tileInd].croprect, Color.White, rotations[tileNum], midblock, SpriteEffects.None, 1);
                         _spriteBatch.Draw(texts[tileNum], drawtilerect, updateTiles[tileInd].croprect, Color.White);
                         
                     }

@@ -49,6 +49,11 @@ namespace monowizard
             tm.croprects[0] = new Rectangle(0, 0, 1024, 1024);
             tm.croprects[1] = new Rectangle(10, 0, 226, 226);
 
+            for (int i = 0; i < tm.rotations.Length; i++)
+            {
+                tm.rotations[i] = 0;
+            }
+
             for (int i = 0; i < 338; i++)
             {
                 tm.tileEffects[i] = tm.basic;

@@ -418,7 +418,7 @@ namespace monowizard
             randchoice = libShopItems[rand.Next(libShopItems.Count)];
 
 
-            items.Add(new HoldShopItem(colCheck, player,randchoice, shopind));
+            items.Add(new HoldShopItem(colCheck, player,randchoice, shopind,rand.Next(5,27)));
             items.Last().texture = libitems1;
             items.Last().hitbox.X = x;
             items.Last().hitbox.Y = y;

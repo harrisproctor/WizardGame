@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
@@ -238,7 +239,7 @@ namespace monowizard
         10,0,0,0,7,0,0,0,0,0,
         10,0,9,9,9,9,9,0,0,0,
         10,0,0,0,9,0,0,0,0,10,
-        10,10,0,9,9,9,7,0,10,10};
+        10,10,0,9,9,9,0,0,10,10};
 
 
         private int[] Room7 = new int[]{
@@ -322,7 +323,20 @@ namespace monowizard
             0,55,60,60,60,55,0,0,0,6,
             0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0,0,0,0,0,0,
-            0,0,346,346,346,346,346,346,341,0,
+            0,30,346,346,346,346,346,346,341,0, // 30 to 346
+            0,2,10,10,10,10,10,10,10,0,
+            10,10,10,10,10,10,10,10,10,10
+    };
+
+        private int[] Roomstartswa = new int[]{
+            10,10,10,0,0,0,0,10,10,10,
+            10,10,0,0,64,0,0,0,0,10,
+            10,0,0,0,0,64,0,10,10,10,
+            5,0,0,0,0,64,0,0,0,10,
+            61,55,60,60,60,55,0,0,0,6,
+            0,0,0,0,0,0,0,0,0,0,
+            0,0,0,0,0,0,0,0,0,0,
+            0,0,346,346,346,346,346,346,341,0, // 30 to 346
             0,2,10,10,10,10,10,10,10,0,
             10,10,10,10,10,10,10,10,10,10
     };
@@ -371,7 +385,7 @@ namespace monowizard
             roomsstart = new int[][] { Roomstart };
             roomsend = new int[][] { Roomend };
             shops = new int[][] { Dumb };
-            roomsstartswamp = new int[][] { Roomstart };
+            roomsstartswamp = new int[][] { Roomstartswa };
             roomsendswamp = new int[][] { Roomend };
             shopsswamp = new int[][] { Dumb };
             allrooms = new int[][][] { rooms1, rooms2, rooms3, rooms4, rooms5, rooms6, rooms7, rooms8 };
@@ -410,6 +424,7 @@ namespace monowizard
 
                     if (room[i] > 10 && room[i] < 21)
                     {
+                    //mud prob tiles
                       if (rnd.Next(0, 10) < (room[i] - 10))
                       {
                         room[i] = 201; //201
@@ -426,39 +441,33 @@ namespace monowizard
 
                     if (room[i] > 20 && room[i] < 31)
                     {
-                       /* if (rnd.Next(0, 10) < (room[i] - 20))
+                    //spikes upward
+                        if (rnd.Next(0, 10) < (room[i] - 20))
                         {
-                            room[i] = 340;
+                           room[i] = 205;
+                            //Debug.WriteLine("sppok");
 
                         }
                         else
                         {
                             room[i] = 0;
-                        }*/
-                    room[i] = 0;
+                        }
+                   // room[i] = 0;
 
                 }
 
                     if (room[i] > 30 && room[i] < 41)
                     {
-                      /*  if (rnd.Next(0, 10) < (room[i] - 30))
-                        {
-                            if (rnd.Next(0, 2) == 0)
-                            {
-                                room[i] = 338;
-                            }
-                            else
-                            {
-                                room[i] = 339;
-                            }
+                    if (rnd.Next(0, 10) < (room[i] - 30))
+                    {
+                       // room[i] = 202;
 
-
-                        }
-                        else
-                        {
-                        room[i] = 1;
-                    }*/
-                    room[i] = 1;
+                    }
+                    else
+                    {
+                       // room[i] = 0;
+                    }
+                    
 
                 }
                     //entaglement blocks
@@ -502,6 +511,7 @@ namespace monowizard
                             room[i] = 0;
                         }
                     }
+                    
 
 
 
@@ -517,6 +527,120 @@ namespace monowizard
 
 
 
+            }
+            for(int i = 0;i < room.Length; i++)
+            {
+                if (room[i] == 62)
+                {
+                    //100% chance of down facing spikes at lowest point
+
+                    int column = (i) % 10;
+                    for (int x = i / 10; x > 0; x--)
+                    {
+                        if (x > 1)
+                        {
+                            if (room[(x * 10) + column] == 0 && room[((x - 1) * 10) + column] != 0)
+                            {
+                                room[(x * 10) + column] = 203;
+                                x = -1;
+                                room[i] = 0;
+                            }
+                        }
+                        else
+                        {
+                            room[(x * 10) + column] = 203;
+                            x = -1;
+                            room[i] = 0;
+
+                        }
+
+                    }
+
+                }
+                if (room[i] == 61)
+                {
+                    //100% chance of up facing spikes at lowest point
+
+                    int column = (i) % 10;
+                    for (int x = i/10; x < 10; x++)
+                    {
+                        if (x < 9)
+                        {
+                            if (room[(x * 10) + column] == 0 && room[((x+1) * 10) + column] != 0)
+                            {
+                                room[(x * 10) + column] = 202;
+                                x = 10;
+                                room[i] = 0;
+                            }
+                        }
+                        else
+                        {
+                            room[(x * 10) + column] = 202;
+                            x = 10;
+                            room[i] = 0;
+
+                        }
+
+                    }
+
+                }
+                if (room[i] == 63)
+                {
+                    //100% chance of up facing spikes at lowest point
+
+                    int column = (i) % 10;
+                    int row = i / 10;
+                    for (int x = column; x < 10; x++)
+                    {
+                        if (x < 9)
+                        {
+                            if (room[(row * 10) + x] == 0 && room[(row * 10) + x + 1] != 0)
+                            {
+                                room[(row * 10) + x] = 204;
+                                x = 10;
+                                room[i] = 0;
+                            }
+                        }
+                        else
+                        {
+                           // room[(row * 10) + x] = 204;
+                           // x = 10;
+                            room[i] = 0;
+
+                        }
+
+                    }
+
+                }
+                if (room[i] == 64)
+                {
+                    //100% chance of up facing spikes at lowest point
+
+                    int column = (i) % 10;
+                    int row = i / 10;
+                    for (int x = column; x > 0; x--)
+                    {
+                        if (x >= 1)
+                        {
+                            if (room[(row * 10) + x] == 0 && room[(row * 10) + x - 1] != 0)
+                            {
+                                room[(row * 10) + x] = 205;
+                                x = 0;
+                                room[i] = 0;
+                            }
+                        }
+                        else
+                        {
+
+                            // room[(row * 10) + x] = 205;
+                            // x = 0;
+                            room[i] = 0;
+
+                        }
+
+                    }
+
+                }
             }
 
 
