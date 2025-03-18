@@ -80,6 +80,7 @@ namespace monowizard
             {
                 items.Clear();
             }
+            addCouldern(((player.shop.shopgridind % 4) * 960) + 350, ((player.shop.shopgridind / 4) * 960) + 300);
 
         }
 
@@ -468,10 +469,10 @@ namespace monowizard
             }
             foreach (Entity e in eitems)
             {
-                if (e.hitbox.X + 96 > player.centerWorldX - player.centerX &&
-                          e.hitbox.X - 96 < player.centerWorldX + player.centerX &&
-                          e.hitbox.Y + 96 > player.centerWorldY - player.centerY &&
-                          e.hitbox.Y - 96 < player.centerWorldY + player.centerY)
+                if (e.hitbox.X + e.hitbox.Width > player.centerWorldX - player.centerX &&
+                          e.hitbox.X - e.hitbox.Width < player.centerWorldX + player.centerX &&
+                          e.hitbox.Y + e.hitbox.Height > player.centerWorldY - player.centerY &&
+                          e.hitbox.Y - e.hitbox.Height < player.centerWorldY + player.centerY)
                 {
                     e.draw(_spriteBatch);
                 }

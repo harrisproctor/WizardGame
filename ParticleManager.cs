@@ -101,6 +101,20 @@ namespace monowizard
 
 
         }
+        public void addCloud(int x, int y, int xvel, int yvel, int size)
+        {
+
+            items.Add(new CloudParticle(colCheck, player, this, size));
+            items.Last().texture = windcloudmanatext;
+            items.Last().hitbox.X = x;
+            items.Last().hitbox.Y = y;
+            items.Last().xvel = xvel;
+            items.Last().yvel = yvel;
+
+            // Debug.WriteLine("magic");
+
+
+        }
 
 
 

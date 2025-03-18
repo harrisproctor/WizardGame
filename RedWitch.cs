@@ -163,6 +163,7 @@ namespace monowizard
                 colliding = false;
                 grounded = false;
                 check.checkTile(this);
+                check.eitemCheck(this);
 
 
                 hitbox.X += xvel;
@@ -271,6 +272,7 @@ namespace monowizard
                 colliding = false;
 
                 check.checkTile(this);
+                check.eitemCheck(this);
 
 
 

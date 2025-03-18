@@ -48,25 +48,7 @@ namespace monowizard
         public void update()
         {
            
-            if (isShoponLevel)
-            {
-                if(player.hitbox.X > (shopgridind%4)*960 && player.hitbox.X < ((shopgridind % 4) * 960)+960)
-                {
-                   
-                    if (player.hitbox.Y > (shopgridind / 4) * 960 && player.hitbox.Y < ((shopgridind / 4) * 960) + 960)
-                    {
-                        
-                        
-
-
-
-
-
-                    }
-                }
-
-
-            }
+            
         }
 
 

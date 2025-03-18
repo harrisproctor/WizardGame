@@ -78,6 +78,7 @@ namespace monowizard
             colliding = false;
             grounded = false;
             check.checkTile(this);
+            check.eitemCheck(this);
 
             if (grounded)
             {

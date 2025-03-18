@@ -367,6 +367,19 @@ namespace monowizard
             10,10,10,10,10,10,10,10,10,10
     };
 
+        private int[] Dumbswa = new int[]{
+            10,10,10,0,0,0,0,10,10,10,
+            10,0,0,0,0,0,0,0,0,10,
+            10,0,0,0,0,0,0,0,0,10,
+            10,0,10,0,0,0,0,0,10,10,
+            5,0,0,0,0,0,0,0,0,5,
+            0,0,10,0,00,0,0,0,0,0,
+            0,0,0,0,0,0,0,0,10,0,
+            0,0,346,346,346,346,346,346,0,0,
+            0,0,10,10,341,341,10,10,10,0,
+            10,10,10,10,10,10,10,10,10,10
+    };
+
         public TileManager tileManager;
 
 
@@ -387,7 +400,7 @@ namespace monowizard
             shops = new int[][] { Dumb };
             roomsstartswamp = new int[][] { Roomstartswa };
             roomsendswamp = new int[][] { Roomend };
-            shopsswamp = new int[][] { Dumb };
+            shopsswamp = new int[][] { Dumbswa };
             allrooms = new int[][][] { rooms1, rooms2, rooms3, rooms4, rooms5, rooms6, rooms7, rooms8 };
             allroomsswamp = new int[][][] { rooms1, rooms2, rooms3, rooms4swamp, rooms5, rooms6, rooms7, rooms8 };
             this.player = player;
@@ -639,6 +652,7 @@ namespace monowizard
                         }
 
                     }
+                    room[i] = 0;
 
                 }
             }

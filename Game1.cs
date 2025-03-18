@@ -118,7 +118,7 @@ namespace monowizard
             player.texture = level1Content.Load<Texture2D>("cocovon");
             _tileManager.texts[0] = level1Content.Load<Texture2D>("bookshelftile1");
             _tileManager.texts[1] = level1Content.Load<Texture2D>("woodtileslib5");
-            _tileManager.swamptiles = level1Content.Load<Texture2D>("tileswamp2.2");
+            _tileManager.swamptiles = level1Content.Load<Texture2D>("tileswamp2.3");
             _tileManager.texts[340] = _tileManager.texts[1];
             _tileManager.texts[341] = _tileManager.texts[1];
             _tileManager.texts[2] = level1Content.Load<Texture2D>("libarybackground2");
@@ -188,16 +188,18 @@ namespace monowizard
             _itemManager.addMagicArrowWand(1500, 600);
             _itemManager.addMinorHealWand(1200, 600);
             _itemManager.addMagicFlower1(1500, 600);
-            //_itemManager.addCouldern(2600, 400);
-            // _itemManager.addCrystalRock(1800, 600);
+            _itemManager.addCouldern(2600, 400);
+           // _monsterManager.addPurpleWitch(2400, 400);
+             _itemManager.addCrystalRock(1800, 600);
             //_itemManager.addMagicScroll(1200, 400);
             //add rocks when loading content because uhhhhhhhhhhhh yeah
             // _monsterManager.addOwlMonster(1200,500);
             for (int i = 0; i < 10; i++)
             {
               //  _monsterManager.addBrainMonster(900+(i*300), 600);
-               _monsterManager.addBatMon(900 + (i * 300), 1600 + (i * 100));
-                _itemManager.addMChest(2600+(100*i), 600);
+              // _monsterManager.addBatMon(900 + (i * 300), 1600 + (i * 100));
+              //  _monsterManager.addPurpleWitch(900 + (i * 300), 1600 + (i * 100));
+                //_itemManager.addMChest(2600+(100*i), 600);
                // _particleManager.addManaSmall(1600 + (100 * i), 600,0,0,64,1f);
                
             }

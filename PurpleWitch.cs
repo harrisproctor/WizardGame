@@ -40,6 +40,9 @@ namespace monowizard
         float dy;
         float sumAbs;
         bool casting = false;
+        int spawnoffsety = 0;
+        int spawnoffsetx = 0;
+        int partsize = 32;
 
 
 
@@ -71,7 +74,7 @@ namespace monowizard
                 yvel += (player.frameCounter.frame % 2);
                 playerdirx = hitbox.X - player.hitbox.X;
                 playerdiry = hitbox.Y - player.hitbox.Y;
-                if (playerdiry < 200 && playerdiry > -200 && playerdirx < 500 && playerdirx > -500)
+                if (playerdiry < 400 && playerdiry > -400 && playerdirx < 800 && playerdirx > -800)
                 {
                     timesinceturn = 0;
                     walking = true;
@@ -163,6 +166,7 @@ namespace monowizard
                 colliding = false;
                 grounded = false;
                 check.checkTile(this);
+                check.eitemCheck(this);
 
 
                 hitbox.X += xvel;
@@ -181,15 +185,18 @@ namespace monowizard
                     if (prevattacking == false)
                     {
                         aniframe = 1;
+
                     }
                     if (aniframe == 1)
                     {
                         cropbox.X = 0;
                         cropbox.Y = 128;
+                        makecloud();
                     }
                     if (aniframe % 10 == 9)
                     {
                         cropbox.X += 128;
+                        makecloud();
 
                     }
 
@@ -271,6 +278,7 @@ namespace monowizard
                 colliding = false;
 
                 check.checkTile(this);
+                check.eitemCheck(this);
 
 
 
@@ -334,10 +342,19 @@ namespace monowizard
 
         public void fireball()
         {
-            dx = player.hitbox.X - hitbox.X;
-            dy = player.hitbox.Y - hitbox.Y;
-            sumAbs = Math.Abs(dx) + Math.Abs(dy);
-            player.colcheck.tileManager.magicmanager.addMagicFire1(hitbox.X, hitbox.Y, dx / sumAbs, dy / sumAbs);
+            for (int i = 0; i < 10; i++) {
+                makecloud();
+            }
+            player.mm.addBatMon(hitbox.X+30,hitbox.Y);
+            
+        }
+
+        public void makecloud()
+        {
+            spawnoffsetx = player.mm.particleManager.rnd.Next(10, 20);
+            spawnoffsety = player.mm.particleManager.rnd.Next(10, 40);
+            partsize = player.mm.particleManager.rnd.Next(16, 48);
+            player.mm.particleManager.addCloud(hitbox.X + spawnoffsetx, hitbox.Y + spawnoffsety, 0, -8, partsize);
         }
 
         public override void hit(Entity entity)
