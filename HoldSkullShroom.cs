@@ -24,6 +24,7 @@ namespace monowizard
             spriteEffects = SpriteEffects.None;
             xoffset = 10;
             setDefaultValues();
+            ingId = 1;
         }
 
         public void setDefaultValues()

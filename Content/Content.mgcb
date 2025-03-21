@@ -229,18 +229,6 @@
 /processorParam:TextureFormat=Color
 /build:libarybackground2.png
 
-#begin libcantripsymb.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:libcantripsymb.png
-
 #begin library/woodtileslib1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -288,6 +276,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:magicalef2.png
+
+#begin magicsymbs.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:magicsymbs.png
 
 #begin numberswithblue2.png
 /importer:TextureImporter
@@ -445,7 +445,7 @@
 /processorParam:TextureFormat=Color
 /build:swampitems2.2.png
 
-#begin tileswamp2.3.png
+#begin tileswamp2.4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -455,7 +455,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:tileswamp2.3.png
+/build:tileswamp2.4.png
 
 #begin trapproto1.png
 /importer:TextureImporter

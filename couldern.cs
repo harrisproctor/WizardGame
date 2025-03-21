@@ -16,17 +16,24 @@ namespace monowizard
         private int maxVel;
         private int hitVel;
         private int aniframes;
+        public Rectangle topbox;
+        public int ingid1;
+        public int ingid2;
 
         public couldern(Player player)
         {
             drawrect = new Rectangle(256, 256, 256, 256);
             hitbox = new Rectangle(0, 0, 230, 165);
             croprect = new Rectangle(0, 256, 256, 256);
+            topbox = new Rectangle(0,0,220,10);
+
             this.player = player;
             hitVel = 8;
             maxVel = 25;
             xoffset = 10;
             yoffset = 65;
+            ingid1 = 0;
+            ingid2 = 0;
         }
 
 
@@ -111,7 +118,11 @@ namespace monowizard
             //applie sphysiocs
             hitbox.X += xvel;
             hitbox.Y += yvel;
+            topbox.X = hitbox.X+5;
+            topbox.Y = hitbox.Y-5;
             //hitbox.Y += 1;
+
+            ingCheck();
 
 
             aniframes++;
@@ -126,6 +137,58 @@ namespace monowizard
 
 
 
+        }
+
+        public void ingCheck()
+        {
+            for (int i = 0; i < player.itemManager.items.Count; i++)
+            {
+                if (player.itemManager.items[i].hitbox.Intersects(topbox))
+                {
+                    if(player.itemManager.items[i].ingId != 0)
+                    {
+
+                        int ingid = player.itemManager.items[i].ingId;
+                        player.itemManager.items.Remove(player.itemManager.items[i]);
+                        //Debug.WriteLine(ingid);
+                        if (ingid1 == 0)
+                        {
+                            ingid1 = ingid;
+                        }else if(ingid2 == 0)
+                        {
+                            ingid2 = ingid;
+                        }
+                       // Debug.WriteLine(ingid1);
+                       // Debug.WriteLine(ingid2);
+                        if (ingid1 != 0 && ingid2 != 0)
+                        {
+                            Debug.WriteLine(ingid1);
+                            Debug.WriteLine(ingid2);
+                            //id 1 = skullshroom, id 4 = batwing,
+                            if (ingid1 == 1)
+                            {
+                                if(ingid2 == 4)
+                                {
+                                    player.itemManager.addMagicScroll(hitbox.X + 100, hitbox.Y - 70, 7);
+                                    player.itemManager.items.Last().yvel = -12;
+                                }
+                            }
+                            else if(ingid1 == 4)
+                            {
+                                if (ingid2 == 1)
+                                {
+                                    player.itemManager.addMagicScroll(hitbox.X + 100, hitbox.Y - 70, 7);
+                                    player.itemManager.items.Last().yvel = -12;
+                                }
+                            }
+                            ingid1 = 0;
+                            ingid2 = 0;
+                        }
+                    }
+                }
+
+
+            }
         }
 
         public virtual void hitCheck()

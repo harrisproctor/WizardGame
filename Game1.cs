@@ -118,7 +118,7 @@ namespace monowizard
             player.texture = level1Content.Load<Texture2D>("cocovon");
             _tileManager.texts[0] = level1Content.Load<Texture2D>("bookshelftile1");
             _tileManager.texts[1] = level1Content.Load<Texture2D>("woodtileslib5");
-            _tileManager.swamptiles = level1Content.Load<Texture2D>("tileswamp2.3");
+            _tileManager.swamptiles = level1Content.Load<Texture2D>("tileswamp2.4");
             _tileManager.texts[340] = _tileManager.texts[1];
             _tileManager.texts[341] = _tileManager.texts[1];
             _tileManager.texts[2] = level1Content.Load<Texture2D>("libarybackground2");
@@ -149,7 +149,7 @@ namespace monowizard
            // _itemManager.rocktext = Content.Load<Texture2D>("items/littlerock1");
             _itemManager.libitems1 = Content.Load<Texture2D>("itemslib2.2");
             _itemManager.swampitems1 = Content.Load<Texture2D>("swampitems2.2");
-            _itemManager.magicsymbols = Content.Load<Texture2D>("libcantripsymb");
+            _itemManager.magicsymbols = Content.Load<Texture2D>("magicsymbs");
             _particleManager.libtexts1 = Content.Load<Texture2D>("particles/libparticles1");
             _particleManager.windcloudmanatext = Content.Load<Texture2D>("particles/particlues1");
 
@@ -185,12 +185,14 @@ namespace monowizard
             _itemManager.addManaIdol(300, 600);
             _itemManager.addMandrake(500, 600);
             _itemManager.addSkullShroom(1550, 600);
-            _itemManager.addMagicArrowWand(1500, 600);
+            //_itemManager.addMagicArrowWand(1500, 600);
             _itemManager.addMinorHealWand(1200, 600);
-            _itemManager.addMagicFlower1(1500, 600);
+           // _itemManager.addMagicFlower1(1500, 600);
             _itemManager.addCouldern(2600, 400);
+            _itemManager.addBatWing(1500, 600);
            // _monsterManager.addPurpleWitch(2400, 400);
              _itemManager.addCrystalRock(1800, 600);
+            _itemManager.addMagicScroll(1800, 600, 7);
             //_itemManager.addMagicScroll(1200, 400);
             //add rocks when loading content because uhhhhhhhhhhhh yeah
             // _monsterManager.addOwlMonster(1200,500);
@@ -199,7 +201,7 @@ namespace monowizard
               //  _monsterManager.addBrainMonster(900+(i*300), 600);
               // _monsterManager.addBatMon(900 + (i * 300), 1600 + (i * 100));
               //  _monsterManager.addPurpleWitch(900 + (i * 300), 1600 + (i * 100));
-                //_itemManager.addMChest(2600+(100*i), 600);
+                _itemManager.addMChest(2600+(100*i), 600);
                // _particleManager.addManaSmall(1600 + (100 * i), 600,0,0,64,1f);
                
             }

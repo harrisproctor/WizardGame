@@ -80,9 +80,29 @@ namespace monowizard
             {
                 items.Clear();
             }
+            eitems.Clear();
+
+
             addCouldern(((player.shop.shopgridind % 4) * 960) + 350, ((player.shop.shopgridind / 4) * 960) + 300);
 
-        }
+            List<int> ingredientspots = new List<int>();
+
+            for (int i = 0; i < mapp.Length; i++)
+            { 
+                //ingredient tiles
+                if(mapp[i] == 267)
+                {
+                    ingredientspots.Add(i - 40);
+                }
+            
+            }
+            foreach(int i in ingredientspots)
+            {
+                addIngredient(((i % 40) * 96) + 15, ((i / 40) * 96) - 50);
+                
+            }
+
+            }
 
         public void fixMKeyind()
         {
@@ -281,6 +301,11 @@ namespace monowizard
                 items.Add(new CantripScroll(colCheck, player, this, new MagicWaveCantrip(player)));
 
             }
+            else if (spell == 7)
+            {
+                items.Add(new CantripScroll(colCheck, player, this, new weakHealCantrip(player)));
+
+            }
 
             items.Last().texture = libitems1;
             items.Last().hitbox.X = x;
@@ -296,6 +321,23 @@ namespace monowizard
             items.Last().hitbox.X = rockx;
             items.Last().hitbox.Y = 200;
             rockx += 80;
+        }
+
+        public void addIngredient(int x, int y)
+        {
+            int poggies = player.rnd.Next(0,3);
+            if(poggies == 0)
+            {
+                addMandrake(x, y);
+            }else if(poggies == 1)
+            {
+                addSkullShroom(x, y);
+            }
+            else
+            {
+                addMagicFlower1(x, y);
+            }
+
         }
 
         public void addMandrake(int x, int y)

@@ -25,6 +25,7 @@ namespace monowizard
         public SpriteEffects spriteEffects;
         public int xoffset;
         public int yoffset;
+        public int ingId;
 
         public bool pickupAble = false;
         public Player player;
@@ -37,6 +38,7 @@ namespace monowizard
         public HoldItem(CollisionCheck check,Player player)
         {
             id = 101;
+            ingId = 0;
             this.check = check;
             this.player = player;
             holdoffset = 30;

@@ -91,7 +91,7 @@ namespace monowizard
                     ishovered = false;
 
                     player.ui.items.Remove(uinum);
-                    Debug.WriteLine(uinum != null);
+                    //sDebug.WriteLine(uinum != null);
 
                     uinum = null;
                 }

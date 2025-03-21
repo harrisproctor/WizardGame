@@ -59,7 +59,7 @@ namespace monowizard
         public bool leftarrow;
         public bool leftact;
         public int health = 6;
-        public float mana = 0;
+        public float mana = 20;
         public float startHealth;
         public float startMana;
         public int uncousiustime;
@@ -472,6 +472,10 @@ namespace monowizard
                         leftact = false;
                         heldItem.use();
                     }
+                    if (cantrip != null && heldItem == null)
+                    {
+                        cantrip.keyrelease = false;
+                    }
 
 
                 }
@@ -479,6 +483,10 @@ namespace monowizard
                 {
                     leftarrow = false;
                     leftact = true;
+                    if (cantrip != null)
+                    {
+                        cantrip.keyrelease = true;
+                    }
 
 
                 }
@@ -494,9 +502,18 @@ namespace monowizard
                            
                         }
                     }
-                }else if (keyState.IsKeyUp(Keys.Up))
+                    if (cantrip2 != null)
+                    {
+                        cantrip2.keyrelease = false;
+                    }
+                }
+                else if (keyState.IsKeyUp(Keys.Up))
                 {
                     upAct = false;
+                    if (cantrip2 != null)
+                    {
+                        cantrip2.keyrelease = true;
+                    }
                 }
                 if (keyState.IsKeyDown(Keys.Down))
                 {
@@ -510,10 +527,19 @@ namespace monowizard
                             
                         }
                     }
+                    if (cantrip3 != null)
+                    {
+                        cantrip3.keyrelease = false;
+                    }
                 }
                 else if (keyState.IsKeyUp(Keys.Down))
                 {
                     downAct = false;
+                    if(cantrip3 != null)
+                    {
+                        cantrip3.keyrelease = true;
+                    }
+                    
                 }
                 if (keyState.IsKeyDown(Keys.Right))
                 {
@@ -527,9 +553,18 @@ namespace monowizard
                             
                         }
                     }
-                }else if (keyState.IsKeyUp(Keys.Right))
+                    if (cantrip4 != null)
+                    {
+                        cantrip4.keyrelease = false;
+                    }
+                }
+                else if (keyState.IsKeyUp(Keys.Right))
                 {
                     rightAct = false;
+                    if (cantrip4 != null)
+                    {
+                        cantrip4.keyrelease = true;
+                    }
                 }
 
                 if (keyState.IsKeyDown(Keys.D1))

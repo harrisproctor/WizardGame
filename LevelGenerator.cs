@@ -354,6 +354,19 @@ namespace monowizard
             10,10,10,10,10,10,10,10,10,10
     };
 
+        private int[] Roomendswa = new int[]{
+            10,10,10,0,0,0,0,10,10,10,
+            10,0,0,0,0,0,0,0,0,10,
+            10,0,0,0,0,0,0,0,0,10,
+            10,0,55,60,60,55,0,0,0,10,
+            5,0,0,0,0,0,0,0,0,5,
+            0,56,60,57,0,0,0,0,0,0,
+            0,0,0,0,0,0,0,0,0,0,
+            0,0,44,40,341,341,10,10,44,0,
+            0,0,48,10,10,10,10,10,10,0,
+            10,10,10,10,10,10,10,10,10,10
+    };
+
         private int[] Dumb = new int[]{
             10,10,10,0,0,0,0,10,10,10,
             10,0,0,0,0,0,0,0,0,10,
@@ -390,16 +403,18 @@ namespace monowizard
             rooms2 = new int[][] { Room2,Room2a,Room2b, Room2c };
             rooms3 = new int[][] { Room3, Room3a, Room3b, Room3c };
             rooms4 = new int[][] { Room4, Room4a };
-            rooms4swamp = new int[][] { Room4b};
             rooms5 = new int[][] { Room5 };
             rooms6 = new int[][] { Room6,Room6a ,Room6b};
+            rooms7 = new int[][] { Room7 };
             rooms7 = new int[][] { Room7 };
             rooms8 = new int[][] { Room8,Room8a };
             roomsstart = new int[][] { Roomstart };
             roomsend = new int[][] { Roomend };
             shops = new int[][] { Dumb };
+            //swamp lists
+            rooms4swamp = new int[][] { Room4b };
             roomsstartswamp = new int[][] { Roomstartswa };
-            roomsendswamp = new int[][] { Roomend };
+            roomsendswamp = new int[][] { Roomendswa };
             shopsswamp = new int[][] { Dumbswa };
             allrooms = new int[][][] { rooms1, rooms2, rooms3, rooms4, rooms5, rooms6, rooms7, rooms8 };
             allroomsswamp = new int[][][] { rooms1, rooms2, rooms3, rooms4swamp, rooms5, rooms6, rooms7, rooms8 };
@@ -457,7 +472,7 @@ namespace monowizard
                     //spikes upward
                         if (rnd.Next(0, 10) < (room[i] - 20))
                         {
-                           room[i] = 205;
+                           room[i] = 0;
                             //Debug.WriteLine("sppok");
 
                         }
@@ -473,12 +488,12 @@ namespace monowizard
                     {
                     if (rnd.Next(0, 10) < (room[i] - 30))
                     {
-                       // room[i] = 202;
+                        room[i] = 267;
 
                     }
                     else
                     {
-                       // room[i] = 0;
+                        room[i] = 0;
                     }
                     
 

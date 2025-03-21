@@ -14,9 +14,10 @@ namespace monowizard
     {
         public int id;
         public int pushonhit;
-        public int manacost;
+        public float manacost;
         public Rectangle symbcroprect;
         public int cantripnum;
+        public bool keyrelease = false;
         
 
         public virtual void cast() { }

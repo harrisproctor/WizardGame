@@ -102,6 +102,13 @@ namespace monowizard
             tm.breakable[205] = false;
             tm.rotations[205] = (float)(Math.PI / 2);
 
+            //spawn normal ingrdient tile
+            tm.collides[267] = true;
+            tm.croprects[267] = new Rectangle(0, 0, 128, 128);
+            tm.tileEffects[267] = tm.basic;
+            tm.istrap[267] = false;
+            tm.breakable[267] = true;
+
             for (int i = 2; i < 100; i++)
             {
                 tm.collides[i] = false;
@@ -111,7 +118,7 @@ namespace monowizard
                 tm.breakable[i] = true;
             }
 
-            tm.basicgrounds = new int[] { 260, 261, 262, 263, 264, 265, 266 };
+            tm.basicgrounds = new int[] { 260, 261, 262, 263, 264, 265, 266,267 };
             tm.backgroundThershhold = 258;
         }
 
