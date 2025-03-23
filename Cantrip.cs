@@ -18,6 +18,7 @@ namespace monowizard
         public Rectangle symbcroprect;
         public int cantripnum;
         public bool keyrelease = false;
+        public int isupordown = 0;
         
 
         public virtual void cast() { }

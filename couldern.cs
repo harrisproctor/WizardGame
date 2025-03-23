@@ -149,6 +149,10 @@ namespace monowizard
                     {
 
                         int ingid = player.itemManager.items[i].ingId;
+                        if(player.heldItem == player.itemManager.items[i])
+                        {
+                            player.heldItem = null;
+                        }
                         player.itemManager.items.Remove(player.itemManager.items[i]);
                         //Debug.WriteLine(ingid);
                         if (ingid1 == 0)
@@ -162,8 +166,8 @@ namespace monowizard
                        // Debug.WriteLine(ingid2);
                         if (ingid1 != 0 && ingid2 != 0)
                         {
-                            Debug.WriteLine(ingid1);
-                            Debug.WriteLine(ingid2);
+                            //Debug.WriteLine(ingid1);
+                            //Debug.WriteLine(ingid2);
                             //id 1 = skullshroom, id 4 = batwing,
                             if (ingid1 == 1)
                             {

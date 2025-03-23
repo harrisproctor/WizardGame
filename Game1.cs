@@ -168,7 +168,7 @@ namespace monowizard
             _monsterManager.owlmon1texture = Content.Load<Texture2D>("owlexe2");
             _monsterManager.owlmagetexture = Content.Load<Texture2D>("owlymonna2");
             _monsterManager.bookmon1texture = Content.Load<Texture2D>("badmonbook");//badmonbook
-            _magicManager.effectstext1 = Content.Load<Texture2D>("magicalef2");
+            _magicManager.effectstext1 = Content.Load<Texture2D>("magicalef3");
             
 
             //_monsterManager.addBatDemon();
@@ -192,7 +192,7 @@ namespace monowizard
             _itemManager.addBatWing(1500, 600);
            // _monsterManager.addPurpleWitch(2400, 400);
              _itemManager.addCrystalRock(1800, 600);
-            _itemManager.addMagicScroll(1800, 600, 7);
+            _itemManager.addMagicScroll(1800, 600, 8);
             //_itemManager.addMagicScroll(1200, 400);
             //add rocks when loading content because uhhhhhhhhhhhh yeah
             // _monsterManager.addOwlMonster(1200,500);

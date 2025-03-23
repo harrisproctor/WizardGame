@@ -59,7 +59,7 @@ namespace monowizard
         public bool leftarrow;
         public bool leftact;
         public int health = 6;
-        public float mana = 20;
+        public float mana = 80;
         public float startHealth;
         public float startMana;
         public int uncousiustime;
@@ -419,6 +419,21 @@ namespace monowizard
 
                                 }
                             }
+                            if ( heldItem == null && cantrip != null)
+                            {
+                                if (mana >= cantrip.manacost)
+                                {
+
+                                    changeMana(-cantrip.manacost);
+                                    leftact = false;
+                                    
+                                    cantrip.isupordown = -1;
+                                    
+                                    cantrip.cast();
+                                }
+
+
+                            }
                         }
                         else
                         {
@@ -455,13 +470,21 @@ namespace monowizard
                             heldItem = null;
                         }
                     }
-                    if(!lookdown && leftact && heldItem == null && cantrip != null)
+                    if( leftact && heldItem == null && cantrip != null)
                     {
                         if (mana >= cantrip.manacost)
                         {
 
                             changeMana(-cantrip.manacost);
                             leftact = false;
+                            if (lookup)
+                            {
+                                cantrip.isupordown = 1;
+                            }
+                            else
+                            {
+                                cantrip.isupordown = 0;
+                            }
                             cantrip.cast();
                         }
                         
@@ -498,6 +521,17 @@ namespace monowizard
                         {
                             changeMana(-cantrip2.manacost);
                             upAct = true;
+                            if (lookup)
+                            {
+                                cantrip2.isupordown = 1;
+                            }else if (lookdown)
+                            {
+                                cantrip2.isupordown = -1;
+                            }
+                            else
+                            {
+                                cantrip2.isupordown = 0;
+                            }
                             cantrip2.cast();
                            
                         }
@@ -523,6 +557,18 @@ namespace monowizard
                         {
                             changeMana(-cantrip3.manacost);
                             downAct = true;
+                            if (lookup)
+                            {
+                                cantrip3.isupordown = 1;
+                            }
+                            else if (lookdown)
+                            {
+                                cantrip3.isupordown = -1;
+                            }
+                            else
+                            {
+                                cantrip3.isupordown = 0;
+                            }
                             cantrip3.cast();
                             
                         }
@@ -549,6 +595,18 @@ namespace monowizard
                         {
                             changeMana(-cantrip4.manacost);
                             rightAct = true;
+                            if (lookup)
+                            {
+                                cantrip4.isupordown = 1;
+                            }
+                            else if (lookdown)
+                            {
+                                cantrip4.isupordown = -1;
+                            }
+                            else
+                            {
+                                cantrip4.isupordown = 0;
+                            }
                             cantrip4.cast();
                             
                         }
@@ -569,20 +627,42 @@ namespace monowizard
 
                 if (keyState.IsKeyDown(Keys.D1))
                 {
+                    if (cantrip != null) 
+                    {
+                        itemManager.addMagicScroll(hitbox.X, hitbox.Y, cantrip.cantripnum);
+                        itemManager.items.Last().yvel = -12;
+                    }
+                    
                     cantrip = null;
                 }
                 if (keyState.IsKeyDown(Keys.D2))
                 {
+                    if (cantrip2 != null)
+                    {
+                        itemManager.addMagicScroll(hitbox.X, hitbox.Y, cantrip2.cantripnum);
+                        itemManager.items.Last().yvel = -12;
+                    }
                     cantrip2 = null;
                 }
 
                 if (keyState.IsKeyDown(Keys.D3))
                 {
+                    if (cantrip3 != null)
+                    {
+                        itemManager.addMagicScroll(hitbox.X, hitbox.Y, cantrip3.cantripnum);
+                        itemManager.items.Last().yvel = -12;
+                    }
                     cantrip3 = null;
                 }
                 if (keyState.IsKeyDown(Keys.D4))
                 {
+                    if (cantrip4 != null)
+                    {
+                        itemManager.addMagicScroll(hitbox.X, hitbox.Y, cantrip4.cantripnum);
+                        itemManager.items.Last().yvel = -12;
+                    }
                     cantrip4 = null;
+
                 }
 
 
