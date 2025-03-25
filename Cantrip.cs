@@ -23,6 +23,8 @@ namespace monowizard
 
         public virtual void cast() { }
 
+        public virtual void drop() { }
+
         public virtual void update() { }
 
         public virtual void predraw(SpriteBatch _spriteBatch) { }

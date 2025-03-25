@@ -94,6 +94,13 @@ namespace monowizard
         public bool angryLibKeep = false;
         public int elevation;
         public int falldmgThreshold = 800;
+        public int maxRunSpeed = 9;
+        public int runExcel = 1;
+        public int defmaxRunSpeed;
+        public int defrunExcel;
+        public int jumpPow = -6;
+        public int startJumpStr;
+        public int startjumpPow;
 
 
 
@@ -117,6 +124,10 @@ namespace monowizard
             levelManager = new LevelManager(this);
             startHealth = health;
             startMana = mana;
+            defmaxRunSpeed = maxRunSpeed;
+            defrunExcel = runExcel;
+            startjumpPow = jumpPow;
+            startJumpStr = jumpStr;
             //hitbox = new int[4];
             //left x offset
             // hitbox[0] = 15;
@@ -154,19 +165,31 @@ namespace monowizard
                 //death and reset
                 colcheck.tileManager.ogre = false;
                 colcheck.tileManager.troll = false;
+
                 colcheck.tileManager.libLevSetUp.switchSwampAssets(colcheck.tileManager.theGame.Content);
+
+                cantrip = null;
+                cantrip2 = null;
+                cantrip3 = null;
+                cantrip4 = null;
+                heldItem = null;
+
+                itemManager.items.Clear();
+                colcheck.tileManager.magicmanager.items.Clear();
                 angryLibKeep = false;
                 levelManager.reset();
                 changeHealth((int)startHealth - health);
                 changeMana((int)startMana - mana);
                 xvel = 0;
                 yvel = 0;
-                cantrip = null;
-                cantrip2 = null;
-                cantrip3 = null;
-                cantrip4 = null;
-                heldItem = null;
+                maxRunSpeed = defmaxRunSpeed; 
+                defrunExcel = runExcel;
+                jumpStr = startJumpStr;
+                jumpPow = startjumpPow;
+                
                 ui.items.Clear();
+                
+
                 //levelManager.reset();
 
 
@@ -328,9 +351,9 @@ namespace monowizard
                     runright = true;
                     spriteEffects = SpriteEffects.None;
                     facing = 0;
-                    if (xvel < 9)
+                    if (xvel < maxRunSpeed)
                     {
-                        xvel += 1;
+                        xvel += runExcel;
 
                     }
 
@@ -354,9 +377,9 @@ namespace monowizard
                     runleft = true;
                     spriteEffects = SpriteEffects.FlipHorizontally;
                     facing = 1;
-                    if (xvel > -9)
+                    if (xvel > -maxRunSpeed)
                     {
-                        xvel -= 1;
+                        xvel -= runExcel;
                     }
 
 
@@ -631,6 +654,7 @@ namespace monowizard
                     {
                         itemManager.addMagicScroll(hitbox.X, hitbox.Y, cantrip.cantripnum);
                         itemManager.items.Last().yvel = -12;
+                        cantrip.drop();
                     }
                     
                     cantrip = null;
@@ -641,6 +665,7 @@ namespace monowizard
                     {
                         itemManager.addMagicScroll(hitbox.X, hitbox.Y, cantrip2.cantripnum);
                         itemManager.items.Last().yvel = -12;
+                        cantrip2.drop();
                     }
                     cantrip2 = null;
                 }
@@ -651,6 +676,7 @@ namespace monowizard
                     {
                         itemManager.addMagicScroll(hitbox.X, hitbox.Y, cantrip3.cantripnum);
                         itemManager.items.Last().yvel = -12;
+                        cantrip3.drop();
                     }
                     cantrip3 = null;
                 }
@@ -660,6 +686,7 @@ namespace monowizard
                     {
                         itemManager.addMagicScroll(hitbox.X, hitbox.Y, cantrip4.cantripnum);
                         itemManager.items.Last().yvel = -12;
+                        cantrip4.drop();
                     }
                     cantrip4 = null;
 
@@ -739,7 +766,8 @@ namespace monowizard
 
                     if (jumpframe < jumpStr)
                     {
-                        yvel = -6;
+                        //god lock curse
+                        yvel = jumpPow;
 
                         jumpframe++;
 

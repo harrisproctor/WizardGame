@@ -192,7 +192,10 @@ namespace monowizard
             _itemManager.addBatWing(1500, 600);
            // _monsterManager.addPurpleWitch(2400, 400);
              _itemManager.addCrystalRock(1800, 600);
-            _itemManager.addMagicScroll(1800, 600, 8);
+            _itemManager.addMagicScroll(1800, 600, 10);
+            _itemManager.addMagicScroll(1800, 600, 9);
+            _itemManager.addMagicScroll(1800, 600, 3);
+            _itemManager.addMagicScroll(1800, 600, 4);
             //_itemManager.addMagicScroll(1200, 400);
             //add rocks when loading content because uhhhhhhhhhhhh yeah
             // _monsterManager.addOwlMonster(1200,500);
