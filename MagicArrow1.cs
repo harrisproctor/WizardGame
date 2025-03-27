@@ -26,6 +26,7 @@ namespace monowizard
         SpriteEffects spriteEffects = SpriteEffects.None;
         int offsetx;
         int offsety;
+        Entity magcol;
         
 
 
@@ -35,6 +36,7 @@ namespace monowizard
             check = collisionCheck;
             manager = magicManager;
             id = 1001;
+            hitrank = 1;
             drawrect = new Rectangle(x, y, 64, 64);
             hitbox = new Rectangle(x, y, 32, 32);
             cropbox = new Rectangle(128, 0, 128, 128);
@@ -125,18 +127,37 @@ namespace monowizard
                 for (int i = 0; i < player.itemManager.items.Count; i++)
                 {
 
-                    
-                        if (hitbox.Intersects(player.itemManager.items[i].hitbox))
-                        {
+
+                 if (hitbox.Intersects(player.itemManager.items[i].hitbox))
+                 {
 
 
-                            player.itemManager.items[i].hit(this);
-                            manager.items.Remove(this);
+                    player.itemManager.items[i].hit(this);
+                    manager.items.Remove(this);
+                 }
 
 
 
                 }
-                    
+
+                for (int i = 0; i < manager.items.Count; i++)
+                {
+
+                if (manager.items[i] != this) {
+                    if (hitbox.Intersects(manager.items[i].hitbox))
+                    {
+
+
+                        magcol = manager.items[i];
+                        manager.items.Remove(this);
+                            
+                           
+
+
+
+                    }
+                }
+
 
                 }
                 for (int i = 0; i < player.mm.monsters.Count; i++)
@@ -156,6 +177,21 @@ namespace monowizard
 
 
                 }
+
+            if (magcol != null)
+            {
+
+                if(magcol.hitrank == 1 || magcol.hitrank == 2)
+                {
+                    manager.items.Remove(magcol);
+                }
+                
+            
+            
+            
+            
+            }
+                
 
 
 

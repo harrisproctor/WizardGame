@@ -42,6 +42,7 @@ namespace monowizard
             }
             
             spikeent.id = 144;
+            spikeent.hitrank = 5;
             killside = kill;
         }
 

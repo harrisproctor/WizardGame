@@ -39,6 +39,7 @@ namespace monowizard
         {
             id = 101;
             ingId = 0;
+            hitrank = 1;
             this.check = check;
             this.player = player;
             holdoffset = 30;
@@ -89,7 +90,7 @@ namespace monowizard
                 colliding = false;
                 grounded = false;
                 check.checkTile(this);
-                check.eitemCheck(this);
+               // check.eitemCheck(this);
 
             if (grounded)
                 {

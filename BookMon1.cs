@@ -36,6 +36,7 @@ namespace monowizard
         {
             this.player = player;
             id = 35;
+            hitrank = 7;
             hitbox = new Rectangle(1200, 500, 80, 80);
             check = player.colcheck;
             bounce = 100;
@@ -57,8 +58,6 @@ namespace monowizard
         {
 
 
-            if (entity.id == 101 || entity.id == 102 || entity.id == 103 || entity.id == 104 || entity.id == 105)
-            {
 
 
                 die();
@@ -66,24 +65,6 @@ namespace monowizard
 
 
 
-            }
-            else if (entity.id == 1)
-            {
-                if (player.cantrip.id == 1)
-                {
-                    die();
-
-
-                }
-            }
-            else if (entity.id == 1001 || entity.id == 1055)
-            {
-                die();
-            }
-            else if (entity.id == 1002)
-            {
-                die();
-            }
 
 
 

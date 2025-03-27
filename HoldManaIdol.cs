@@ -58,7 +58,7 @@ namespace monowizard
             grounded = false;
             onExit = false;
             check.checkTile(this);
-            check.eitemCheck(this);
+            //check.eitemCheck(this);
 
             if (grounded)
             {

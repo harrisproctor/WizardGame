@@ -112,6 +112,7 @@ namespace monowizard
         public Player()
         {
             id = 1;
+            hitrank = 1;
             centerWorldX = 960;
             centerWorldY = 540;
             centerX = 960;
@@ -216,105 +217,177 @@ namespace monowizard
                         ledgegrab = false;
                         noledgegrabframes++;
                     }
+                    switch (entity.hitrank)
+                    {
+                        case 1:
+                            // Code to execute if variable == value1
+                            xvel += entity.xvel;
+                            consious = false;
+                            changeHealth(-1);
+                            iframes = 50;
+                            break;
+                        case 2:
+                            xvel += entity.xvel * 2;
+                            //consious = false;
+                            changeHealth(-1);
+                            iframes = 50;
+                            // Code to execute if variable == value2
+                            break;
+                        case 3:
+                            xvel += entity.xvel;
+                           // consious = false;
+                            changeHealth(-2);
+                            iframes = 50;
+                            // Code to execute if variable == value2
+                            break;
+                        case 4:
+                            xvel += entity.xvel;
+                            consious = false;
+                            changeHealth(-3);
+                            iframes = 50;
+                            // Code to execute if variable == value2
+                            break;
+                        case 5:
+                            xvel += entity.xvel;
+                            consious = false;
+                            changeHealth(-10);
+                            iframes = 50;
+                            // Code to execute if variable == value2
+                            break;
+                        // Add more cases as needed
+                        case 6:
+                            consious = false;
+                            if (entity.xvel > 0)
+                            {
+                                xvel += 15;
+                            }
+                            else
+                            {
+                                xvel -= 15;
+                            }
+                            // xvel += (entity.xvel * 11);
+                            changeHealth(-1);
+                            iframes = 50;
+                            break;
+                        case 7:
+                            //consious = false;
+                            if (entity.xvel > 0)
+                            {
+                                xvel += 12;
+                            }
+                            else
+                            {
+                                xvel -= 12;
+                            }
+                            // xvel += (entity.xvel * 11);
+                            changeHealth(-1);
+                            iframes = 50;
+                            break;
+                        default:
+                            // Code to execute if none of the cases match
+                            
+                            break;
+                    }
 
-                    if (entity.id == 101)
-                    {
-                        xvel += entity.xvel;
-                        consious = false;
-                        changeHealth(-1);
-                        iframes = 50;
+
+                    /*  if (entity.id == 101)
+                      {
+                          xvel += entity.xvel;
+                          consious = false;
+                          changeHealth(-1);
+                          iframes = 50;
 
 
-                    }
-                    else if (entity.id == 102)
-                    {
-                        xvel += entity.xvel;
-                        consious = false;
-                        changeHealth(-1);
-                        iframes = 50;
+                      }
+                      else if (entity.id == 102)
+                      {
+                          xvel += entity.xvel;
+                          consious = false;
+                          changeHealth(-1);
+                          iframes = 50;
 
-                    }
-                    else if (entity.id == 103)
-                    {
-                        xvel += entity.xvel;
-                        consious = false;
-                        changeHealth(-1);
-                        iframes = 50;
+                      }
+                      else if (entity.id == 103)
+                      {
+                          xvel += entity.xvel;
+                          consious = false;
+                          changeHealth(-1);
+                          iframes = 50;
 
-                    }
-                    else if (entity.id == 104)
-                    {
-                        xvel += entity.xvel;
-                        consious = false;
-                        changeHealth(-1);
-                        iframes = 50;
+                      }
+                      else if (entity.id == 104)
+                      {
+                          xvel += entity.xvel;
+                          consious = false;
+                          changeHealth(-1);
+                          iframes = 50;
 
-                    }
-                    else if (entity.id == 105)
-                    {
-                        xvel += entity.xvel;
-                        consious = false;
-                        changeHealth(-1);
-                        iframes = 50;
+                      }
+                      else if (entity.id == 105)
+                      {
+                          xvel += entity.xvel;
+                          consious = false;
+                          changeHealth(-1);
+                          iframes = 50;
 
-                    }
-                    else if (entity.id == 34)
-                    {
-                        consious = false;
-                        if (entity.xvel > 0)
-                        {
-                            xvel += 15;
-                        }
-                        else
-                        {
-                            xvel -= 15; 
-                        }
-                       // xvel += (entity.xvel * 11);
-                        changeHealth(-1);
-                        iframes = 50;
-                    }
-                    else if (entity.id == 33)
-                    {
-                        // consious = false;
-                        xvel += entity.xvel * 8;
-                        changeHealth(-1);
-                        iframes = 50;
-                    }
-                    else if (entity.id == 35)
-                    {
-                        // consious = false;
-                        xvel += entity.xvel * 8;
-                        changeHealth(-1);
-                        iframes = 50;
-                    }
-                    else if (entity.id == 1001)
-                    {
-                        consious = false;
-                        xvel += entity.xvel;
-                        yvel += entity.yvel;
-                        changeHealth(-1);
-                        iframes = 50;
-                    }
-                    else if (entity.id == 1002)
-                    {
-                        consious = false;
-                        xvel += entity.xvel;
-                        yvel += entity.yvel;
-                        changeHealth(-1);
-                        iframes = 50;
-                    }
-                    else if (entity.id == 1055)
-                    {
-                        consious = false;
-                        xvel += entity.xvel;
-                        yvel += entity.yvel;
-                        changeHealth(-3);
-                        iframes = 50;
-                    }
-                    else if(entity.id == 144)
-                    {
-                        changeHealth((-health) - 2);
-                    }
+                      }
+                      else if (entity.id == 34)
+                      {
+                          consious = false;
+                          if (entity.xvel > 0)
+                          {
+                              xvel += 15;
+                          }
+                          else
+                          {
+                              xvel -= 15; 
+                          }
+                         // xvel += (entity.xvel * 11);
+                          changeHealth(-1);
+                          iframes = 50;
+                      }
+                      else if (entity.id == 33)
+                      {
+                          // consious = false;
+                          xvel += entity.xvel * 8;
+                          changeHealth(-1);
+                          iframes = 50;
+                      }
+                      else if (entity.id == 35)
+                      {
+                          // consious = false;
+                          xvel += entity.xvel * 8;
+                          changeHealth(-1);
+                          iframes = 50;
+                      }
+                      else if (entity.id == 1001)
+                      {
+                          consious = false;
+                          xvel += entity.xvel;
+                          yvel += entity.yvel;
+                          changeHealth(-1);
+                          iframes = 50;
+                      }
+                      else if (entity.id == 1002)
+                      {
+                          consious = false;
+                          xvel += entity.xvel;
+                          yvel += entity.yvel;
+                          changeHealth(-1);
+                          iframes = 50;
+                      }
+                      else if (entity.id == 1055)
+                      {
+                          consious = false;
+                          xvel += entity.xvel;
+                          yvel += entity.yvel;
+                          changeHealth(-3);
+                          iframes = 50;
+                      }
+                      else if(entity.id == 144)
+                      {
+                          changeHealth((-health) - 2);
+                      }*/
                 }
             }
 
@@ -999,6 +1072,7 @@ namespace monowizard
                 colliding = false;
 
                 colcheck.checkTilePlayer(this);
+                colcheck.eitemCheck(this);
 
 
                 if (grounded)

@@ -32,6 +32,7 @@ namespace monowizard
             check = collisionCheck;
             manager = magicManager;
             id = 1001;
+            hitrank = 1;
             drawrect = new Rectangle(x, y, 64, 64);
             hitbox = new Rectangle(x, y, 40, 40);
             cropbox = new Rectangle(256, 0, 128, 128);

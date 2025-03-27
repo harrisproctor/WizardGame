@@ -52,7 +52,7 @@ namespace monowizard
 
             colliding = false;
             grounded = false;
-            player.colcheck.checkTile(this);
+            player.colcheck.checkTilenoE(this);
 
             //Debug.WriteLine("yvel: " + colliding);
             //Debug.WriteLine("xvel: " + grounded);

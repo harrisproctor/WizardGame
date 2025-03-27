@@ -262,7 +262,136 @@ namespace monowizard
 
 
         }
+        public void checkTilenoE(Entity player)
+        {
 
+            entityLeftWorldX = (int)player.hitbox.X;//entity.solidArea.x;
+            entityRightWorldX = (int)player.hitbox.X + player.hitbox.Width;//entity.solidArea.x + entity.solidArea.width;
+            entityTopWorldY = (int)player.hitbox.Y;// + entity.solidArea.y;
+            entityBottomWorldY = (int)player.hitbox.Y + player.hitbox.Height;// + entity.sowlidArea.y + entity.solidArea.height;
+                                                                             //int entityBottomWorldY2 = entity.worldY + entity.solidArea.y + entity.solidArea.height-5;
+
+            entityLeftCol = entityLeftWorldX / 96;
+            //int entityLeftColIn = (entityLeftWorldX + 2) / 96;
+            entityRightCol = entityRightWorldX / 96;
+            // int entityRightColIn = (entityRightWorldX - 2) / 96;
+            entityTopRow = entityTopWorldY / 96;
+            entityBottomRow = entityBottomWorldY / 96;
+            //int entityBottomRow2 = (entityBottomWorldY-5)/gp.tileSize;
+
+
+
+            if (player.yvel < 0)
+            {
+
+                entityTopRow = (entityTopWorldY + player.yvel) / 96;
+                ind1 = entityLeftCol + (entityTopRow * 40);
+                ind2 = entityRightCol + (entityTopRow * 40);
+                tileNum1 = map[ind1];
+                tileNum2 = map[ind2];
+                if (tileManager.collides[tileNum1] == true)
+                {
+                    player.colliding = true;
+                    // player.position.Y += 3;
+                    player.yvel = 1;
+                    tileManager.tileEffects[tileNum1].tileEffect(3, ind1, player);
+                }
+                if (tileManager.collides[tileNum2] == true)
+                {
+                    player.colliding = true;
+                    // player.position.Y += 3;
+                    player.yvel = 1;
+                    tileManager.tileEffects[tileNum2].tileEffect(3, ind2, player);
+                }
+                entityTopRow = (entityTopWorldY) / 96;
+
+            }
+            else if (player.yvel > 0)
+            {
+                entityBottomRow = (entityBottomWorldY + player.yvel) / 96;
+                ind1 = entityLeftCol + (entityBottomRow * 40);
+                ind2 = entityRightCol + (entityBottomRow * 40);
+                tileNum1 = map[ind1];
+                tileNum2 = map[ind2];
+                if (tileManager.collides[tileNum1] == true)
+                {
+
+                    //entity.collisionOn = true;
+                    player.grounded = true;
+                    player.yvel = 0;
+                    // player.hitbox.Y = (entityBottomRow * 96) - 33;
+                    //entity.yvel = 0 ;
+                    //System.out.println("on floor");
+                    tileManager.tileEffects[tileNum1].tileEffect(1, ind1, player);
+
+                }
+                if (tileManager.collides[tileNum2] == true)
+                {
+                    player.grounded = true;
+                    player.yvel = 0;
+                    tileManager.tileEffects[tileNum2].tileEffect(1, ind2, player);
+                }
+                entityBottomRow = entityBottomWorldY / 96;
+            }
+            if (player.xvel < 0)
+            {
+
+                entityLeftCol = (entityLeftWorldX + player.xvel) / 96;
+                ind1 = entityLeftCol + (entityTopRow * 40);
+                ind2 = entityLeftCol + (entityBottomRow * 40);
+                tileNum1 = map[ind1];
+                tileNum2 = map[ind2];
+                if (tileManager.collides[tileNum1] == true)
+                {
+                    player.colliding = true;
+
+                    player.xvel = player.xvel / player.bounce;
+                    player.xvel += 2;
+                    tileManager.tileEffects[tileNum1].tileEffect(2, ind1, player);
+
+                }
+                if (tileManager.collides[tileNum2] == true)
+                {
+                    player.colliding = true;
+
+                    player.xvel = player.xvel / player.bounce;
+                    player.xvel += 2;
+                    tileManager.tileEffects[tileNum2].tileEffect(2, ind2, player);
+                }
+                entityLeftCol = entityLeftWorldX / 96;
+
+            }
+            else if (player.xvel > 0)
+            {
+
+                entityRightCol = (entityRightWorldX + player.xvel) / 96;
+                ind1 = entityRightCol + (entityTopRow * 40);
+                ind2 = entityRightCol + (entityBottomRow * 40);
+                tileNum1 = map[ind1];
+                tileNum2 = map[ind2];
+                if (tileManager.collides[tileNum1] == true)
+                {
+                    player.colliding = true;
+
+                    player.xvel = -(player.xvel / player.bounce);
+                    player.xvel -= 2;
+                    tileManager.tileEffects[tileNum1].tileEffect(4, ind1, player);
+
+                }
+                if (tileManager.collides[tileNum2] == true)
+                {
+                    player.colliding = true;
+
+                    player.xvel = -(player.xvel / player.bounce);
+                    player.xvel -= 2;
+                    tileManager.tileEffects[tileNum2].tileEffect(4, ind2, player);
+                }
+                entityRightCol = entityRightWorldX / 96;
+
+            }
+            //eitems for all colliding mf's
+            // eitemCheck(player);
+        }
 
         public void checkTile(Entity player)
         {
@@ -391,6 +520,8 @@ namespace monowizard
                 entityRightCol = entityRightWorldX / 96;
 
             }
+            //eitems for all colliding mf's
+            eitemCheck(player);
         }
 
         public void eitemCheck(Entity entity)

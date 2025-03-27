@@ -22,6 +22,7 @@ namespace monowizard
         public Texture2D texture;
         public int bounce;
         public int id;
+        public int hitrank;
         public bool onExit;
         public bool onLedge;
         public bool spaceToMove;

@@ -36,6 +36,7 @@ namespace monowizard
         {
             this.player = player;
             id = 33;
+            hitrank = 7;
             hitbox = new Rectangle(1200, 500, 80, 54);
             check = player.colcheck;
             bounce = 100;
@@ -51,32 +52,7 @@ namespace monowizard
         {
 
 
-            if (entity.id == 101 || entity.id == 102 || entity.id == 103 || entity.id == 104 || entity.id == 105)
-            {
-
-
-                die();
-
-
-
-
-            }
-            else if (entity.id == 1)
-            {
-                
-                    die();
-
-
-                
-            }
-            else if (entity.id == 1001)
-            {
-                die();
-            }
-            else if (entity.id == 1002 || entity.id == 1055)
-            {
-                die();
-            }
+            die();
 
 
 
@@ -95,9 +71,9 @@ namespace monowizard
             //player.mm.particleManager.addOwlFeather(hitbox.X + 20, hitbox.Y, 5, -5);
             //player.mm.particleManager.addOwlFeather(hitbox.X + 30, hitbox.Y + 40, -5, -5);
             //player.mm.particleManager.addOwlFeather(hitbox.X + 60, hitbox.Y + 40, 0, -8);
-            if(player.rnd.Next(0,2) == 0)
+            if(player.rnd.Next(0,3) == 0)
             {
-                player.itemManager.addBatWing(hitbox.X, hitbox.Y);
+                player.itemManager.addBatWing(hitbox.X, hitbox.Y-10);
             }
             
         }

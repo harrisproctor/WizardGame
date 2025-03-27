@@ -39,7 +39,7 @@ namespace monowizard
             directionX = dirx;
             directionY = diry;
             bounce = 98;
-
+            hitrank = 4;
 
 
 

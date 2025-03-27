@@ -54,6 +54,7 @@ namespace monowizard
             check = player.colcheck;
             bounce = 100;
             this.mm = mm;
+            hitrank = 6;
 
 
 
@@ -352,57 +353,81 @@ namespace monowizard
 
             if (iframes == 0)
             {
-                if (entity.id == 101 || entity.id == 102 || entity.id == 103 || entity.id == 104 || entity.id == 105)
+                switch (entity.hitrank)
                 {
-
-                    xvel += entity.xvel / 2;
-                    entity.xvel = -entity.xvel / 2;
-                    consious = false;
-                    cropbox.X = 0;
-                    cropbox.Y = 128;
-                    health--;
-                    iframes = 20;
-
-
-                }
-                else if (entity.id == 1)
-                {
-                    
-                        consious = false;
+                    case 1:
+                        // Code to execute if variable == value1
+                        if (entity.bounce != 85)
+                        {
+                            xvel += entity.xvel / 2;
+                            yvel += entity.yvel / 2;
+                            entity.xvel = -entity.xvel / 2;
+                            consious = false;
+                            cropbox.X = 0;
+                            cropbox.Y = 128;
+                            health--;
+                            iframes = 20;
+                        }
+                        break;
+                    case 2:
+                        xvel += entity.xvel / 2;
+                        yvel += entity.yvel / 2;
+                        //consious = false;
                         cropbox.X = 0;
                         cropbox.Y = 128;
                         health--;
-                        iframes = 50;
-
-                    
-
-                }
-                else if (entity.id == 1001 || entity.id == 1055)
-                {
-                    if (entity.bounce != 85)
-                    {
+                        iframes = 20;
+                        break;
+                    case 3:
                         xvel += entity.xvel / 2;
                         yvel += entity.yvel / 2;
                         consious = false;
                         cropbox.X = 0;
                         cropbox.Y = 128;
-                        health--;
+                        health -= 2;
                         iframes = 20;
-                    }
+                        break;
+                    case 4:
+                        xvel += entity.xvel / 2;
+                        yvel += entity.yvel / 2;
+                        consious = false;
+                        cropbox.X = 0;
+                        cropbox.Y = 128;
+                        health -= 2;
+                        iframes = 20;
+                        break;
+                    case 5:
+                        xvel += entity.xvel / 2;
+                        yvel += entity.yvel / 2;
+                        consious = false;
+                        cropbox.X = 0;
+                        cropbox.Y = 128;
+                        health -= 2;
+                        iframes = 20;
+                        break;
+                    // Add more cases as needed
+                    case 6:
+                        xvel += entity.xvel / 2;
+                        yvel += entity.yvel / 2;
+                        consious = false;
+                        cropbox.X = 0;
+                        cropbox.Y = 128;
+                        health -= 2;
+                        iframes = 20;
+                        break;
+                    case 7:
+                        xvel += entity.xvel / 2;
+                        yvel += entity.yvel / 2;
+                        consious = false;
+                        cropbox.X = 0;
+                        cropbox.Y = 128;
+                        health -= 2;
+                        iframes = 20;
+                        break;
+                    default:
+                        // Code to execute if none of the cases match
 
-
-                }
-                else if (entity.id == 1002)
-                {
-                    xvel += entity.xvel / 2;
-                    yvel += entity.yvel / 2;
-                    consious = false;
-                    cropbox.X = 0;
-                    cropbox.Y = 128;
-                    health--;
-                    iframes = 20;
-
-
+                        break;
                 }
             }
 

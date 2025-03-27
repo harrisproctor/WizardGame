@@ -24,6 +24,7 @@ namespace monowizard
         {
             this.player = player;
             id = 1;
+            
             pushonhit = 4;
             manacost = 1;
             symbcroprect = new Rectangle(0, 0, 128, 128);

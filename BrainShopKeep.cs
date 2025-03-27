@@ -61,6 +61,7 @@ namespace monowizard
             id = 34;
             hitbox = new Rectangle(1700, 600, 100, 100);
             check = player.colcheck;
+            hitrank = 3;
             bounce = 100;
             this.mm = mm;
             // megacast = true;

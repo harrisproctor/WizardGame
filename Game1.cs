@@ -204,6 +204,7 @@ namespace monowizard
               //  _monsterManager.addBrainMonster(900+(i*300), 600);
               // _monsterManager.addBatMon(900 + (i * 300), 1600 + (i * 100));
               //  _monsterManager.addPurpleWitch(900 + (i * 300), 1600 + (i * 100));
+              _monsterManager.addOwlMageMonster(900 + (i * 300), 1600 + (i * 100));
                 _itemManager.addMChest(2600+(100*i), 600);
                // _particleManager.addManaSmall(1600 + (100 * i), 600,0,0,64,1f);
                

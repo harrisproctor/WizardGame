@@ -26,6 +26,7 @@ namespace monowizard
         int floortype;
         int frontoffsetx;
         int frontoffsety;
+        Entity magcol;
 
 
 
@@ -35,6 +36,7 @@ namespace monowizard
             check = collisionCheck;
             manager = magicManager;
             id = 1002;
+            hitrank = 1;
             drawrect = new Rectangle(x, y, 64, 64);
             hitbox = new Rectangle(x, y, 64, 32);
             cropbox = new Rectangle(0, 0, 128, 128);
@@ -291,6 +293,27 @@ namespace monowizard
 
 
             }
+            for (int i = 0; i < manager.items.Count; i++)
+            {
+
+                if (manager.items[i] != this && !(manager.items[i] is MagicWave1))
+                {
+                    if (hitbox.Intersects(manager.items[i].hitbox))
+                    {
+
+
+                        magcol = manager.items[i];
+                        manager.items.Remove(this);
+
+
+
+
+
+                    }
+                }
+
+
+            }
             for (int i = 0; i < player.mm.monsters.Count; i++)
             {
 
@@ -305,6 +328,19 @@ namespace monowizard
 
 
                 }
+
+
+            }
+            if (magcol != null)
+            {
+
+                if ((magcol.hitrank == 1 || magcol.hitrank == 2))
+                {
+                    manager.items.Remove(magcol);
+                }
+
+
+
 
 
             }
