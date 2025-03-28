@@ -19,6 +19,7 @@ namespace monowizard
         Rectangle cropbox = new Rectangle(0,0,128,128);
         public bool isfiring;
         public int casts = 0;
+        Entity magcol;
 
         public HandFireCantrip(Player player)
         {
@@ -63,6 +64,41 @@ namespace monowizard
 
 
                 }
+
+
+            }
+            for (int i = 0; i < player.colcheck.tileManager.magicmanager.items.Count; i++)
+            {
+
+
+                if (hitbox.Intersects(player.colcheck.tileManager.magicmanager.items[i].hitbox))
+                {
+
+
+                    isfiring = false;
+                    spellframe = 0;
+                    hitbox.X = 0;
+                    magcol = player.colcheck.tileManager.magicmanager.items[i];
+
+
+
+
+
+
+                }
+
+
+            }
+            if (magcol != null)
+            {
+
+                if (magcol.hitrank == 1 || magcol.hitrank == 2)
+                {
+                    player.colcheck.tileManager.magicmanager.items.Remove(magcol);
+                }
+
+
+
 
 
             }

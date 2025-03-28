@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace monowizard
 {
-    internal class BatMonster : Entity
+    internal class RedBatMonster : Entity
     {
         public Player player;
         //Rectangle hitbox = new Rectangle(1200, 500, 80, 80);
@@ -33,7 +33,7 @@ namespace monowizard
         int ings = 0;
 
 
-        public BatMonster(Player player, MonsterManager mm,bool fol)
+        public RedBatMonster(Player player, MonsterManager mm, bool fol)
         {
             this.player = player;
             id = 33;
@@ -77,11 +77,11 @@ namespace monowizard
             //player.mm.particleManager.addOwlFeather(hitbox.X + 20, hitbox.Y, 5, -5);
             //player.mm.particleManager.addOwlFeather(hitbox.X + 30, hitbox.Y + 40, -5, -5);
             //player.mm.particleManager.addOwlFeather(hitbox.X + 60, hitbox.Y + 40, 0, -8);
-            if(player.rnd.Next(0,3) == ings)
+            if (player.rnd.Next(0, 3) == ings)
             {
-                player.itemManager.addBatWing(hitbox.X, hitbox.Y-10);
+                player.itemManager.addBatWing(hitbox.X, hitbox.Y - 10);
             }
-            
+
         }
 
         public override void update()
@@ -95,32 +95,32 @@ namespace monowizard
             if (playerdiry < 200 && playerdiry > -200 && playerdirx < 500 && playerdirx > -500)
             {
                 following = true;
-                
+
             }
             if (following)
             {
                 flying = true;
                 if (playerdirx < -5)
                 {
-                    xvel += 2;
+                    xvel += 2 + player.rnd.Next(-10,11);
 
                     facingeffect = SpriteEffects.FlipHorizontally;
-                    
+
                 }
                 else if (playerdirx > 5)
                 {
-                    xvel -= 2;
+                    xvel -= 2 + player.rnd.Next(-10, 11);
                     facingeffect = SpriteEffects.None;
-                    
+
                 }
 
                 if (playerdiry < 20)
                 {
-                    yvel += 2;
+                    yvel += 2 + player.rnd.Next(-10, 11);
                 }
                 else
                 {
-                    yvel -= 2;
+                    yvel -= 2 + player.rnd.Next(-10, 11);
                 }
             }
             else
@@ -263,8 +263,7 @@ namespace monowizard
             drawbox.Y = hitbox.Y - yoffset - player.centerWorldY + player.centerY;
             // _spriteBatch.Draw(battexture, drawbox, cropbox, Color.White);
 
-            _spriteBatch.Draw(texture, drawbox, cropbox, Color.White, 0, Vector2.Zero, facingeffect, 1);
+            _spriteBatch.Draw(texture, drawbox, cropbox, Color.Red, 0, Vector2.Zero, facingeffect, 1);
         }
-
     }
 }

@@ -321,6 +321,11 @@ namespace monowizard
                 items.Add(new CantripScroll(colCheck, player, this, new jumpboostCantrip(player)));
 
             }
+            else if (spell == 11)
+            {
+                items.Add(new CantripScroll(colCheck, player, this, new MagicArrowCantrip2(player)));
+
+            }
 
             items.Last().texture = libitems1;
             items.Last().hitbox.X = x;

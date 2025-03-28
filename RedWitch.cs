@@ -338,9 +338,9 @@ namespace monowizard
         public void fireball()
         {
             dx = player.hitbox.X - hitbox.X;
-            dy = player.hitbox.Y - hitbox.Y;
+            dy = player.hitbox.Y - hitbox.Y + 40;
             sumAbs = Math.Abs(dx) + Math.Abs(dy);
-            player.colcheck.tileManager.magicmanager.addMagicFire1(hitbox.X, hitbox.Y, dx / sumAbs, dy / sumAbs);
+            player.colcheck.tileManager.magicmanager.addMagicWitchBolt1(hitbox.X, hitbox.Y, dx / sumAbs, dy / sumAbs);
         }
 
         public override void hit(Entity entity)
@@ -352,7 +352,7 @@ namespace monowizard
                 {
                     case 1:
                         // Code to execute if variable == value1
-                        if (entity.bounce != 85)
+                        if (entity.bounce != 86)
                         {
                             xvel += entity.xvel / 2;
                             yvel += entity.yvel / 2;

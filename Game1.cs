@@ -168,7 +168,7 @@ namespace monowizard
             _monsterManager.owlmon1texture = Content.Load<Texture2D>("owlexe2");
             _monsterManager.owlmagetexture = Content.Load<Texture2D>("owlymonna2");
             _monsterManager.bookmon1texture = Content.Load<Texture2D>("badmonbook");//badmonbook
-            _magicManager.effectstext1 = Content.Load<Texture2D>("magicalef3");
+            _magicManager.effectstext1 = Content.Load<Texture2D>("magicalef4");
             
 
             //_monsterManager.addBatDemon();
@@ -192,10 +192,10 @@ namespace monowizard
             _itemManager.addBatWing(1500, 600);
            // _monsterManager.addPurpleWitch(2400, 400);
              _itemManager.addCrystalRock(1800, 600);
-            _itemManager.addMagicScroll(1800, 600, 10);
-            _itemManager.addMagicScroll(1800, 600, 9);
-            _itemManager.addMagicScroll(1800, 600, 3);
-            _itemManager.addMagicScroll(1800, 600, 4);
+            _itemManager.addMagicScroll(1800, 600, 11);
+            //_itemManager.addMagicScroll(1800, 600, 9);
+            //_itemManager.addMagicScroll(1800, 600, 3);
+           // _itemManager.addMagicScroll(1800, 600, 4);
             //_itemManager.addMagicScroll(1200, 400);
             //add rocks when loading content because uhhhhhhhhhhhh yeah
             // _monsterManager.addOwlMonster(1200,500);
@@ -203,8 +203,8 @@ namespace monowizard
             {
               //  _monsterManager.addBrainMonster(900+(i*300), 600);
               // _monsterManager.addBatMon(900 + (i * 300), 1600 + (i * 100));
-              //  _monsterManager.addPurpleWitch(900 + (i * 300), 1600 + (i * 100));
-              _monsterManager.addOwlMageMonster(900 + (i * 300), 1600 + (i * 100));
+               // _monsterManager.addRedWitch(900 + (i * 300), 1600 + (i * 100));
+             _monsterManager.addOwlMageMonster(900 + (i * 300), 1600 + (i * 100));
                 _itemManager.addMChest(2600+(100*i), 600);
                // _particleManager.addManaSmall(1600 + (100 * i), 600,0,0,64,1f);
                

@@ -326,10 +326,44 @@ namespace monowizard
 
         public void addBatMon(int x, int y)
         {
-            monsters.Add(new BatMonster(player, this));
+            monsters.Add(new BatMonster(player, this, false));
             monsters.Last().texture = swampmons;
             monsters.Last().hitbox.X = x;
             monsters.Last().hitbox.Y = y;
+        }
+
+        public void addYellowBatMon(int x, int y)
+        {
+            monsters.Add(new YellowBatMonster(player, this,false));
+            monsters.Last().texture = swampmons;
+            monsters.Last().hitbox.X = x;
+            monsters.Last().hitbox.Y = y;
+        }
+
+        public void addBatMonF(int x, int y)
+        {
+            monsters.Add(new BatMonster(player, this,true));
+            monsters.Last().texture = swampmons;
+            monsters.Last().hitbox.X = x;
+            monsters.Last().hitbox.Y = y;
+        }
+
+        public void addYellowBatMonF(int x, int y)
+        {
+            monsters.Add(new YellowBatMonster(player, this, true));
+            monsters.Last().texture = swampmons;
+            monsters.Last().hitbox.X = x;
+            monsters.Last().hitbox.Y = y;
+            
+        }
+
+        public void addRedBatMonF(int x, int y)
+        {
+            monsters.Add(new RedBatMonster(player, this, true));
+            monsters.Last().texture = swampmons;
+            monsters.Last().hitbox.X = x;
+            monsters.Last().hitbox.Y = y;
+
         }
 
         public void addBookMonster(int x, int y)

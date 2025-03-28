@@ -43,6 +43,7 @@ namespace monowizard
         int spawnoffsety = 0;
         int spawnoffsetx = 0;
         int partsize = 32;
+        int battype;
 
 
 
@@ -81,13 +82,13 @@ namespace monowizard
                     walking = true;
                     if (playerdirx < -5)
                     {
-                        xvel = 2;
+                        xvel = 1;
                         facingeffect = SpriteEffects.FlipHorizontally;
                         
                     }
                     else if (playerdirx > 5)
                     {
-                        xvel = -2;
+                        xvel = -1;
                         facingeffect = SpriteEffects.None;
                     }
                     onLedge = false;
@@ -346,7 +347,21 @@ namespace monowizard
             for (int i = 0; i < 10; i++) {
                 makecloud();
             }
-            player.mm.addBatMon(hitbox.X+30,hitbox.Y);
+            battype = player.rnd.Next(0, 3);
+            if (battype == 0)
+            {
+                player.mm.addBatMonF(hitbox.X + 30, hitbox.Y);
+                
+            }
+            else if(battype == 1) 
+            {
+                player.mm.addYellowBatMonF(hitbox.X + 30, hitbox.Y);
+            }
+            else
+            {
+                player.mm.addRedBatMonF(hitbox.X + 30, hitbox.Y);
+            }
+            
             
         }
 

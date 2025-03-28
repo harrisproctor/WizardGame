@@ -37,6 +37,16 @@ namespace monowizard
         
         }
 
+        public void addMagicArrow2(int x, int y, int dirx, int diry)
+        {
+            float rotation = 0.5f;
+
+            items.Add(new MagicArrow2(colCheck, player, x, y, dirx, diry, this, 0));
+            items.Last().texture = effectstext1;
+            // Debug.WriteLine("magic");
+
+        }
+
         public void addMagicWave1(int x, int y, int facing, int down)
         {
            
@@ -53,7 +63,20 @@ namespace monowizard
             items.Last().texture = effectstext1;
             // Debug.WriteLine("magic");
 
+
+
         }
+
+        public void addMagicWitchBolt1(int x, int y, float facing, float down)
+        {
+
+            items.Add(new MagicWitchBolt1(colCheck, player, x, y, facing, down, this));
+            items.Last().texture = effectstext1;
+            // Debug.WriteLine("magic");
+
+        }
+
+
         public void addEvilLightning1(int x, int y, float facing, float down)
         {
 

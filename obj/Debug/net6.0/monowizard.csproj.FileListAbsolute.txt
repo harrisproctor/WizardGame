@@ -64,4 +64,4 @@ C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\witch
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\swampitems2.2.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\magicsymbs.xnb
 C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\tileswamp2.4.xnb
-C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\magicalef3.xnb
+C:\Users\harri\source\repos\monowizard\monowizard\bin\Debug\net6.0\Content\magicalef4.xnb

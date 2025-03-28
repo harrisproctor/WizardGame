@@ -235,7 +235,7 @@ namespace monowizard
                             break;
                         case 3:
                             xvel += entity.xvel;
-                           // consious = false;
+                            consious = false;
                             changeHealth(-2);
                             iframes = 50;
                             // Code to execute if variable == value2
